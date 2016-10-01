@@ -4,14 +4,22 @@
 	<meta charset="UTF-8">
 	<title>Chew-Barka</title>
 <!--CSSPackages-->
-<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+<!-- <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
 <link rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.css" />
-<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+<link rel="stylesheet" href="bower_components/toastr/toastr.css" /> -->
 <!--endcss-->
 
 <!--CustomCSS-->
 
 <!--endcustom-->
+
+<!--bower:css-->
+<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+<!--endbower-->
+<!--inject:css-->
+<!--endinject-->
+
 
 
 </head>
@@ -39,27 +47,50 @@
 		</div>
 	</div>
 </footer>
-<!-- packages/modules -->
+
+<!--bower:js-->
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/what-input/what-input.js"></script>
+<script src="bower_components/foundation-sites/dist/foundation.js"></script>
 <script src="bower_components/toastr/toastr.js"></script>
-<script src="bower_components/angular-ui-router-styles/ui-router-styles.js"></script>
-<!--endpackages-->
-<!--AngularJs-->
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
-<script></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<!--endbower-->
+
+<!--inject:js-->
+
+<script src="js/app.module.js"></script>
+
+<script src="js/equipment/equipmentDetail.controller.js"></script>
+
+<script src="js/events/eventDetail.controller.js"></script>
+
+<script src="js/core/crud.factory.js"></script>
+
+<script src="js/core/equipment.factory.js"></script>
+
+<script src="js/core/event.factory.js"></script>
+
+<script src="js/core/extra.factory.js"></script>
+
+<script src="js/core/login.factory.js"></script>
+
+<script src="js/core/medical.factory.js"></script>
+
+<script src="js/core/overview.factory.js"></script>
+
+<script src="js/extra/extraShelter.controller.js"></script>
+
+<script src="js/login/login.controller.js"></script>
+
+<script src="js/medical/medicalDocuments.controller.js"></script>
+
+<script src="js/overview/overviewInfo.controller.js"></script>
+
+<script src="js/parks/parksForDogs.controller.js"></script>
+
+<!--endinject-->
 <!--endanglarjs-->
 </body>
 </html>
