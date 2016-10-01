@@ -1,0 +1,25 @@
+{
+  "name": "src",
+  "homepage": "https://github.com/ChewBarka/chewBarka",
+  "authors": [
+    "CoLagon <colelogan19@yahoo.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "ui-router#^0.3.1",
+    "ui-router-styles": "^0.0.3",
+    "foundation-sites": "^6.2.3",
+    "toastr": "^2.1.3",
+    "angular-toastr": "^2.1.1"
+  }
+}

@@ -59,11 +59,11 @@ router.route('/:id')
 	  			return res.send(500, err);
 	  		}
 
-	  	   pup.name = req.body.name;
-	  	// user.lastName = req.body.lastName;
-	  	// user.address = req.body.address;
-	  	// user.telephone = req.body.telephone;
-	  	// user.email = req.body.email;
+	  	    pup.name = req.body.name;
+		  	pup.lastName = req.body.lastName;
+		  	pup.address = req.body.address;
+		  	pup.telephone = req.body.telephone;
+		  	pup.email = req.body.email;
 
 	  	pup.save(function(err, pup) {
 	  		if(err) {
