@@ -1,6 +1,7 @@
 var express = require ('express');
 var router = express.Router();
 var Owner = require('../models/owner.model');
+var Pup = require('../models/pup.model');
 
 router.route('/')
 ///////////////////////////////////////////////////////////////////////
@@ -27,6 +28,7 @@ router.route('/')
 	  	owner.address = req.body.address;
 	  	owner.telephone = req.body.telephone;
 	  	owner.email = req.body.email;
+	  	owner.nsrRegistration = req.body.nsrRegistration;
 
 	  	owner.save(function(err, owner){
 	  		if(err) {
@@ -41,13 +43,14 @@ router.route('/:id')
 
 	  //GET: api/owner/1
 	  .get(function(req, res){
-	  	//Returns a single owner
-	  	Owner.findById(req.params.id, function(err, owner) {
-	  		if(err) {
-	  			return res.send(500, err);
-	  		}
-	  		res.json(owner);
-	  	});
+	  	Owner.findById(req.params.id)
+	  		 .populate('pups')
+	  		 .exec(function(err, owner) {
+			 	if(err) {
+		  	 		return res.send(500, err);
+		  	 	}
+		  	 	res.json(owner);
+	  		 });
 	  })
 
 ///////////////////////////////////////////////////////////////////////
@@ -64,6 +67,8 @@ router.route('/:id')
 	  	owner.address = req.body.address;
 	  	owner.telephone = req.body.telephone;
 	  	owner.email = req.body.email;
+	  	owner.nsrRegistration = req.body.nsrRegistration;
+	  	owner.todoItem = req.body.todoItem;
 
 	  	owner.save(function(err, owner) {
 	  		if(err) {
@@ -87,15 +92,15 @@ router.route('/:id')
 
 ///////////////////////////////////////////////////////////////////////
 		//Attach a pup to an owner
-router.route('/:id/pup')
-	  .post(function(req, res) {
-	  	var ownerId = req.params.id;
-	  	var puppy = req.body;
+// router.route('/:id/pups')
+// 	  .post(function(req, res) {
+// 	  	var ownerId = req.params.id;
+// 	  	var puppy = req.body;
 
-	  	Owner.findById(ownerId, function(err, owner) {
-	  		owner.pups.push(puppy);
-	  		owner.save(function() {
-	  	    });
-	  	});
-	  });
+// 	  	Owner.findById(ownerId, function(err, owner) {
+// 	  		owner.pups.push(puppy);
+// 	  		owner.save(function() {
+// 	  	    });
+// 	  	});
+// 	  });
 module.exports = router;

@@ -5,6 +5,18 @@ var Medical = require('../models/medical.model');
 router.route('/')
 ///////////////////////////////////////////////////////////////////////
 
+	  //GET: api/medRecords
+	  .get(function(req, res){
+	  	//Get all medRecord
+	  	Medical.find(function(err, medical) {
+	  		if(err) {
+	  			return res.send(500, err);
+	  		}
+	  		res.json(medical);
+	  	});
+	  })
+///////////////////////////////////////////////////////////////////////
+
 	  //POST: api/medical
 	  .post(function(req, res){
 	  	//Add medRecord
@@ -20,6 +32,8 @@ router.route('/')
 	  	medical.fecal = req.body.fecal;
 	  	medical.bloodUrine = req.body.bloodUrine;
 	  	medical.nextVisit = req.body.nextVisit;
+	  	medical.dentalExam = req.body.dentalExam;
+	  	medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
 
 
 	  	medical.save(function(err, medical){
@@ -53,11 +67,18 @@ router.route('/:id')
 	  			return res.send(500, err);
 	  		}
 
-	  	// owner.firstName = req.body.firstName;
-	  	// owner.lastName = req.body.lastName;
-	  	// owner.address = req.body.address;
-	  	// owner.telephone = req.body.telephone;
-	  	// owner.email = req.body.email;
+	  	medical.rabies = req.body.rabies;
+	  	medical.lepto = req.body.lepto;
+	  	medical.dhpp = req.body.dhpp;
+	  	medical.bordetella = req.body.bordetella;
+	  	medical.chipInfo = req.body.chipInfo;
+	  	medical.heartWorm = req.body.heartWorm;
+	  	medical.fleaPrevention = req.body.fleaPrevention;
+	  	medical.fecal = req.body.fecal;
+	  	medical.bloodUrine = req.body.bloodUrine;
+	  	medical.nextVisit = req.body.nextVisit;
+	  	medical.dentalExam = req.body.dentalExam;
+	  	medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
 
 	  	medical.save(function(err, medical) {
 	  		if(err) {

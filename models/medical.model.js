@@ -1,47 +1,73 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Pup  = require('./pup.model');
+
 
 var medicalSchema = new Schema({
+	//By Default, I set the expiration dates for all shots to a year -
+	//from the date the owner puts in. Come back and adjust this later.
+
 	rabies: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	lepto: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	dhpp: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	bordetella: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	chipInfo: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	heartWorm: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	fleaPrevention: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	fecal: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	bloodUrine: {
-		type: 'string',
+		type: 'date', 
+		expires: '365d',
 		required: false
 	},
 	nextVisit: {
-		type: 'number',
+		type: 'date', 
+		expires: '365d',
 		required: false
-	}
+	},
+	dentalExam: {
+		type: 'date', 
+		expires: '365d',
+		required: false
+	},
+	rattleSnakeTraining: {
+		type: 'date', 
+		expires: '365d',
+		required: false
+	},
+	pups: [{type : mongoose.Schema.ObjectId, ref : 'pups'}]
 });
 
 module.exports = mongoose.model('medical', medicalSchema);

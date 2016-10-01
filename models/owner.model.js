@@ -23,7 +23,15 @@ var ownerSchema = new Schema({
 		type: 'string',
 		required: true
 	},
-	pups: [{type : mongoose.Schema.ObjectId , ref : 'pup'}]
+	nsrRegistration: {
+		type: 'string',
+		required: false
+	},
+	todoItem: {
+		type: 'string',
+		required: false
+	},
+	pups: [{type : mongoose.Schema.ObjectId, ref : 'pups'}]
 });
 
 module.exports = mongoose.model('owners', ownerSchema);

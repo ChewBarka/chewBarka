@@ -1,6 +1,7 @@
 var express = require ('express');
 var router = express.Router();
 var Pup = require('../models/pup.model');
+var Owner = require('../models/owner.model');
 
 router.route('/')
 ///////////////////////////////////////////////////////////////////////
@@ -23,10 +24,14 @@ router.route('/')
 	  	var pup = new Pup(); 
 	  	
 	  	   pup.name = req.body.name;
-	  	// user.lastName = req.body.lastName;
-	  	// user.address = req.body.address;
-	  	// user.telephone = req.body.telephone;
-	  	// user.email = req.body.email;
+	  	   pup.age = req.body.age;
+	  	   pup.color = req.body.color;
+	  	   pup.size = req.body.size;
+	  	   pup.weight = req.body.weight;
+		   pup.allergies = req.body.allergies;
+		   pup.birthdate = req.body.birthdate;	  
+		   pup.medConditions = req.body.medConditions;
+		   pup.chipInformation = req.body.chipInformation;
 
 	  	pup.save(function(err, pup){
 	  		if(err) {
@@ -59,11 +64,16 @@ router.route('/:id')
 	  			return res.send(500, err);
 	  		}
 
-	  	    pup.name = req.body.name;
-		  	pup.lastName = req.body.lastName;
-		  	pup.address = req.body.address;
-		  	pup.telephone = req.body.telephone;
-		  	pup.email = req.body.email;
+
+	  	   pup.name = req.body.name;
+	  	   pup.age = req.body.age;
+	  	   pup.color = req.body.color;
+	  	   pup.size = req.body.size;
+	  	   pup.weight = req.body.weight;
+		   pup.allergies = req.body.allergies;
+		   pup.birthdate = req.body.birthdate;	  
+		   pup.medConditions = req.body.medConditions;	
+		   pup.chipInformation = req.body.chipInformation;   
 
 	  	pup.save(function(err, pup) {
 	  		if(err) {
@@ -87,16 +97,16 @@ router.route('/:id')
 	  });
 
 ///////////////////////////////////////////////////////////////////////
-		//Attach a medRecord to a pup
-router.route('/:id/medical')
-	  .post(function(req, res) {
-	  	var medicalId = req.params.id;
-	  	var med = req.body;
+// 		//Attach a medRecord to a pup
+// router.route('/:id/medical')
+// 	  .post(function(req, res) {
+// 	  	var medicalId = req.params.id;
+// 	  	var med = req.body;
 
-	  	Pup.findById(pupId, function(err, pup) {
-	  		pup.medical.push(med);
-	  		pup.save(function() {
-	  	    });
-	  	});
-	  });
+// 	  	Pup.findById(pupId, function(err, pup) {
+// 	  		pup.medical.push(med);
+// 	  		pup.save(function() {
+// 	  	    });
+// 	  	});
+// 	  });
 module.exports = router;
