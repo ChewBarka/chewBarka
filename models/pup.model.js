@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Owner  = require('./owner.model');
 var Medical  = require('./medical.model');
 
 var pupSchema = new Schema({
@@ -15,7 +16,7 @@ var pupSchema = new Schema({
 		type: 'string',
 		required: true
 	},
-	Size: {
+	size: {
 		type: 'string',
 		required: true
 	},
@@ -28,14 +29,19 @@ var pupSchema = new Schema({
 		required: true
 	},
 	birthdate: {
-		type: 'string',
+		type: 'date',
 		required: true
 	},
 	medConditions: {
 		type: 'string',
 		required: true
 	},
-	medicalRecord: [{type : mongoose.Schema.ObjectId , ref : 'medical'}]
+	chipInformation:{
+		type: 'number',
+		required: false
+	},
+	owner: [{type : mongoose.Schema.ObjectId, ref : 'owner'}],
+	medicalRecord: [{type : mongoose.Schema.ObjectId , ref : 'medicals'}]
 });
 
 
