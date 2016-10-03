@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'uiRouterStyles', 'toastr'])
+        .module('app', ['ui.router', 'toastr'])
         .value('apiUrl', 'localhost:8080')
         .config(appConfig);
 

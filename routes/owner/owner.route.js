@@ -1,7 +1,7 @@
 var express = require ('express');
 var router = express.Router();
-var Owner = require('../models/owner.model');
-var Pup = require('../models/pup.model');
+var Owner = require('../../models/owner.model');
+var Pup = require('../../models/pup.model');
 
 router.route('/')
 ///////////////////////////////////////////////////////////////////////
@@ -41,10 +41,11 @@ router.route('/')
 router.route('/:id')
 ///////////////////////////////////////////////////////////////////////
 
-	  //GET: api/owner/1
+	  //GET: api/owner/1 * And populate the pups and todo fields *
 	  .get(function(req, res){
 	  	Owner.findById(req.params.id)
 	  		 .populate('pups')
+	  		 .populate('todo')
 	  		 .exec(function(err, owner) {
 			 	if(err) {
 		  	 		return res.send(500, err);
@@ -91,16 +92,4 @@ router.route('/:id')
 	  });
 
 ///////////////////////////////////////////////////////////////////////
-		//Attach a pup to an owner
-// router.route('/:id/pups')
-// 	  .post(function(req, res) {
-// 	  	var ownerId = req.params.id;
-// 	  	var puppy = req.body;
-
-// 	  	Owner.findById(ownerId, function(err, owner) {
-// 	  		owner.pups.push(puppy);
-// 	  		owner.save(function() {
-// 	  	    });
-// 	  	});
-// 	  });
 module.exports = router;

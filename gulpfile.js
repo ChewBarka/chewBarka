@@ -43,7 +43,7 @@ gulp.task('css', function() {
 
 gulp.task('connect', function() {
     connect.server({
-        root: './app',
+        root: './src',
         livereload: true
     })
 });

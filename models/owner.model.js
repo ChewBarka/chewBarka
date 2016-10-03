@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Pup  = require('./pup.model');
+var Todo = require('./todo.model');
 
 var ownerSchema = new Schema({
 	firstName: {
@@ -31,7 +32,8 @@ var ownerSchema = new Schema({
 		type: 'string',
 		required: false
 	},
-	pups: [{type : mongoose.Schema.ObjectId, ref : 'pups'}]
+	pups: [{type : mongoose.Schema.ObjectId, ref : 'pups'}],
+	todo: [{type : mongoose.Schema.ObjectId, ref : 'todo'}]
 });
 
 module.exports = mongoose.model('owners', ownerSchema);

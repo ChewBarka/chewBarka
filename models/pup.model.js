@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Owner  = require('./owner.model');
 var Medical  = require('./medical.model');
+var Fitness = require('./fitness.model');
 
 var pupSchema = new Schema({
 	name: {
@@ -40,8 +41,9 @@ var pupSchema = new Schema({
 		type: 'number',
 		required: false
 	},
-	owner: [{type : mongoose.Schema.ObjectId, ref : 'owner'}],
-	medicalRecord: [{type : mongoose.Schema.ObjectId , ref : 'medicals'}]
+	owner: [{type : mongoose.Schema.ObjectId, ref : 'owners'}],
+	medicalRecords: [{type : mongoose.Schema.ObjectId , ref : 'medicalRecord'}],
+	fitness: [{type : mongoose.Schema.ObjectId , ref : 'fitness'}]
 });
 
 
