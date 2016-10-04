@@ -29,6 +29,7 @@ router.route('/')
 	  	owner.telephone = req.body.telephone;
 	  	owner.email = req.body.email;
 	  	owner.nsrRegistration = req.body.nsrRegistration;
+	  	owner.password = req.body.password;
 
 	  	owner.save(function(err, owner){
 	  		if(err) {
@@ -70,6 +71,8 @@ router.route('/:id')
 	  	owner.email = req.body.email;
 	  	owner.nsrRegistration = req.body.nsrRegistration;
 	  	owner.todoItem = req.body.todoItem;
+	  	owner.password = req.body.password;
+
 
 	  	owner.save(function(err, owner) {
 	  		if(err) {
