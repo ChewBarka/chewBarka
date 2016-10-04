@@ -9,6 +9,6 @@
 
     /* @ngInject */
     function overviewFactory($http, $q, CRUDFactory, apiUrl) {
-        return CRUDFactory(apiUrl + '/overview', 'overviews');
+        return CRUDFactory(apiUrl + '/owners', 'owner');
     }
 })();

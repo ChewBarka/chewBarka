@@ -3,7 +3,7 @@
 
     angular
         .module('app', ['ui.router', 'toastr'])
-        .value('apiUrl', 'localhost:8080')
+        .value('apiUrl', 'http://localhost:3000')
         .config(appConfig);
 
         appConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
