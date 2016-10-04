@@ -32,6 +32,10 @@ var ownerSchema = new Schema({
 		type: 'string',
 		required: false
 	},
+	password: {
+		type: 'string',
+		required: true
+	},
 	pups: [{type : mongoose.Schema.ObjectId, ref : 'pups'}],
 	todo: [{type : mongoose.Schema.ObjectId, ref : 'todo'}]
 });

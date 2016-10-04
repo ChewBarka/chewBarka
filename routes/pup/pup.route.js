@@ -3,7 +3,7 @@ var router = express.Router();
 var Pup = require('../../models/pup.model');
 var Owner = require('../../models/owner.model');
 var Medical = require('../../models/medical.model');
-var q = require('q');
+var Fitness = require('../../models/fitness.model');
 
 router.route('/')
     ///////////////////////////////////////////////////////////////////////
@@ -45,9 +45,11 @@ router.route('/')
 
 ///////////////////////////////////////////////////////////////////////
 router.route('/:id')
+    // Add a medRecord to a pup
     .post(function(req, res) {
         Pup.findById(req.params.id, function(err, pup) {
             //Add medRecord
+
             var medical = new Medical();
 
             medical.rabies = req.body.rabies;
@@ -62,25 +64,25 @@ router.route('/:id')
             medical.nextVisit = req.body.nextVisit;
             medical.dentalExam = req.body.dentalExam;
             medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
-            
-            medical.pup = pup;
-            pup.medicalRecords.push(medical);
 
-            medical.save().then(
-                function(medical) {
-                    pup.save().then(
-                        function(dog) {
-                            res.json(medical);
-                        }
-                    );
-                }
-            );
+                medical.pup = pup;
+                pup.medicalRecord.push(medical);
+
+                medical.save().then(
+                    function(medical) {
+                        pup.save().then(
+                            function(dog) {
+                                res.json(medical);
+                            }
+                        );
+                    }
+                );
         });
 
     })
-    ///////////////////////////////////////////////////////////////////////
-    //GET: api/pup/1 * And populate the owner/med/fitness fields *
-    .get(function(req, res) {
+///////////////////////////////////////////////////////////////////////
+//GET: api/pup/1 * And populate the owner/med/fitness fields *
+.get(function(req, res) {
         Pup.findById(req.params.id)
             .populate('owner')
             .populate('medicalRecord')
