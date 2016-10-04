@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function CRUDFactory($http, $q) {
-    	return function(apiUrl, entityName) {
+    	return function(endpoint, entityName) {
         var service = {
             getAll: getAll,
             getById: getById,

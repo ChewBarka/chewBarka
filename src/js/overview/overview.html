@@ -1,3 +1,6 @@
 <div class="contianer">
-	<h1>This is the overview info page!</h1>
+	<div ng-repeat="owners in overview.owners">
+		<p>{{owners.firstName}}</p>
+		<p>{{owners.lastName}}</p>
+	</div>
 </div>
