@@ -24,89 +24,58 @@
 /**************OVERVIEW****************************************/
         	.state('overview', {
         		url: '/overview',
-        		abstract: true,
-        		template: '<div ui-view></div'
+        		controller: 'overviewController as overview',
+    			templateUrl: 'js/overview/overview.html',
+    			data: {
+    				css: 'js/overview/overview.css'
+    			}
         	})
-        		.state('overview.info', {
-        			url: '/info',
-        			controller: 'overviewInfoController as overviewInfo',
-        			templateUrl: 'js/overview/info.html',
-        			data: {
-        				css: 'js/overview/info.css'
-        			}
-        		})
-
 /****************Photos*************************************/
 
-			.state('photos', {
-				url: '/photos',
-				abstract: true,
-				template: '<div ui-view></div>'
+			.state('photo', {
+				url: '/photo',
+				controller: 'photoController as photo',
+				templateUrl: 'js/photos/photo.html',
+				data: {
+					css: 'js/photos/photo.css'
+				}
 			})
-				.state('photos.pictures', {
-					url: '/pictures',
-					controller: 'photoPictureController as photoPicture',
-					templateUrl: 'js/photos/pictures.html',
-					data: {
-						css: 'js/photos/pictures.css'
-					}
-				})
 /****************MedicalRecord*******************************************/
 			.state('medical', {
 				url: '/medical',
-				abstract: true,
-				template: '<div ui-view></div>'
+				controller: 'medicalDocumentsController as medicalDocs',
+				templateUrl: 'js/medical/medical.html',
+				data: {
+					css: 'js/medical/medical.css'
+				}
 			})
-				.state('medical.documents', {
-					url: '/documents',
-					controller: 'medicalDocumentsController as medicalDocs',
-					templateUrl: 'js/medical/documents.html',
-					data: {
-						css: 'js/medical/documents.css'
-					}
-				})
 /****************DogParks*******************************************/
 			.state('parks', {
 				url: '/parks',
-				abstract: true,
-				template: '<div ui-view></div>'
+				controller: 'parksController as parks',
+				templateUrl: 'js/parks/parks.html',
+				data: {
+					css: 'js/parks/parks.css'
+				}	
 			})
-				.state('parks.fordogs', {
-					url: 'fordogs',
-					controller: 'parksForDogsController as parksForDogs',
-					templateUrl: 'js/parks/fordogs.html',
-					data: {
-						css: 'js/parks/fordogs.css'
-					}
-				})
 /****************LocalDogEvents**************************************************/
 			.state('events', {
 				url: '/events',
-				abstract: true,
-				template: '<div ui-view></div>'
+				controller: 'eventsController as events',
+				templateUrl: 'js/events/events.html',
+				data: {
+					css: 'js/events/events.css'
+				}
 			})
-				.state('events.details', {
-					url: '/details',
-					controller: 'eventDetailController as eventDetail',
-					templateUrl: 'js/events/detail.html',
-					data: {
-						css: 'js/events/detail.css'
-					}
-				})
 /******************Equipment*****************************************************/		
 			.state('equipment', {
 				url: '/equipment',
-				abstract: true,
-				template: '<div ui-view></div'
+				controller: 'equipmentController as equipment',
+				templateUrl: 'js/equipment/equipment.html',
+				data: {
+					css: 'js/equipment/equipment.css'
+				}
 			})
-				.state('equipment.details', {
-					url: '/details',
-					controller: 'equipmentDetailController as equipmentDetail',
-					templateUrl: 'js/equipment/detail.html',
-					data: {
-						css: 'js/equipment/detail.css'
-					}
-				})
 /**************Links***************************************************************/
 			.state('extra', {
 				url: '/extra',
