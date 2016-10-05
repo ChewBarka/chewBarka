@@ -7,6 +7,12 @@
             <div class="large-12 columns">
               <input type="text" name="username" placeholder="email" ng-model="login.loginInfo.email"/>
             </div>
+            <div>
+              <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
+           <!--  <select ng-options="select as label for value in array"></select> -->
+              <option value="" disabled >Select Owner</option>
+            </select>
+            </div>
           </div>
           <div class="row">
             <div class="large-12 columns">
@@ -17,6 +23,7 @@
             <div class="large-12 large-centered columns">
               <input type="submit" class="button expand" value="Log In" ng-click="login.fakeLogin()"/>
             </div>
+            
           </div>
         </form>
       </div>

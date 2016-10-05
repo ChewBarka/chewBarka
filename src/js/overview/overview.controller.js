@@ -12,40 +12,21 @@
         var vm = this;
         vm.title = 'overviewController';
 
+        vm.owner = {};
+        getOwnerById();
 
-        
-        getAllOwners();
-
-        ////////////////
-
-        function getAllOwners() {
-            overviewFactory.getAll().then(
-                function(data) {
-                    vm.owners = data;
-                }
-            );
-        }
-        // function getOwnerById() {
-        //     if($stateParams.ownerId) {
-        //         overviewFactory.getById($state.ownerId).then(
-        //             function(data) {
-        //                 console.log(data);
-        //                 vm.owner = data;
-        //             }
-        //         );
-        //     }
-        // function getPupById() {
-        //     if($stateParams.pupId) {
-        //         overviewFactory.getById($state.pupId).then(
-        //             function(data) {
-        //                 console.log(data);
-        //                 vm.owner = data;
-        //             }
-        //         );
-        //     }
-        // }
-
-        
-
+        function getOwnerById() {
+            //if ($stateParams._id) {
+                vm.ownerId = $stateParams._id;
+                console.log(vm.ownerId);
+                overviewFactory.getById(vm.ownerId).then(
+                    function(data) {
+                        console.log(data);
+                        vm.owner = data;
+                    }
+                );
+            //}
+        }   
     }
+
 })();
