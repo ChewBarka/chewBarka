@@ -9,6 +9,6 @@
 
     /* @ngInject */
     function loginFactory($http, $q, CRUDFactory, apiUrl) {
-        return CRUDFactory(apiUrl + '/login', 'login');
+        return CRUDFactory(apiUrl + '/owners', 'owner');
     }
 })();

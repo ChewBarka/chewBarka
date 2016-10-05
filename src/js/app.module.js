@@ -23,7 +23,7 @@
         	})
 /**************OVERVIEW****************************************/
         	.state('overview', {
-        		url: '/overview',
+        		url: '/overview?_id',
         		controller: 'overviewController as overview',
     			templateUrl: 'js/overview/overview.html',
     			data: {
