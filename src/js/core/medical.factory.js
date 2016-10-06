@@ -9,6 +9,6 @@
 
     /* @ngInject */
     function medicalFactory($http, $q, CRUDFactory, apiUrl) {
-        return CRUDFactory(apiUrl + '/medical', 'medicals');
+        return CRUDFactory(apiUrl + '/medical', 'medical');
     }
 })();

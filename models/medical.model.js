@@ -67,7 +67,7 @@ var medicalSchema = new Schema({
 		//expires: '365d',
 		required: false
 	},
-	pup: {type : mongoose.Schema.ObjectId , ref : 'pups'},
+	pup: [{type : mongoose.Schema.ObjectId , ref : 'pups'}]
 });
 
-module.exports = mongoose.model('medicalRecord', medicalSchema);
+module.exports = mongoose.model('medical', medicalSchema);

@@ -33,7 +33,7 @@
 /****************Photos*************************************/
 
 			.state('photo', {
-				url: '/photo',
+				url: '/photo?_id',
 				controller: 'photoController as photo',
 				templateUrl: 'js/photos/photo.html',
 				data: {
@@ -42,7 +42,7 @@
 			})
 /****************MedicalRecord*******************************************/
 			.state('medical', {
-				url: '/medical',
+				url: '/medical?_id',
 				controller: 'medicalDocumentsController as medicalDocs',
 				templateUrl: 'js/medical/medical.html',
 				data: {

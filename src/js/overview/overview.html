@@ -3,10 +3,22 @@
 		<p>First Name: {{overview.owner.firstName}}</p>
 		<p>Last Name: {{overview.owner.lastName}}</p>
 		<p>Email: {{overview.owner.email}}</p>
-		<p>Address: {{overview.owner.address}}</p>
+		<p>Zip: {{overview.owner.zipCode}}</p>
+		<p>Next Vet Appoinment: {{overview.owner.nextVetVisit}}</p>
+		<br>
 	</div>
 	<div ng-repeat="pup in overview.owner.pups">
 		<p>Puppy Name: {{pup.name}}</p>
 		<p>Puppy Age: {{pup.age}}</p>
+		<br>
 	</div>
+	<div ng-repeat="task in overview.owner.todo">
+		<p>Task Date: {{task.date | date}}</p>
+		<p>Task: {{task.task}}</p>
+		<br>
+	</div>
+	<div>
+		
+	</div>
+
 </div>
