@@ -39,7 +39,7 @@
         function getById(id) {
         	var deferred = $q.defer();
 
-        	$http.getById(endpoint + '/' + id)
+        	$http.get(endpoint + '/' + id)
         		.success(function(data) {
         			deferred.resolve(data);
         		})

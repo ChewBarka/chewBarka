@@ -1,6 +1,9 @@
 <div class="contianer">
 	<div ng-repeat="owners in overview.owners">
-		<p>{{owners.firstName}}</p>
-		<p>{{owners.lastName}}</p>
+		<p>{{owners.firstName}} {{owners.lastName}}</p>
+		<p>{{owners.pups.name}}</p>
+	</div>
+	<div ng-repeat="owners in overview.own">
+		<p>{{owners.pups.name}}</p>
 	</div>
 </div>

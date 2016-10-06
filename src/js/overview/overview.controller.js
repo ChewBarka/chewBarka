@@ -25,16 +25,17 @@
                 }
             );
         }
-        // function getOwnerById() {
-        //     if($stateParams.ownerId) {
-        //         overviewFactory.getById($state.ownerId).then(
-        //             function(data) {
-        //                 console.log(data);
-        //                 vm.owner = data;
-        //             }
-        //         );
-        //     }
-        // function getPupById() {
+        
+        function getOwnerById() {
+            // if($stateParams.ownerId) {
+                overviewFactory.getById().then(
+                    function(data) {
+                        console.log(data);
+                        vm.own = data;
+                    }
+                );
+            }
+        //function getPupById() {
         //     if($stateParams.pupId) {
         //         overviewFactory.getById($state.pupId).then(
         //             function(data) {

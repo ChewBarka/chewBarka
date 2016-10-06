@@ -5,39 +5,70 @@ var Todo = require('./todo.model');
 
 var ownerSchema = new Schema({
 	firstName: {
-		type: 'string',
-		required: true
+		type: String,
+		required: true,
+		trim: true
 	},
 	lastName: {
-		type: 'string',
-		required: true 
+		type: String,
+		required: true,
+		trim: true 
 	},
 	address: {
-		type: 'string',
+		type: String,
 		required: true
 	},
-	telephone: {
-		type: 'number',
+	zipCode: {
+		type: Number,
 		required: true
 	},
 	email: {
-		type: 'string',
+		type: String,
 		required: true
 	},
 	nsrRegistration: {
-		type: 'string',
+		type: String,
 		required: false
 	},
 	todoItem: {
-		type: 'string',
+		type: String,
 		required: false
 	},
 	password: {
-		type: 'string',
+		type: String,
 		required: true
 	},
 	pups: [{type : mongoose.Schema.ObjectId, ref : 'pups'}],
 	todo: [{type : mongoose.Schema.ObjectId, ref : 'todo'}]
+});
+ownerSchema.statics.authenticate = function(email, password, callback) {
+	owner.findOne({ email: email })
+	.exec(function (error, user) {
+		if(error) {
+			return callback(error);
+		} else if (!user) {
+			var err = new Error('User not found');
+			err.status = 401;
+			return callback(err);
+		}
+		bcrypt.compare(password , user.password, function(error, result) {
+			if(result == true) {
+				return callback(null, user);
+			} else {
+				return callback();
+			}
+		});
+	});
+};
+ownerSchema.pre('save', function(next) {
+	var owner = this;
+	bcrypt.hash(owner.password, 10, function(err, hash) {
+		if (err) {
+			return next(err);
+		}
+		owner.password = hash;
+		next();
+	});
 });
 
 module.exports = mongoose.model('owners', ownerSchema);
