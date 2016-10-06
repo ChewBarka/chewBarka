@@ -2,6 +2,7 @@ var express = require ('express');
 var router = express.Router();
 var Owner = require('../../models/owner.model');
 var Pup = require('../../models/pup.model');
+var Todo = require('../../models/todo.model');
 
 router.route('/')
 ///////////////////////////////////////////////////////////////////////
@@ -83,6 +84,7 @@ router.route('/:id')
 	  		});
 	  	 });
 	  })
+
 ///////////////////////////////////////////////////////////////////////
 	  //DELETE: api/owner/1
 	  .delete(function(req, res){
@@ -96,4 +98,92 @@ router.route('/:id')
 	  });
 
 ///////////////////////////////////////////////////////////////////////
+router.route('/:id/pet').post(function(req, res) {
+	//Add pup
+    var pup = new Pup();
+
+    pup.name = req.body.name;
+    pup.age = req.body.age;
+    pup.color = req.body.color;
+    pup.size = req.body.size;
+    pup.weight = req.body.weight;
+    pup.allergies = req.body.allergies;
+    pup.birthdate = req.body.birthdate;
+    pup.medConditions = req.body.medConditions;
+    pup.chipInformation = req.body.chipInformation;
+    pup.owner = req.params.id;
+
+    pup.save(function(err, pup) {
+        if (err) {
+            return res.send(500, err);
+        }
+
+        Owner.findById(req.params.id, function(err, owner) {
+        	if(err) {
+        		return res.send(500, err);
+        	}
+
+    		owner.pups.push(pup.id);
+
+    		owner.save(function(err, owner) {
+    			res.json(pup);
+    		});
+        });
+    });
+});
+
+///////////////////////////////////////////////////////////////////////
+router.route('/:id/todo').post(function(req, res) {
+	//Add todo
+    var todo = new Todo();
+
+	todo.date = req.body.date;
+	todo.task = req.body.task;
+    todo.owner = req.params.id;
+
+    todo.save(function(err, todo) {
+        if (err) {
+            return res.send(500, err);
+        }
+
+        Owner.findById(req.params.id, function(err, owner) {
+        	if(err) {
+        		return res.send(500, err);
+        	}
+
+    		owner.todo.push(todo.id);
+
+    		owner.save(function(err, owner) {
+    			res.json(todo);
+    		});
+        });
+    });
+});
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

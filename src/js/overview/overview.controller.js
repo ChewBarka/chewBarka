@@ -14,10 +14,13 @@
 
         vm.getOwnerById = getOwnerById;
         vm.getPupInfo = getPupInfo;
+        vm.addPup = addPup;
+        vm.addTodo = addTodo;
 
         vm.owner = {};
         vm.pups = [];
         vm.pupData = [];
+        vm.newTodo = {};
 
         getOwnerById();
 
@@ -27,22 +30,23 @@
                 vm.ownerId = $stateParams._id;
                 overviewFactory.getById(vm.ownerId).then(
                     function(data) {
+                        console.log("OWNERS INFORMATION:");
                         console.log(data);
                         vm.owner = data;
                         
                         // Get the array of the pups the user owns
                         vm.pups = vm.owner.pups;
-                        console.log(vm.pups);
+                        // Now run the getPupInfo so we can populate more details on this page
                         getPupInfo();
                     }
                 );
         }   
 //////////////////////////////////////////////////////////////
         function getPupInfo() {
-            console.log(vm.pups.length);
+            console.log("PUPS INFORMATION:");
+            
             for(var i = 0; i < vm.pups.length; i++) {
                 vm.pupId = vm.pups[i]._id;
-                console.log(vm.pupId);
                 
                 pupFactory.getById(vm.pupId).then(
                     function(data) {
@@ -52,6 +56,49 @@
                 );
             }
         }
+//////////////////////////////////////////////////////////////
+        function addPup() {
+            $state.go('addPup', {"_id": vm.ownerId});
+        }
+//////////////////////////////////////////////////////////////
+        function addTodo() {
+            overviewFactory.addTodo($stateParams._id, vm.newTodo).then(
+                function() {
+                    alert("Task was added");
+
+                    // Enpty the todo fields
+                    vm.newTodo = {};
+
+                    // Refresh the page
+                    getOwnerById();
+                }
+            );
+        }
     }
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
