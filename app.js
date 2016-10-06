@@ -21,7 +21,6 @@ var pupFitnessRoute = require('./routes/pup/pupFitness.route');
 var todoRoute = require('./routes/owner/todo.route');
 var ownerTodoRoute = require('./routes/owner/ownerTodo.route');
 
-
 var app = express();
 app.use(bodyParser.json());
 
@@ -51,7 +50,6 @@ apiRouter.use('/fitness', fitnessRoute);
 apiRouter.use('/pupFitness', pupFitnessRoute);
 apiRouter.use('/todo', todoRoute);
 apiRouter.use('/ownerTodo', ownerTodoRoute);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

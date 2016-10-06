@@ -3,7 +3,7 @@ var router = express.Router();
 var Owner = require('../../models/owner.model');
 var Pup = require('../../models/pup.model');
 
-router.route('/')
+
 ///////////////////////////////////////////////////////////////////////
 	 
 /////////////Eddie's code////////////////////////////////////////////////////////////////////
@@ -19,12 +19,13 @@ router.route('/')
 	  // })
 ////////////////End of Eddie's code///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
+router.route('/')
 		//GET /register
-		.get('/login', function(req, res, next) {
+		.get('/login', mid.loggedOut, function(req, res, next) {
 			return res.render('login', {title: 'Sign UP'});
 		})
 	   // POST / register
-	   .post('/login', function(req, res, next) {
+	   .post('/login', mid.loggedOut, function(req, res, next) {
 	   	if (req.body.firstName &&
 	   		req.body.lastName &&
 	   		req.body.address &&
@@ -32,7 +33,7 @@ router.route('/')
 	   		req.body.email &&
 	   		req.body.password &&
 	   		req.body.confirmPassword) {
-	   		//confirm that user typed the same password twice
+	   		//confirm that owner typed the same password twice
 	   		if(req.body.password !== req.body.confirmPassword) {
 	   			var err = new Error('Passwords do not match.');
 	   			err.status = 400;
@@ -49,7 +50,7 @@ router.route('/')
 		   		password: req.body.password
 		   	};
 	   		//use schema's 'create' method
-	   		Owner.create(ownerData, function(error, user) {
+	   		Owner.create(ownerData, function(error, owner) {
 	   			if (error) {
 	   				return next(error);
 	   			} else {
@@ -63,14 +64,14 @@ router.route('/')
 	   	}
 	   })
 	   //Get /login
-	   .get('/login', function(req, res, next) {
+	   .get('/login', mid.requiresLogin, function(req, res, next) {
 	   	return res.render('login', {title: 'Log In'});
 	   })
 	   //POST /login
 	   .post('login', function(req, res, next) {
 	   	if (req.body.email && req.body.password) {
-	   		User.authenticate(req.body.email, req.body.password, function(error, user) {
-	   			if (error || !user) {
+	   		Owner.authenticate(req.body.email, req.body.password, function(error, owner) {
+	   			if (error || !owner) {
 	   				var err = new Error('Wrong Email or Password');
 	   				err.status = 401;
 	   				return next(err);
@@ -86,7 +87,7 @@ router.route('/')
 	   	}
 	})
 	   //GET /logout
-	   .get('/logout', function(req, res, next) {
+	   .get('/logout', mid.requiresLogin, function(req, res, next) {
 	   	if (req.session) {
 	   		//delete session object
 	   		req.session.destroy(function(err) {
