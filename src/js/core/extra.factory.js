@@ -3,12 +3,12 @@
 
     angular
         .module('app')
-        .controller('extraController', extraController);
+        .factory('extraFactory', extraFactory);
 
-    extraController.$inject = ['$http', '$q', 'CRUDFactory', 'apiUrl'];
+    extraFactory.$inject = ['$http', '$q', 'CRUDFactory', 'apiUrl'];
 
     /* @ngInject */
-    function extraController($http, $q, CRUDFactory, apiUrl) {
+    function extraFactory($http, $q, CRUDFactory, apiUrl) {
        return CRUDFactory(apiUrl + '/extra', 'extras');
     }
 })();

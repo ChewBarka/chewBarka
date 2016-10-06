@@ -42,7 +42,7 @@ var pupSchema = new Schema({
 		required: false
 	},
 	owner: [{type : mongoose.Schema.ObjectId, ref : 'owners'}],
-	medicalRecord: [{type : mongoose.Schema.ObjectId , ref : 'medicalRecord'}],
+	medicalRecord: [{type : mongoose.Schema.ObjectId , ref : 'medical'}],
 	fitness: [{type : mongoose.Schema.ObjectId , ref : 'fitness'}]
 });
 

@@ -12,7 +12,7 @@ var ownerSchema = new Schema({
 		type: 'string',
 		required: true 
 	},
-	address: {
+	zipCode: {
 		type: 'string',
 		required: true
 	},
@@ -28,11 +28,11 @@ var ownerSchema = new Schema({
 		type: 'string',
 		required: false
 	},
-	todoItem: {
-		type: 'string',
-		required: false
-	},
 	password: {
+		type: 'string',
+		required: true
+	},
+	nextVetVisit:{
 		type: 'string',
 		required: true
 	},

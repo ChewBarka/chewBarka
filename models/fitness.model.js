@@ -11,7 +11,7 @@ var fitnessSchema = new Schema({
 		type: 'string',
 		required: false
 	},
-	pup: [{type : mongoose.Schema.ObjectId, ref : 'pup'}]
+	pup: [{type : mongoose.Schema.ObjectId, ref : 'pups'}]
 });
 
 module.exports = mongoose.model('fitness', fitnessSchema);

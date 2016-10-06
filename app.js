@@ -14,6 +14,7 @@ var fitnessRoute = require('./routes/pup/fitness.route');
 var pupFitnessRoute = require('./routes/pup/pupFitness.route');
 var todoRoute = require('./routes/owner/todo.route');
 var ownerTodoRoute = require('./routes/owner/ownerTodo.route');
+var pupHealthRoute = require('./routes/pup/pupHealth.route');
 
 
 var app = express();
@@ -36,6 +37,7 @@ apiRouter.use('/fitness', fitnessRoute);
 apiRouter.use('/pupFitness', pupFitnessRoute);
 apiRouter.use('/todo', todoRoute);
 apiRouter.use('/ownerTodo', ownerTodoRoute);
+apiRouter.use('/pupHealth', pupHealthRoute);
 
 
 app.use(apiRouter);

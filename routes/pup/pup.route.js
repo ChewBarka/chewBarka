@@ -46,40 +46,40 @@ router.route('/')
 ///////////////////////////////////////////////////////////////////////
 router.route('/:id')
     // Add a medRecord to a pup
-    .post(function(req, res) {
-        Pup.findById(req.params.id, function(err, pup) {
-            //Add medRecord
+    // .post(function(req, res) {
+    //     Pup.findById(req.params.id, function(err, pup) {
+    //         //Add medRecord
 
-            var medical = new Medical();
+    //         var medical = new Medical();
 
-            medical.rabies = req.body.rabies;
-            medical.lepto = req.body.lepto;
-            medical.dhpp = req.body.dhpp;
-            medical.bordetella = req.body.bordetella;
-            medical.chipInfo = req.body.chipInfo;
-            medical.heartWorm = req.body.heartWorm;
-            medical.fleaPrevention = req.body.fleaPrevention;
-            medical.fecal = req.body.fecal;
-            medical.bloodUrine = req.body.bloodUrine;
-            medical.nextVisit = req.body.nextVisit;
-            medical.dentalExam = req.body.dentalExam;
-            medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
+    //         medical.rabies = req.body.rabies;
+    //         medical.lepto = req.body.lepto;
+    //         medical.dhpp = req.body.dhpp;
+    //         medical.bordetella = req.body.bordetella;
+    //         medical.chipInfo = req.body.chipInfo;
+    //         medical.heartWorm = req.body.heartWorm;
+    //         medical.fleaPrevention = req.body.fleaPrevention;
+    //         medical.fecal = req.body.fecal;
+    //         medical.bloodUrine = req.body.bloodUrine;
+    //         medical.nextVisit = req.body.nextVisit;
+    //         medical.dentalExam = req.body.dentalExam;
+    //         medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
 
-                medical.pup = pup;
-                pup.medicalRecord.push(medical);
+    //             medical.pup = pup;
+    //             pup.medicalRecord.push(medical); 
 
-                medical.save().then(
-                    function(medical) {
-                        pup.save().then(
-                            function(dog) {
-                                res.json(medical);
-                            }
-                        );
-                    }
-                );
-        });
+    //             medical.save().then(
+    //                 function(medical) {
+    //                     pup.save().then(
+    //                         function(medical) {
+    //                             res.json(medical);
+    //                         }
+    //                     );
+    //                 }
+    //             );
+    //     });
 
-    })
+    // })
 ///////////////////////////////////////////////////////////////////////
 //GET: api/pup/1 * And populate the owner/med/fitness fields *
 .get(function(req, res) {
