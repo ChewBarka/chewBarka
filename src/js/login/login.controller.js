@@ -22,7 +22,6 @@
             loginFactory.getAll().then(
                 function(data){
                     vm.owners = data;
-                    console.log(vm.owners);
                 });
         }
         

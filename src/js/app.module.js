@@ -30,6 +30,24 @@
     				css: 'style/main.css'
     			}
         	})
+/**************ADD-a-Pup****************************************/
+			.state('addPup', {
+        		url: '/addPup?_id',
+        		controller: 'pupController as pup',
+    			templateUrl: 'js/addPup/addPup.html',
+    			data: {
+    				css: 'js/addPup/addPup.css'
+    			}
+        	})
+/**************Pup-Info****************************************/
+			.state('pupInfo', {
+        		url: '/pupInfo?_id',
+        		controller: 'pupInfoController as pupInfo',
+    			templateUrl: 'js/pupInfo/pupInfo.html',
+    			data: {
+    				css: 'js/pupInfo/pupInfo.css'
+    			}
+        	})
 /****************Photos*************************************/
 
 			.state('photo', {

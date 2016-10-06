@@ -67,6 +67,11 @@ var medicalSchema = new Schema({
 		//expires: '365d',
 		required: false
 	},
+	medications: {
+		type: 'date', 
+		//expires: '365d',
+		required: false
+	},
 	pup: [{type : mongoose.Schema.ObjectId , ref : 'pups'}]
 });
 

@@ -9,11 +9,11 @@ var bodyParser = require('body-parser');
 var pupRoute = require('./routes/pup/pup.route');
 var ownerRoute = require('./routes/owner/owner.route');
 var medicalRoute = require('./routes/pup/medical.route');
-var familyRoute = require('./routes/owner/family.route');
+//var familyRoute = require('./routes/owner/family.route');
 var fitnessRoute = require('./routes/pup/fitness.route');
 var pupFitnessRoute = require('./routes/pup/pupFitness.route');
 var todoRoute = require('./routes/owner/todo.route');
-var ownerTodoRoute = require('./routes/owner/ownerTodo.route');
+//var ownerTodoRoute = require('./routes/owner/ownerTodo.route');
 var pupHealthRoute = require('./routes/pup/pupHealth.route');
 
 
@@ -32,11 +32,11 @@ var apiRouter = express.Router();
 apiRouter.use('/pups', pupRoute);
 apiRouter.use('/owners', ownerRoute);
 apiRouter.use('/medical', medicalRoute);
-apiRouter.use('/family', familyRoute);
+//apiRouter.use('/family', familyRoute);
 apiRouter.use('/fitness', fitnessRoute);
 apiRouter.use('/pupFitness', pupFitnessRoute);
 apiRouter.use('/todo', todoRoute);
-apiRouter.use('/ownerTodo', ownerTodoRoute);
+//apiRouter.use('/ownerTodo', ownerTodoRoute);
 apiRouter.use('/pupHealth', pupHealthRoute);
 
 

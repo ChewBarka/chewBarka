@@ -34,6 +34,8 @@ router.route('/')
             medical.nextVisit = req.body.nextVisit;
             medical.dentalExam = req.body.dentalExam;
             medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
+            medical.medications = req.body.medications;
+
 
         medical.save(function(err, medical){
             if(err) {
@@ -79,6 +81,7 @@ router.route('/:id')
             medical.nextVisit = req.body.nextVisit;
             medical.dentalExam = req.body.dentalExam;
             medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
+            medical.medications = req.body.medications;
 
         medical.save(function(err, medical) {
             if(err) {
