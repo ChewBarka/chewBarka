@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles'])
         .value('apiUrl', 'http://localhost:3000')
         .config(appConfig);
 
@@ -27,7 +27,7 @@
         		controller: 'overviewController as overview',
     			templateUrl: 'js/overview/overview.html',
     			data: {
-    				css: 'js/overview/overview.css'
+    				css: 'style/main.css'
     			}
         	})
 /**************ADD-a-Pup****************************************/
