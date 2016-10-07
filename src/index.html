@@ -18,36 +18,30 @@
 <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
 <!--endbower-->
 <!--inject:css-->
+<link rel="stylesheet" href="js/about/about.css">
+<link rel="stylesheet" href="js/equipment/equipment.css">
 <link rel="stylesheet" href="js/events/events.css">
 <link rel="stylesheet" href="js/login/login.css">
-<<<<<<< HEAD
+<link rel="stylesheet" href="js/parks/parks.css">
+<link rel="stylesheet" href="js/photos/photo.css">
 <!--endinject-->
 <link rel="stylesheet" href="style/main.css">
 
 </head>
 <body>
 
-=======
-<link rel="stylesheet" href="js/parks/parks.css">
-<!--endinject-->
-<link rel="stylesheet" hred="style/main.css">
-
-
-
-</head>
-<body>
->>>>>>> 22a494d72b67632ecf64d398d0a457129f8a9f27
-  <div id="mySidenav" class="sidenav">
-	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <a href="#" ui-sref="overview">Home</a>
-	  <a href="#" ui-sref="events">Events</a>
-	  <a href="#" ui-sref="parks">Parks</a>
-	  <a href="#" ui-sref="photo">photos</a>
-	  <a href="#" ui-sref="equipment">Equipment</a>
-	  <a href="#" ui-sref="extra.links">Extra</a>
-	  <a href="#" ui-sref="about">About Us</a>
-  </div>
- 
+	<div ng-controller="navController as nav">
+	  <div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="#" ng-click="nav.passId()" ui-sref="overview({_id: nav.ownerId})">Home</a>
+		  <a href="#" ng-click="nav.passId()" ui-sref="events({_id: nav.ownerId})">Events</a>
+		  <a href="#" ng-click="nav.passId()" ui-sref="parks({_id: nav.ownerId})">Parks</a>
+		  <a href="#" ng-click="nav.passId()" ui-sref="photo({_id: nav.ownerId})">photos</a>
+		  <a href="#" ng-click="nav.passId()" ui-sref="equipment({_id: nav.ownerId})">Equipment</a>
+		  <a href="#" ng-click="nav.passId()" ui-sref="extra.links({_id: nav.ownerId})">Extra</a>
+		  <a href="#" ng-click="nav.passId()" ui-sref="about({_id: nav.ownerId})">About Us</a>
+	  </div>
+	</div>  
   
   <h2>ChewBarka</h2>
 <div id="main">
@@ -86,9 +80,9 @@
 
 <script src="js/app.module.js"></script>
 
-<script src="js/addPup/addPup.controller.js"></script>
-
 <script src="js/about/about.controller.js"></script>
+
+<script src="js/addPup/addPup.controller.js"></script>
 
 <script src="js/core/crud.factory.js"></script>
 
@@ -100,6 +94,8 @@
 
 <script src="js/core/family.factory.js"></script>
 
+<script src="js/core/links.factory.js"></script>
+
 <script src="js/core/login.factory.js"></script>
 
 <script src="js/core/medical.factory.js"></script>
@@ -109,8 +105,6 @@
 <script src="js/core/photo.factory.js"></script>
 
 <script src="js/core/pup.factory.js"></script>
-
-<script src='js/core/links.factory.js'></script>
 
 <script src="js/equipment/equipment.controller.js"></script>
 
@@ -125,6 +119,8 @@
 <script src="js/login/login.controller.js"></script>
 
 <script src="js/medical/medical.controller.js"></script>
+
+<script src="js/navBar/navbar.controller.js"></script>
 
 <script src="js/overview/overview.controller.js"></script>
 
