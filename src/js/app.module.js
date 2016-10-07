@@ -69,7 +69,7 @@
 			})
 /****************DogParks*******************************************/
 			.state('parks', {
-				url: '/parks',
+				url: '/parks?_id',
 				controller: 'parksController as parks',
 				templateUrl: 'js/parks/parks.html',
 				data: {
@@ -78,7 +78,7 @@
 			})
 /****************LocalDogEvents**************************************************/
 			.state('events', {
-				url: '/events',
+				url: '/events?_id',
 				controller: 'eventsController as events',
 				templateUrl: 'js/events/events.html',
 				data: {
@@ -87,7 +87,7 @@
 			})
 /******************Equipment*****************************************************/		
 			.state('equipment', {
-				url: '/equipment',
+				url: '/equipment?_id',
 				controller: 'equipmentController as equipment',
 				templateUrl: 'js/equipment/equipment.html',
 				data: {
@@ -96,7 +96,7 @@
 			})
 /*****************About Us******************************************************************/
 			.state('about', {
-				url:'/about',
+				url:'/about?_id',
 				controller: 'aboutController as about',
 				templateUrl:'js/about/about.html',
 				data: {
@@ -105,7 +105,7 @@
 			})
 /******************Account*************************************************************/
 			.state('account', {
-				url:'/account',
+				url:'/account?_id',
 				controller: 'accountController as account',
 				templateUrl:'js/account/account.html',
 				data: {
@@ -114,7 +114,7 @@
 			})
 /**************Links***************************************************************/
 			.state('extra', {
-				url: '/extra',
+				url: '/extra?_id',
 				abstract: true,
 				template: '<div ui-view></div>'
 			})
