@@ -5,10 +5,10 @@
         .module('app')
         .controller('eventsController', eventsController);
 
-    eventsController.$inject = ['$state', '$stateParams', 'eventFactory'];
+    eventsController.$inject = ['$state', '$stateParams', 'eventsFactory'];
 
     /* @ngInject */
-    function eventsController($state, $stateParams, eventFactory) {
+    function eventsController($state, $stateParams, eventsFactory) {
         var vm = this;
         vm.title = 'eventController';
 

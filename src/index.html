@@ -18,32 +18,25 @@
 <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
 <!--endbower-->
 <!--inject:css-->
+<link rel="stylesheet" href="js/events/events.css">
 <link rel="stylesheet" href="js/login/login.css">
-<link rel="stylesheet" href="style/main.css">
+<link rel="stylesheet" href="js/parks/parks.css">
 <!--endinject-->
+<link rel="stylesheet" hred="style/main.css">
 
 
 
 </head>
 <body>
-	<!-- <nav class="nav">
-		<div class="nav-left">
-			<a class="nav-item is-brand" href="#">Chew-Barka</a>
-		</div>
-		<span class="nav-toggle">
-			<a></a>
-		</span>
-	</nav> -->
-
   <div id="mySidenav" class="sidenav">
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <a href="#">Home</a>
-	  <a href="#">Events</a>
-	  <a href="#">Parks</a>
-	  <a href="#">photos</a>
-	  <a href="#">Equipment</a>
-	  <a href="#">Extra</a>
-	  <a href="#">About Us</a>
+	  <a href="#" ui-sref="overview">Home</a>
+	  <a href="#" ui-sref="events">Events</a>
+	  <a href="#" ui-sref="parks">Parks</a>
+	  <a href="#" ui-sref="photo">photos</a>
+	  <a href="#" ui-sref="equipment">Equipment</a>
+	  <a href="#" ui-sref="extra.links">Extra</a>
+	  <a href="#" ui-sref="about">About Us</a>
   </div>
  
   
@@ -86,6 +79,8 @@
 
 <script src="js/addPup/addPup.controller.js"></script>
 
+<script src="js/about/about.controller.js"></script>
+
 <script src="js/core/crud.factory.js"></script>
 
 <script src="js/core/equipment.factory.js"></script>
@@ -102,13 +97,21 @@
 
 <script src="js/core/overview.factory.js"></script>
 
+<script src="js/core/photo.factory.js"></script>
+
 <script src="js/core/pup.factory.js"></script>
+
+<script src='js/core/links.factory.js'></script>
 
 <script src="js/equipment/equipment.controller.js"></script>
 
 <script src="js/events/events.controller.js"></script>
 
-<script src="js/extra/extraShelter.controller.js"></script>
+<script src="js/extra/grooming.controller.js"></script>
+
+<script src="js/extra/links.controller.js"></script>
+
+<script src="js/extra/shelter.controller.js"></script>
 
 <script src="js/login/login.controller.js"></script>
 
@@ -122,9 +125,9 @@
 
 <script src="js/pupInfo/pupInfo.controller.js"></script>
 
-<script src="style/main.js"></script>
 
 <!--endinject-->
+<script src="style/main.js"></script>
 <!--endanglarjs-->
 </body>
 </html>
