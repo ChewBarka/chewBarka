@@ -101,4 +101,70 @@ router.route('/:id')
 });
 
 ///////////////////////////////////////////////////////////////////////
+router.route('/:id/medical').post(function(req, res) {
+    //Add Medical
+    var medical = new Medical();
+
+        medical.rabies = req.body.rabies;
+        medical.lepto = req.body.lepto;
+        medical.dhpp = req.body.dhpp;
+        medical.bordetella = req.body.bordetella;
+        medical.chipInfo = req.body.chipInfo;
+        medical.heartWorm = req.body.heartWorm;
+        medical.fleaPrevention = req.body.fleaPrevention;
+        medical.fecal = req.body.fecal;
+        medical.bloodUrine = req.body.bloodUrine;
+        medical.nextVisit = req.body.nextVisit;
+        medical.dentalExam = req.body.dentalExam;
+        medical.rattleSnakeTraining = req.body.rattleSnakeTraining;
+        medical.medications = req.body.medications;
+        medical.pup = req.params.id;
+
+    medical.save(function(err, medical) {
+        if (err) {
+            return res.send(500, err);
+        }
+
+        Pup.findById(req.params.id, function(err, pup) {
+            if(err) {
+                return res.send(500, err);
+            }
+
+            pup.medicalRecord.push(medical.id);
+
+            pup.save(function(err, pup) {
+                res.json(medical);
+            });
+        });
+    });
+});
+
+///////////////////////////////////////////////////////////////////////
+router.route('/:id/fitness').post(function(req, res) {
+    //Add fitness
+    var fitness = new Fitness();
+
+    fitness.date = req.body.date;
+    fitness.notes = req.body.notes;
+    fitness.pup = req.params.id;
+
+    fitness.save(function(err, fitness) {
+        if (err) {
+            return res.send(500, err);
+        }
+
+        Pup.findById(req.params.id, function(err, pup) {
+            if(err) {
+                return res.send(500, err);
+            }
+
+            pup.fitness.push(fitness.id);
+
+            pup.save(function(err, pup) {
+                res.json(fitness);
+            });
+        });
+    });
+});
+///////////////////////////////////////////////////////////////////////
 module.exports = router;

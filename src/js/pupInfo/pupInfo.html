@@ -1,15 +1,109 @@
-
-
 <div>
-	<ul>
-	    <li>Puppy's Name: {{pupInfo.pup.name}}</li>
-	    <li>Puppy's Age: {{pupInfo.pup.age}}</li>
-	    <li>Allergies: {{pupInfo.pup.allergies}}</li>
-	    <li>Puppy's Birthday: {{pupInfo.pup.birthdate | date}}</li>
-	    <li>Puppy's Chip Information: {{pupInfo.pup.chipInformation}}</li>
-	    <li>Puppy's Color: {{pupInfo.pup.color}}</li>
-	    <li>Medical Conditions: {{pupInfo.pup.medConditions}}</li>
-	    <li>Puppy Size: {{pupInfo.pup.size}}</li>
-	    <li>Puppy's Weight: {{pupInfo.pup.weight}}</li>
-	</ul>
+    <ul>
+        <li>Puppy's Name: {{pupInfo.pup.name}}</li>
+        <li>Puppy's Age: {{pupInfo.pup.age}}</li>
+        <li>Allergies: {{pupInfo.pup.allergies}}</li>
+        <li>Puppy's Birthday: {{pupInfo.pup.birthdate | date}}</li>
+        <li>Puppy's Chip Information: {{pupInfo.pup.chipInformation}}</li>
+        <li>Puppy's Color: {{pupInfo.pup.color}}</li>
+        <li>Medical Conditions: {{pupInfo.pup.medConditions}}</li>
+        <li>Puppy Size: {{pupInfo.pup.size}}</li>
+        <li>Puppy's Weight: {{pupInfo.pup.weight}}</li>
+    </ul>
+</div>
+<div>
+    <form>
+        <!-- ****** Add the ability to edit all info on the page **** -->
+        <div>Pup's Medical Information</div>
+        <div>
+            <label class="label">Last rabies shot</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.rabies">
+        </div>
+        <div>
+            <label class="label">Date: lepto shot</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.lepto">
+        </div>
+        <div>
+            <label class="label">Date: dhpp shot</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.dhpp">
+        </div>
+        <div>
+            <label class="label">Date: bordetella shot</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.bordetella">
+        </div>
+        <div>
+            <label class="label">Enter date for chip renewal</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.chipInfo">
+        </div>
+        <div>
+            <label class="label">Last heartworm shot</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.heartWorm">
+        </div>
+        <div>
+            <label class="label">Last flea prevention</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.fleaPrevention">
+        </div>
+        <div>
+            <label class="label">Last fecal check, change this lol</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.fecal">
+        </div>
+        <div>
+            <label class="label">Last blood/urine test</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.bloodUrine">
+        </div>
+        <div>
+            <label class="label">Enter date for next vet visit</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.nextVisit">
+        </div>
+        <div>
+            <label class="label">Last dental exam</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.dentalExam">
+        </div>
+        <div>
+            <label class="label">Last rattlesnake training</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.rattleSnakeTraining">
+        </div>
+        <div>
+            <!-- Add the ability for the user to add notes here, for reminders -->
+            <label class="label">Medications: last dosage</label>
+            <input class="input" type="text" ng-model="pupInfo.newMed.medications">
+        </div>
+        <div>
+            <button ng-click="pupInfo.addMed(pupInfo.newMed)">Submit</button>
+        </div>
+    </form>
+    <br>
+    
+    <div>
+    	<h3>Here is you fitness history with your pup</h3>
+		<table>
+			<thead>
+				<tr>
+					<td>Date</td>
+					<td>How'd it go</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="fit in pupInfo.pup.fitness">
+					<td>{{fit.date | date}}</td>
+					<td>{{fit.notes}}</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+    
+    <form>
+        <div>Add a fitness event to your pup</div>
+        <div>
+            <label class="label">Enter date event took place: </label>
+            <input class="input" type="text" ng-model="pupInfo.newFitness.date">
+        </div>
+        <div>
+            <label class="label">What did you do and how'd it go: </label>
+            <input class="input" type="text" ng-model="pupInfo.newFitness.notes">
+        </div>
+        <div>
+            <button ng-click="pupInfo.addFit(pupInfo.newFitness)">Submit</button>
+        </div>
+    </form>
 </div>
