@@ -1,45 +1,96 @@
 <div class="contianer">
-	<div>
-		<label><h4>OWNER'S Information</h4></label>
-		<p>First Name: {{overview.owner.firstName}}</p>
-		<p>Last Name: {{overview.owner.lastName}}</p>
-		<p>Email: {{overview.owner.email}}</p>
-		<p>Zip: {{overview.owner.zipCode}}</p>
-		<p>NSR Registration Number: {{overview.owner.nsrRegistration}}</p>
-		
-		<!-- Give the user the ability to chenge and update the next vet visit -->
-		<p>Next Vet Appoinment: {{overview.owner.nextVetVisit}}</p>
-		<br>
-	</div>
-
-	<table>
-		<thead>
-			<th>PUP Information</th>
-		</thead>
+    <div>
+        <label>
+            <h4>OWNER'S Information</h4></label>
+        <p>First Name: {{overview.owner.firstName}}</p>
+        <p>Last Name: {{overview.owner.lastName}}</p>
+        <p>Email: {{overview.owner.email}}</p>
+        <p>Zip: {{overview.owner.zipCode}}</p>
+        <p>NSR Registration Number: {{overview.owner.nsrRegistration}}</p>
+        <!-- Give the user the ability to chenge and update the next vet visit -->
+        <p>Next Vet Appoinment: {{overview.owner.nextVetVisit}}</p>
+        <br>
+    </div>
+    <table>
+        <thead>
+            <th>PUP Information</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pup in overview.owner.pups">
+                <td>Puppy's Name: {{pup.name}}</td>
+                <td>Puppy's Birthday: {{pup.birthdate | date}}</td>
+                <td>Puppy's Chip Information: {{pup.chipInformation}}</td>
+                <td>
+                    <button class="button" ui-sref="pupInfo({_id: pup._id})">PUP'S INFO</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="button success" ng-click="overview.addPup()"><strong>Add a Pup</strong></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Add a todo-->
+    <div class="form-control">
+        <div class="row">
+            <div class="large-4 columns">
+                <label class='label black'>Enter New Task</label>
+                <input type="text" ng-model="overview.newTodo.task">
+            </div>
+            <div class="large-4 columns">
+                <label class='label black'>When is it Due</label>
+                <input type="text" ng-model="overview.newTodo.date">
+            </div>
+            <button class="button medium warning" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)">Add new task</button>
+        </div>
+    </div>
+    <br>
+    <!-- <table>
 		<tbody>
-			<tr ng-repeat="pup in overview.owner.pups">
-				<td>Puppy's Name: {{pup.name}}</td>
-				<td>Puppy's Birthday: {{pup.birthdate | date}}</td>
-				<td>Puppy's Chip Information: {{pup.chipInformation}}</td>
-				<td><button ui-sref="pupInfo({_id: pup._id})">PUP'S INFO</button></td>
-			</tr>
-			<tr>
-				<td><button ng-click="overview.addPup()"><strong>Add a Pup</strong></button></td>
+			<tr ng-repeat="task in overview.owner.todo">
+				<span ng-hide="editing" ng-click="editing = true">
+					<td>{{task.date | date}}</td>
+					<td>{{task.task}}</td>
+				</span>
+				<td>
+					<form ng-show="editing" ng-submit="editing = false">
+						<label>Name:</label>
+						<input type="text" ng-model="overview.newTodo.task" placeholder="Name" ng-required/>
+						<label>Date:</label>
+						<input type="date" ng-model="overview.newTodo.date" placeholder="Date" ng-required/>
+					</form>
+				</td>
+				
+				<td><button type="submit" class="button tiny" ng-click="overview.updateTodo(task, task._id)">Update</button></td>
+				<td></td>
 			</tr>
 		</tbody>
-	</table>
-		
-	<div>
-		<label class='label'>Enter New Task</label>
-		<input type="text" ng-model="overview.newTodo.task">
-		<label class='label'>When is it Due</label>
-		<input type="text" ng-model="overview.newTodo.date">
-		<button ng-click="overview.addTodo(overview.newTodo)"><h4>Add new task<h4></button>
-	</div>
-	<br>
-	<div ng-repeat="task in overview.owner.todo">
-		<p>Due Date: {{task.date | date}}</p>
-		<p>Task: {{task.task}}</p>
-		<br>
-	</div>
-</div>
+	</table> -->
+    <!--editing-->
+    <table>
+        <tbody>
+            <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
+                <td ng-hide="editing" ng-click="editing = true">{{task.task}} | {{task.date | date}}</td>
+                <td ng-show="editing">
+                    <form ng-submit="editing = false">
+                        <div class="large-3 columns">
+                            <input type="text" ng-model="task.task" placeholder="{{task.task}}" ng-required/>
+                        </div>
+                        <div class="large-2 columns">
+                            <input type="text" ng-model="task.date" placeholder="{{task.date}}" ng-required/>
+                        </div>
+                        <br/>
+                        <td ng-show="editing">
+                            <button class="button warning tiny" type="submit" ng-click="overview.updateTodo(task, task._id)">Save</button>
+                            <button class="button tiny" ng-click="editing = false">close</button>
+                        </td>
+                    </form>
+                </td>
+                <td>
+                    <button class="button tiny" ng-hide="editing" ng-click="editing = true">Edit</button>
+                    <button class="button tiny alert" ng-hide="editing" ng-click="overview.deleteTodo(task)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>

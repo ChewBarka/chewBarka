@@ -5,10 +5,10 @@
         .module('app')
         .controller('overviewController', overviewController);
 
-    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory'];
+    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory', 'todoFactory'];
 
     /* @ngInject */
-    function overviewController($state, $stateParams, overviewFactory, pupFactory) {
+    function overviewController($state, $stateParams, overviewFactory, pupFactory, todoFactory) {
         var vm = this;
         vm.title = 'overviewController';
 
@@ -16,11 +16,15 @@
         vm.getPupInfo = getPupInfo;
         vm.addPup = addPup;
         vm.addTodo = addTodo;
+        vm.deleteTodo = deleteTodo;
+        vm.updateTodo = updateTodo;
 
         vm.owner = {};
         vm.pups = [];
         vm.pupData = [];
         vm.newTodo = {};
+        vm.saveTodo = {};
+        // vm.ownerId = $stateParams._id;
 
         getOwnerById();
 
@@ -28,6 +32,7 @@
 //////////////////////////////////////////////////////////////
         function getOwnerById() {
                 vm.ownerId = $stateParams._id;
+                console.log(vm.ownerId);
                 overviewFactory.getById(vm.ownerId).then(
                     function(data) {
                         console.log("OWNERS INFORMATION:");
@@ -63,18 +68,35 @@
 //////////////////////////////////////////////////////////////
         function addTodo() {
             overviewFactory.addTodo($stateParams._id, vm.newTodo).then(
-                function() {
+                function(data) {
+                    console.log(data);
                     alert("Task was added");
-
-                    // Enpty the todo fields
+                    // Empty the todo fields
                     vm.newTodo = {};
-
                     // Refresh the page
                     getOwnerById();
                 }
             );
         }
+        function updateTodo(todo, id) {
+            todoFactory.update(todo, id).then(
+                function(data) {
+                    console.log(data);
+                    getOwnerById();
+                }
+            );
+        }
+        function deleteTodo(todo) {
+            console.log(todo._id);
+            todoFactory.remove(todo._id).then(
+                function(data) {
+                    console.log(data);
+                    getOwnerById();
+                }
+            );
+        }
     }
+
 
 })();
 
