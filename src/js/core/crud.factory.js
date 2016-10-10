@@ -59,7 +59,7 @@
         		})
         		.error(function(error) {
         			console.log(error);
-        			deferreed.reject('There was a problem posting ' + entityName.toLowerCase() + '.');
+        			deferred.reject('There was a problem posting ' + entityName.toLowerCase() + '.');
         		});
 
         		return deferred.promise;

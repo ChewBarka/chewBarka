@@ -9,14 +9,6 @@
 
     /* @ngInject */
     function photoFactory($http, $q, CRUDFactory, apiUrl) {
-        var service = {
-            func: func
-        };
-        return service;
-
-        ////////////////
-
-        function func() {
-        }
+        return CRUDFactory(apiUrl + '/photos', 'photos');
     }
 })();

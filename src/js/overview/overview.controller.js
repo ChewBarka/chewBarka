@@ -40,7 +40,8 @@
                         getPupInfo();
                     }
                 );
-        }   
+        } 
+          
 //////////////////////////////////////////////////////////////
         function getPupInfo() {
             console.log("PUPS INFORMATION:");
@@ -56,10 +57,12 @@
                 );
             }
         }
+
 //////////////////////////////////////////////////////////////
         function addPup() {
             $state.go('addPup', {"_id": vm.ownerId});
         }
+
 //////////////////////////////////////////////////////////////
         function addTodo() {
             overviewFactory.addTodo($stateParams._id, vm.newTodo).then(

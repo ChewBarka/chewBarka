@@ -32,7 +32,7 @@ var ownerSchema = new Schema({
 		type: 'string',
 		required: true
 	},
-	nextVetVisit:{
+	nextVetVisit: {
 		type: 'string',
 		required: true
 	},

@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "filepicker-js": "^2.4.18",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-inject": "^4.1.0",
@@ -19,6 +20,7 @@
     "gulp-util": "^3.0.7",
     "live-reload": "^1.1.0",
     "mongoose": "^4.6.1",
+    "multer": "^1.2.0",
     "q": "^1.4.1",
     "wiredep": "^4.0.0"
   }

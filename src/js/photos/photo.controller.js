@@ -12,11 +12,21 @@
         var vm = this;
         vm.title = 'photoController';
 
+        vm.addPhoto = addPhoto;
+        
+        vm.newPhoto = {};
+
         activate();
 
         ////////////////
 
         function activate() {
         }
+
+        function addPhoto() {
+
+            console.log(vm.newPhoto);
+        }
+
     }
 })();
