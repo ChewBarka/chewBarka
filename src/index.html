@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
 <!--endbower-->
 <!--inject:css-->
+<link rel="stylesheet" href="js/addPup/addPup.css">
 <link rel="stylesheet" href="js/about/about.css">
 <link rel="stylesheet" href="js/addPup/addPup.css">
 <link rel="stylesheet" href="js/equipment/equipment.css">
@@ -31,6 +32,7 @@
 
 </head>
 <body>
+<h2 align="center">ChewBarka</h2>
 
 	<div ng-controller="navController as nav">
 	  <div id="mySidenav" class="sidenav">
@@ -45,10 +47,11 @@
 	  </div>
 	</div>  
   
-  <h2>ChewBarka</h2>
-<div id="main">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-</div>
+
+	<div id="main">
+	  <span class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+	</div>
+
 
 	
 <!--LazyLoad-->
@@ -56,15 +59,15 @@
 		<div ui-view></div>
 	</main>
 <!--endlazyload-->
+<div align="center">
 	<footer class="footer">
-		<div class="container">
 			<div class="content">
 				<p>
 					<strong>ChewBarka Creators:</strong> Cole Logan and Herberto Basulto
 				</p>
 			</div>
-		</div>
 	</footer>
+</div>
 
 <!--bower:js-->
 <script src="bower_components/angular/angular.js"></script>
@@ -82,9 +85,9 @@
 
 <script src="js/app.module.js"></script>
 
-<script src="js/about/about.controller.js"></script>
-
 <script src="js/addPup/addPup.controller.js"></script>
+
+<script src="js/about/about.controller.js"></script>
 
 <script src="js/core/crud.factory.js"></script>
 
@@ -108,9 +111,9 @@
 
 <script src="js/core/pup.factory.js"></script>
 
-<script src="js/equipment/equipment.controller.js"></script>
+<script src="js/core/todo.factory.js"></script>
 
-<script src="js/events/events.controller.js"></script>
+<script src="js/equipment/equipment.controller.js"></script>
 
 <script src="js/extra/grooming.controller.js"></script>
 
@@ -118,11 +121,15 @@
 
 <script src="js/extra/shelter.controller.js"></script>
 
+<script src="js/events/events.controller.js"></script>
+
 <script src="js/login/login.controller.js"></script>
 
 <script src="js/medical/medical.controller.js"></script>
 
 <script src="js/navBar/navbar.controller.js"></script>
+
+<script src="js/nav/nav.controller.js"></script>
 
 <script src="js/overview/overview.controller.js"></script>
 

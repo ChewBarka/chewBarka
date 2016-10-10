@@ -74,7 +74,7 @@ router.route('/:id')
 	  	//Delete a todo
 	  	Todo.remove({_id: req.params.id}, function(err, todo) {
 	  		if(err) {
-	  			return res.send(500);
+	  			return res.send(500, "this doesn't work");
 	  		}
 	  		res.json(todo);
 	  	});
