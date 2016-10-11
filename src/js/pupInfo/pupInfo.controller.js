@@ -12,11 +12,13 @@
         var vm = this;
         vm.title = 'pupInfoController';
 
-        vm.newMed = {};
+        vm.med = {};
         vm.newFitness = {};
 
         vm.addMed = addMed;
         vm.addFit = addFit;
+        vm.editPup = editPup;
+        vm.updateMed = updateMed;
         getPupById();
 
 //////////////////////////////////////////////////////////////
@@ -37,13 +39,20 @@
 ////////////////////////////////////////////////////////////////
     
     function addMed() {
-                vm.pupId = $stateParams._id;
-
-        pupFactory.addMedical($stateParams._id, vm.newMed).then(
-            function(){
+        vm.pupId = $stateParams._id;
+        pupFactory.addMedical(vm.pupId, vm.med).then(
+            function(data){ 
                 alert("Medical Record added to pup");
                 //Reload the page with most current data
                 getPupById();
+            }
+        );
+    }
+    function updateMed() {
+        console.log(vm.pup.medicalRecord[0], vm.pup.medicalRecord[0]._id);
+        medicalFactory.update(vm.pup.medicalRecord[0], vm.pup.medicalRecord[0]._id).then(
+            function(data) {
+                console.log(data);
             }
         );
     }
@@ -60,7 +69,13 @@
             }
         );
     }
-
+    function editPup(pup, id) {
+            pupFactory.update(pup, id).then(
+                function(data) {
+                    console.log(data);
+                }
+            );
+        }
     }
 })();
 

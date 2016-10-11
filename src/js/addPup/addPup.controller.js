@@ -25,6 +25,6 @@
                     $state.go('overview', {"_id": $stateParams._id});
                 }
             );
-        }       
+        } 
     }
 })();
