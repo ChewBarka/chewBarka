@@ -6,6 +6,8 @@ mongoose.connect('mongodb://localhost:27017/chewBarka');
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var moment = require('moment');
+
 
 var pupRoute = require('./routes/pup/pup.route');
 var ownerRoute = require('./routes/owner/owner.route');
@@ -35,7 +37,8 @@ app.use(function(req, res, next) {
 var multer = require('multer');
 var upload = multer({ dest: './uploads/' });
 
-
+//use moment.js
+var now = moment();
 
 
 

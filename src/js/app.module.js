@@ -2,9 +2,9 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles','ngSanitize'])
         .value('apiUrl', 'http://localhost:3000')
-        .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=PHvPmBT9VSd7vS6C')
+        .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
         // .value('key', 'ThPMmx93M7QSk4Mq')
         .config(appConfig);
 
@@ -94,15 +94,6 @@
                 templateUrl: 'js/equipment/equipment.html',
                 data: {
                     css: ['js/equipment/equipment.css', 'style/main.css']
-                }
-            })
-            /*****************About Us******************************************************************/
-            .state('about', {
-                url: '/about?_id',
-                controller: 'aboutController as about',
-                templateUrl: 'js/about/about.html',
-                data: {
-                    css: ['js/about/about.css', 'style/main.css']
                 }
             })
             /******************Account*************************************************************/

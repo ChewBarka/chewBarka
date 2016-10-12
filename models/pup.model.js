@@ -9,10 +9,6 @@ var pupSchema = new Schema({
 		type: 'string',
 		required: true
 	},
-	age: {
-		type: 'number',
-		required: true
-	},
 	color: {
 		type: 'string',
 		required: true
@@ -22,7 +18,7 @@ var pupSchema = new Schema({
 		required: true
 	},
 	weight: {
-		type: 'number',
+		type: 'mixed',
 		required: true
 	},
 	allergies: {
@@ -32,6 +28,10 @@ var pupSchema = new Schema({
 	birthdate: {
 		type: 'date',
 		required: true
+	},
+	age: {
+		type: 'string',
+		required: false
 	},
 	medConditions: {
 		type: 'string',

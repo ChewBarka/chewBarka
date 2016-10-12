@@ -1,5 +1,8 @@
 var express = require ('express');
 var router = express.Router();
+var moment = require('moment');
+var year = moment().year();
+var month = moment().month();
 var Owner = require('../../models/owner.model');
 var Pup = require('../../models/pup.model');
 var Todo = require('../../models/todo.model');
@@ -31,7 +34,6 @@ router.route('/')
 	  	owner.email = req.body.email;
 	  	owner.nsrRegistration = req.body.nsrRegistration;
 	  	owner.password = req.body.password;
-	  	owner.nextVetVisit = req.body.nextVetVisit;
 
 	  	owner.save(function(err, owner){
 	  		if(err) {
@@ -74,7 +76,6 @@ router.route('/:id')
 	  	owner.nsrRegistration = req.body.nsrRegistration;
 	  	owner.todoItem = req.body.todoItem;
 	  	owner.password = req.body.password;
-	  	owner.nextVetVisit = req.body.nextVetVisit;
 
 	  	owner.save(function(err, owner) {
 	  		if(err) {
@@ -103,12 +104,17 @@ router.route('/:id/pet').post(function(req, res) {
     var pup = new Pup();
 
     pup.name = req.body.name;
-    pup.age = req.body.age;
     pup.color = req.body.color;
     pup.size = req.body.size;
     pup.weight = req.body.weight;
     pup.allergies = req.body.allergies;
     pup.birthdate = req.body.birthdate;
+    // pup.age = moment().diff(pup.birthdate, 'years');
+     if (moment().diff(pup.birthdate, 'years') < 1) {
+        pup.age = moment().diff(pup.birthdate, 'months') + " mth(s)";
+    } if(moment().diff(pup.birthdate, 'years') > 1) {
+        pup.age = moment().diff(pup.birthdate, 'years') + " yr(s)";
+    }
     pup.medConditions = req.body.medConditions;
     pup.chipInformation = req.body.chipInformation;
     pup.owner = req.params.id;

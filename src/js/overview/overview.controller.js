@@ -90,7 +90,7 @@
                 }
             );
         }
-        function updateTodo() {
+        function updateTodo(todo, id) {
             todoFactory.update(todo, id).then(
                 function(data) {
                     console.log(data);

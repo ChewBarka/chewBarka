@@ -32,10 +32,6 @@ var ownerSchema = new Schema({
 		type: 'string',
 		required: true
 	},
-	nextVetVisit: {
-		type: 'string',
-		required: true
-	},
 	pups: [{type : mongoose.Schema.ObjectId, ref : 'pups'}],
 	todo: [{type : mongoose.Schema.ObjectId, ref : 'todo'}]
 });
