@@ -19,12 +19,11 @@
         ////////////////
 
         function get() {
-            getEvents();
+            
         }
         function getEvents() {
             eventsFactory.getAll().then(
                 function(data) {
-                    console.log(data);
                     vm.events = data;
                 });
         }

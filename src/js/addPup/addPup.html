@@ -1,108 +1,58 @@
-<div>This is the add a Pup state</div>
+<div><h1>Add Your Pup</h1></div>
 <div>
-	<form>
-		<div>
-			<label class="label">Enter pups name:</label>
-			<input class="input" type="text" ng-model="pup.newPup.name">
-		</div>
-		<div>
-			<label class="label">Enter pups age:</label>
-			<input class="input" type="text" ng-model="pup.newPup.age">
-		</div>
-		<div>
-			<label class="label">Enter pups color:</label>
-			<input class="input" type="text" ng-model="pup.newPup.color">
-		</div>
-		<div>
-			<label class="label">Enter pups size:</label>
-			<input class="input" type="text" ng-model="pup.newPup.size">
-		</div>
-		<div>
-			<label class="label">Enter pups weight:</label>
-			<input class="input" type="text" ng-model="pup.newPup.weight">
-		</div>
-		<div>
-			<label class="label">Enter pups allergies:</label>
-			<input class="input" type="text" ng-model="pup.newPup.allergies">
-		</div>
-		<div>
-			<label class="label">Enter pups birthdate:</label>
-			<input class="input" type="text" ng-model="pup.newPup.birthdate">
-		</div>
-		<div>
-			<label class="label">Enter pups medical conditions, if any:</label>
-			<input class="input" type="text" ng-model="pup.newPup.medConditions">
-		</div>
-		<div>
-			<label class="label">Enter pups chip information:</label>
-			<input class="input" type="text" ng-model="pup.newPup.chipInformation">
-		</div>
-		<div>
-			<label class="label">Enter pups medications:</label>
-			<input class="input" type="text" ng-model="pup.newPup.medications">
-		</div>
-	</form>
-	<br>
-		
-		<!-- <form>
-			<div>Pup's Medical Information</div>
-			<div>
-				<label class="label">Last rabies shot</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.rabies">
-			</div>
-			<div>
-				<label class="label">Date: lepto shot</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.lepto">
-			</div>
-			<div>
-				<label class="label">Date: dhpp shot</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.dhpp">
-			</div>
-			<div>
-				<label class="label">Date: bordetella shot</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.bordetella">
-			</div>
-			<div>
-				<label class="label">Enter date for chip renewal</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.chipInfo">
-			</div>
-			<div>
-				<label class="label">Last heartworm shot</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.heartWorm">
-			</div>
-			<div>
-				<label class="label">Last flea prevention</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.fleaPrevention">
-			</div>
-			<div>
-				<label class="label">Last fecal check, change this lol</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.fecal">
-			</div>
-			<div>
-				<label class="label">Last blood/urine test</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.bloodUrine">
-			</div>
-			<div>
-				<label class="label">Enter date for next vet visit</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.nextVisit">
-			</div>
-			<div>
-				<label class="label">Last dental exam</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.dentalExam">
-			</div>
-			<div>
-				<label class="label">Last rattlesnake training</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.rattleSnakeTraining">
-			</div>
-			<div>
-				 Add the ability for the user to add notes here, for reminders -->
-				<!-- <label class="label">Medications: last dosage</label>
-				<input class="input" type="text" ng-model="pup.newPupMed.medications">
-			</div>
-
-		</form> -->
-
-		<div>
-			<button class="button success" ng-click="pup.addPup(pup.newPup)">Add Puppy!</button> 
-		</div>
+    <form>
+        <div>
+            <div style="margin-top:10px;">
+                <a href="{{pup.newPup.picture.url}}" class="thumbnail" ng-if="pup.newPup.picture">
+                    <img ng-src="{{pup.newPup.picture.url | fpConvert: {w:200} }}">
+                </a>
+            </div>
+            <button class="button" type="button" class="btn btn-default" ng-click="pup.upload()">Upload a Profile Picture for Your Pup<span class="caret"></span>
+            </button>
+        </div>
+        <div>
+            <label class="label">Enter pups name:</label>
+            <input class="input" type="text" ng-model="pup.newPup.name" required>
+        </div>
+        <div>
+            <label class="label">Enter pups age:</label>
+            <input class="input" type="number" ng-model="pup.newPup.age" required>
+        </div>
+        <div>
+            <label class="label">Enter pups color:</label>
+            <input class="input" type="text" ng-model="pup.newPup.color" required>
+        </div>
+        <div>
+            <label class="label">Enter pups size:</label>
+            <input class="input" type="text" ng-model="pup.newPup.size" required>
+        </div>
+        <div>
+            <label class="label">Enter pups weight:</label>
+            <input class="input" type="number" ng-model="pup.newPup.weight" required>
+        </div>
+        <div>
+            <label class="label">Enter pups allergies:</label>
+            <input class="input" type="text" ng-model="pup.newPup.allergies" required>
+        </div>
+        <div>
+            <label class="label">Enter pups birthdate:</label>
+            <input class="input" type="date" ng-model="pup.newPup.birthdate" required>
+        </div>
+        <div>
+            <label class="label">Enter pups medical conditions, if any:</label>
+            <input class="input" type="text" ng-model="pup.newPup.medConditions" required>
+        </div>
+        <div>
+            <label class="label">Enter pups chip information:</label>
+            <input class="input" type="number" ng-model="pup.newPup.chipInformation" required>
+        </div>
+        <div>
+            <label class="label">Enter pups medications:</label>
+            <input class="input" type="text" ng-model="pup.newPup.medications" required>
+        </div>
+    </form>
+    <br>
+    <div>
+        <button class="button success" ng-click="pup.addPup(pup.newPup)">Add Puppy!</button>
+    </div>
 </div>

@@ -2,11 +2,24 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker', 'mcwebb.twilio'])
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=PHvPmBT9VSd7vS6C')
         // .value('key', 'ThPMmx93M7QSk4Mq')
-        .config(appConfig);
+        
+        .config(function(filepickerProvider) {
+            filepickerProvider.setKey('AfHoDw3QbRvmz6BCmkmQqz');
+        })
+
+        .config(function(TwilioProvider) {
+            TwilioProvider.setCredentials({
+                accountSid: 'AC5b426d1b75984a95d899263753e1ea6f',
+                authToken: '6f2d5c4cb05804dcb66555d464dc7f99'
+            });
+         })
+
+
+    .config(appConfig);
 
     appConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
 
