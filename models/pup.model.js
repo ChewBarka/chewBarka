@@ -41,10 +41,30 @@ var pupSchema = new Schema({
 		type: 'number',
 		required: false
 	},
+	picture: {
+		type: Schema.Types.Mixed, 
+		required: true
+	},
+	morePictures: {
+		type: Schema.Types.Mixed, 
+		required: false
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now
+	},
 	owner: [{type : mongoose.Schema.ObjectId, ref : 'owners'}],
 	medicalRecord: [{type : mongoose.Schema.ObjectId , ref : 'medical'}],
 	fitness: [{type : mongoose.Schema.ObjectId , ref : 'fitness'}]
 });
+	pupSchema.pre('save', function(next){
+    now = new Date();
+    if (!this.createdAt) {
+        this.createdAt = now;
+    }
+    next();
+});
+
 
 
 module.exports = mongoose.model('pups', pupSchema);

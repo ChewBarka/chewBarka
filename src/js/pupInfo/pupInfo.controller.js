@@ -14,6 +14,7 @@
 
         vm.newMed = {};
         vm.newFitness = {};
+        vm.ownerId = "";
 
         vm.addMed = addMed;
         vm.addFit = addFit;
@@ -31,6 +32,10 @@
                 //Grab data and assign it to pup var. Doing it here -
                 // gives us the most current data.
                 vm.pup = data;
+                
+                // Get the owners ID so we can go back to overview page
+                vm.ownerId = vm.pup.owner[0]._id;
+                console.log(vm.ownerId);
 			}
 		);
 	}        

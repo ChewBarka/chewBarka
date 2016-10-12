@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en" ng-app="app" ui-router-styles>
 <head>
 	<meta charset="UTF-8">
@@ -18,8 +18,6 @@
 <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
 <!--endbower-->
 <!--inject:css-->
-<link rel="stylesheet" href="js/addPup/addPup.css">
-<link rel="stylesheet" href="js/about/about.css">
 <link rel="stylesheet" href="js/addPup/addPup.css">
 <link rel="stylesheet" href="js/equipment/equipment.css">
 <link rel="stylesheet" href="js/events/events.css">
@@ -41,9 +39,8 @@
 		  <a href="#" ng-click="nav.passId()" ui-sref="events({_id: nav.ownerId})">Events</a>
 		  <a href="#" ng-click="nav.passId()" ui-sref="parks({_id: nav.ownerId})">Parks</a>
 		  <a href="#" ng-click="nav.passId()" ui-sref="photo({_id: nav.ownerId})">Photos</a>
-		  <a href="#" ng-click="nav.passId()" ui-sref="equipment({_id: nav.ownerId})">Equipment</a>
+		  <!-- <a href="#" ng-click="nav.passId()" ui-sref="equipment({_id: nav.ownerId})">Equipment</a> -->
 		  <a href="#" ng-click="nav.passId()" ui-sref="extra.links({_id: nav.ownerId})">Extra</a>
-		  <a href="#" ng-click="nav.passId()" ui-sref="about({_id: nav.ownerId})">About Us</a>
 	  </div>
 	</div>  
   
@@ -79,6 +76,9 @@
 <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/angular-ui-router-styles/ui-router-styles.js"></script>
+<script src="bower_components/filepicker-js/filepicker.min.js"></script>
+<script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
+<script src="bower_components/angular-twilio/angular-twilio.js"></script>
 <!--endbower-->
 
 <!--inject:js-->
@@ -86,8 +86,6 @@
 <script src="js/app.module.js"></script>
 
 <script src="js/addPup/addPup.controller.js"></script>
-
-<script src="js/about/about.controller.js"></script>
 
 <script src="js/core/crud.factory.js"></script>
 
@@ -115,21 +113,21 @@
 
 <script src="js/equipment/equipment.controller.js"></script>
 
+<script src="js/events/events.controller.js"></script>
+
 <script src="js/extra/grooming.controller.js"></script>
 
 <script src="js/extra/links.controller.js"></script>
 
 <script src="js/extra/shelter.controller.js"></script>
 
-<script src="js/events/events.controller.js"></script>
-
 <script src="js/login/login.controller.js"></script>
 
 <script src="js/medical/medical.controller.js"></script>
 
-<script src="js/navBar/navbar.controller.js"></script>
-
 <script src="js/nav/nav.controller.js"></script>
+
+<script src="js/navBar/navbar.controller.js"></script>
 
 <script src="js/overview/overview.controller.js"></script>
 

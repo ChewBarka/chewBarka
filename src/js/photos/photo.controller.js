@@ -5,28 +5,81 @@
         .module('app')
         .controller('photoController', photoController);
 
-    photoController.$inject = ['photoFactory', 'apiUrl', '$stateParams'];
+    photoController.$inject = ['$state','photoFactory', 'apiUrl', '$stateParams', 'filepickerService','overviewFactory'];
 
     /* @ngInject */
-    function photoController(photoFactory, apiUrl, $stateParams) {
+    function photoController($state, photoFactory, apiUrl, $stateParams, filepickerService, overviewFactory) {
         var vm = this;
         vm.title = 'photoController';
 
         vm.addPhoto = addPhoto;
+        vm.upload = upload;
         
+        vm.photos = [];
         vm.newPhoto = {};
+        vm.owner = {};
 
         activate();
 
-        ////////////////
+        ////////////////////////////////////////////////
 
         function activate() {
+            vm.ownerId = $stateParams._id;
+            photoFactory.getAll().then(
+                function(data) {
+                    console.log(data);
+                    vm.photos = data;
+                }
+            );
+            overviewFactory.getById(vm.ownerId).then(
+                function(data) {
+                    console.log(data);
+                    vm.owner = data;
+                }
+            );
         }
 
+        ////////////////////////////////////////////////
+        function upload() {
+            filepickerService.pick({
+                    mimetype: 'image/*',
+                    language: 'en',
+                    services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+                    openTo: 'COMPUTER'
+                },
+                function(Blob) {
+                    console.log(JSON.stringify(Blob));
+                    vm.newPhoto.picture = Blob;
+                    console.log(vm.newPhoto);
+                }
+            );
+        }
+
+        ////////////////////////////////////////////////
         function addPhoto() {
-
-            console.log(vm.newPhoto);
+            photoFactory.add(vm.newPhoto).then(
+                function() {
+                    alert("Photo was added");
+                    $state.reload();
+                }
+            );
         }
+        ////////////////////////////////////////////////
+        function getPhotos() {
+            photoFactory.getAll().then(
+                function(data) {
+                    vm.photos = data;
+                }
+            );
+        }
+
+
+
+
+
+
+
+
 
     }
 })();

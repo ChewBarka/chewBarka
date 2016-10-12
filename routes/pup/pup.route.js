@@ -34,6 +34,9 @@ router.route('/')
     pup.birthdate = req.body.birthdate;
     pup.medConditions = req.body.medConditions;
     pup.chipInformation = req.body.chipInformation;
+    pup.picture = req.body.picture;
+    pup.morePictures = req.body.morePictures;
+    pup.createdAt = req.body.createdAt;
 
     pup.save(function(err, pup) {
         if (err) {
@@ -78,6 +81,9 @@ router.route('/:id')
             pup.birthdate = req.body.birthdate;
             pup.medConditions = req.body.medConditions;
             pup.chipInformation = req.body.chipInformation;
+            pup.picture = req.body.picture;
+            pup.morePictures = req.body.morePictures;
+            pup.createdAt = req.body.createdAt;
 
             pup.save(function(err, pup) {
                 if (err) {

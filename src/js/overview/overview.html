@@ -17,6 +17,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="pup in overview.owner.pups">
+                <td><img ng-src="{{pup.picture.url | fpConvert: {filter:'sharpen', w:300, h:150} }}" ></td>
                 <td>Puppy's Name: {{pup.name}}</td>
                 <td>Puppy's Birthday: {{pup.birthdate | date}}</td>
                 <td>Puppy's Chip Information: {{pup.chipInformation}}</td>
@@ -46,28 +47,6 @@
         </div>
     </div>
     <br>
-    <!-- <table>
-		<tbody>
-			<tr ng-repeat="task in overview.owner.todo">
-				<span ng-hide="editing" ng-click="editing = true">
-					<td>{{task.date | date}}</td>
-					<td>{{task.task}}</td>
-				</span>
-				<td>
-					<form ng-show="editing" ng-submit="editing = false">
-						<label>Name:</label>
-						<input type="text" ng-model="overview.newTodo.task" placeholder="Name" ng-required/>
-						<label>Date:</label>
-						<input type="date" ng-model="overview.newTodo.date" placeholder="Date" ng-required/>
-					</form>
-				</td>
-				
-				<td><button type="submit" class="button tiny" ng-click="overview.updateTodo(task, task._id)">Update</button></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table> -->
-    <!--editing-->
     <table>
         <tbody>
             <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
