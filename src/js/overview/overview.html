@@ -21,8 +21,16 @@
                 <td>Puppy's Name: {{pup.name}}</td>
                 <td>Puppy's Birthday: {{pup.birthdate | date}}</td>
                 <td>Puppy's Chip Information: {{pup.chipInformation}}</td>
+                    <td ng-click="editing = true">Puppy's Name: {{pup.name}}</td>
+                    <td ng-click="editing = true">Puppy's Birthday: {{pup.birthdate | date}}</td>
+                    <td ng-click="editing = true">Puppy's Chip Information: {{pup.chipInformation}}</td>
+                <td ng-show="editing">
+                    <button class="button alert tiny" ng-click="overview.deletePup(pup)">delete</button>
+                    <button class="button tiny" ng-click="editing = false">close</button>    
+                </td>
+
                 <td>
-                    <button class="button" ui-sref="pupInfo({_id: pup._id})">PUP'S INFO</button>
+                    <button class="button tiny" ui-sref="pupInfo({_id: pup._id})">PUP'S INFO</button>
                 </td>
             </tr>
             <tr>
@@ -46,20 +54,18 @@
             <button class="button medium warning" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)">Add new task</button>
         </div>
     </div>
-    <br>
     <table>
         <tbody>
             <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
                 <td ng-hide="editing" ng-click="editing = true">{{task.task}} | {{task.date | date}}</td>
                 <td ng-show="editing">
-                    <form ng-submit="editing = false">
-                        <div class="large-3 columns">
-                            <input type="text" ng-model="task.task" placeholder="{{task.task}}" ng-required/>
+                    <form ng-submit="editing = false">  
+                        <div class="large-5 columns">
+                            <input style="border: none; box-shadow: none;" type="text" ng-model="task.task" ng-required/>
                         </div>
-                        <div class="large-2 columns">
-                            <input type="text" ng-model="task.date" placeholder="{{task.date}}" ng-required/>
-                        </div>
-                        <br/>
+                        <div class="large-4 columns">
+                            <input style="border: none; box-shadow: none;" type="text" ng-model="task.date" ng-required/>
+                        </div>  
                         <td ng-show="editing">
                             <button class="button warning tiny" type="submit" ng-click="overview.updateTodo(task, task._id)">Save</button>
                             <button class="button tiny" ng-click="editing = false">close</button>
@@ -71,5 +77,4 @@
                     <button class="button tiny alert" ng-hide="editing" ng-click="overview.deleteTodo(task)">Delete</button>
                 </td>
             </tr>
-        </tbody>
-    </table>
+        </tbody> 

@@ -1,0 +1,10 @@
+ul li input {
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  box-shadow: none;
+}
+ul li {
+	list-style-type: none;
+}	

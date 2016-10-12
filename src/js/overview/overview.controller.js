@@ -18,6 +18,7 @@
         vm.addTodo = addTodo;
         vm.deleteTodo = deleteTodo;
         vm.updateTodo = updateTodo;
+        vm.deletePup = deletePup;
 
         vm.owner = {};
         vm.pups = [];
@@ -67,6 +68,14 @@
         function addPup() {
             $state.go('addPup', {"_id": vm.ownerId});
         }
+         function deletePup(pup) {
+            pupFactory.remove(pup._id).then(
+                function(data) {
+                    console.log('deleted' + data);
+                    getOwnerById();
+                }
+            );
+        }      
 
 //////////////////////////////////////////////////////////////
         function addTodo() {
@@ -81,7 +90,7 @@
                 }
             );
         }
-        function updateTodo(todo, id) {
+        function updateTodo() {
             todoFactory.update(todo, id).then(
                 function(data) {
                     console.log(data);
