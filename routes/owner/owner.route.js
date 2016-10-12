@@ -117,6 +117,9 @@ router.route('/:id/pet').post(function(req, res) {
     }
     pup.medConditions = req.body.medConditions;
     pup.chipInformation = req.body.chipInformation;
+    pup.picture = req.body.picture;
+    pup.morePictures = req.body.morePictures;
+    pup.createdAt = req.body.createdAt;
     pup.owner = req.params.id;
 
     pup.save(function(err, pup) {

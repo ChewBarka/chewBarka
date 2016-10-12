@@ -21,7 +21,6 @@
         function getEvents(city) {
             eventsFactory.getAll(city).then(
                 function(data) {
-                    console.log(data);
                     vm.events = data;
                 }
             );

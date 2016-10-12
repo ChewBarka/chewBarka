@@ -1,5 +1,17 @@
-<div class="container">
-	<form method='post'>
 
-	</form>
+<button class="button" type="button" class="btn btn-default" ng-click="photo.upload()">Upload Another Photos<span class="caret"></span>
+</button>
+
+<div>
+    <button class="button success" ng-click="photo.addPhoto(photo.newPhoto)">Add Photo</button>
 </div>
+<div ng-repeat = "photo in photo.owner.pups">
+	<a href="{{photo.picture}}">
+		<img ng-src="{{photo.picture.url | fpConvert: {w:200} }}" alt="">
+	</a>
+</div>
+<div ng-repeat="photo in photo.photos">
+    <img ng-src="{{photo.picture.url | fpConvert: {w:200} }}">
+</div>
+
+

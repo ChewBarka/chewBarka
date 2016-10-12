@@ -2,11 +2,17 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles','ngSanitize'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize'])
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
         // .value('key', 'ThPMmx93M7QSk4Mq')
-        .config(appConfig);
+        
+        .config(function(filepickerProvider) {
+            filepickerProvider.setKey('AfHoDw3QbRvmz6BCmkmQqz');
+        })
+
+
+    .config(appConfig);
 
     appConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
 
