@@ -1,2 +1,14 @@
+#main {
+     transition: margin-right .5s;
+     text-align: right;
+     display: none;  
+}
 
+#mySidenav {
+    display: none;
+    
+}
 
+#loginField {
+	padding-top: 170px;
+}`

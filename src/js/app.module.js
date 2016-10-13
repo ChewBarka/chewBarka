@@ -34,7 +34,7 @@
                 controller: 'overviewController as overview',
                 templateUrl: 'js/overview/overview.html',
                 data: {
-                    css: ['js/overview.overview.css', 'style/main.css']
+                    css: ['js/overview/overview.css', 'style/main.css']
                 }
             })
             /**************ADD-a-Pup****************************************/
