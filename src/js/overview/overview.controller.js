@@ -5,10 +5,10 @@
         .module('app')
         .controller('overviewController', overviewController);
 
-    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory', 'todoFactory'];
+    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory', 'todoFactory', 'loginFactory'];
 
     /* @ngInject */
-    function overviewController($state, $stateParams, overviewFactory, pupFactory, todoFactory) {
+    function overviewController($state, $stateParams, overviewFactory, pupFactory, todoFactory, loginFactory) {
         var vm = this;
         vm.title = 'overviewController';
 
@@ -29,7 +29,9 @@
 
         getOwnerById();
 
-
+        if(!loginFactory.isAuth) {
+            $state.go('login');
+        }
 //////////////////////////////////////////////////////////////
         function getOwnerById() {
                 vm.ownerId = $stateParams._id;

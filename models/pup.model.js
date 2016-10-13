@@ -43,7 +43,7 @@ var pupSchema = new Schema({
 	},
 	picture: {
 		type: Schema.Types.Mixed, 
-		required: true
+		required: false
 	},
 	morePictures: {
 		type: Schema.Types.Mixed, 

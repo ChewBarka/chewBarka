@@ -1,34 +1,110 @@
+<div style="float: center;">
 <div class="large-3 large-centered columns">
-  <div class="login-box">
+  <div class="signup-box">
     <div class="row">
       <div class="large-12 columns">
-        <form ng-submit="login.fakeLogin(login.loginInfo)">
+        <form ng-submit="login.registerUser(login.registerInfo)">
+        <!-- All inputs need a ng-model class!!! -->
+  <!--Sign Up -->
           <div class="row">
             <div class="large-12 columns">
-              <input type="text" name="username" placeholder="email" ng-model="login.loginInfo.email"/>
-            </div>
-            <div>
-              <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
-           <!--  <select ng-options="select as label for value in array"></select> -->
-              <option value="" disabled >Select Owner</option>
-            </select>
+              <input type="text" name="firstName" placeholder="FistName" ng-model="login.registerInfo.firstName">
             </div>
           </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="lastName" placeholder="LastName" ng-model="login.registerInfo.lastName">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="address" placeholder="Address" ng-model="login.registerInfo.address">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="address" placeholder="Zipcode" ng-model="login.registerInfo.zipCode">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="tel" name="telephone" placeholder="Phone" ng-model="login.registerInfo.telephone">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="email" name="email" placeholder="Email" ng-model="login.registerInfo.email">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="nsrRegistration" placeholder="NSR Registration" ng-model="login.registerInfo.nsrRegistration">
+              </div>
+            </div>
+
           <div class="row">
-            <div class="large-3 columns">
-              <input type="password" name="password" placeholder="Password" ng-model="login.loginInfo.password" />
+            <div class="large-12 columns">
+              <input type="password" name="password" placeholder="Password" ng-model="login.registerInfo.password">
             </div>
           </div>
+
           <div class="row">
-            <div class="large-3 large-centered columns">
-              <input type="submit" class="button expand" value="Log In" ng-click="login.fakeLogin()"/>
+            <div class="large-12 columns">
+              <input type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="login.registerInfo.confirmPassword">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="large-centered columns">
+              <button type="submit" class="button">Sign Up!<button>
             </div>
             
           </div>
+
         </form>
       </div>
     </div>
   </div>
+</div>
+</div>
+<!-- Login -->
+<div style="float: center;">
+<div class="large-3 large-centered columns">
+  <div class="login-box">
+    <div class="row">
+      <div class="large-12 columns">
+        <form ng-submit="login.authUser(login)">
+        <!-- All inputs need a ng-model class!!! -->
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="email" name="email" placeholder="Email" ng-model="login.email">
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="large-12 columns">
+              <input type="password" name="password" placeholder="Password" ng-model="login.password">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="large-3 large-centered columns">
+              <button type="submit" class="button">Login<button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- <div id="loginBackground">
@@ -54,4 +130,4 @@
             </form>
         </div>
     </div>
- -->
+ --> 
