@@ -6,11 +6,10 @@
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
         // .value('key', 'ThPMmx93M7QSk4Mq')
-        
-        .config(function(filepickerProvider) {
-            filepickerProvider.setKey('AfHoDw3QbRvmz6BCmkmQqz');
-        })
 
+    .config(function(filepickerProvider) {
+        filepickerProvider.setKey('AfHoDw3QbRvmz6BCmkmQqz');
+    })
 
     .config(appConfig);
 
@@ -26,7 +25,7 @@
                 controller: 'loginController as login',
                 templateUrl: 'js/login/login.html',
                 data: {
-                    css: 'js/login/login.css'
+                    css: ['js/login/login.css', 'style/main.css']
                 }
             })
             /**************OVERVIEW****************************************/
@@ -35,7 +34,7 @@
                 controller: 'overviewController as overview',
                 templateUrl: 'js/overview/overview.html',
                 data: {
-                    css: ['style/main.css', 'style/main.css']
+                    css: ['js/overview/overview.css', 'style/main.css']
                 }
             })
             /**************ADD-a-Pup****************************************/

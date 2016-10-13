@@ -31,6 +31,23 @@ var loginRoute = require('./routes/owner/login.route');
 //var ownerTodoRoute = require('./routes/owner/ownerTodo.route');
 //var pupHealthRoute = require('./routes/pup/pupHealth.route');
 //var familyRoute = require('./routes/owner/family.route');
+//require the Twilio module and create a REST client
+
+var accountSid = 'AC5b426d1b75984a95d899263753e1ea6f'; // Your Account SID from www.twilio.com/console
+var authToken = '6f2d5c4cb05804dcb66555d464dc7f99';   // Your Auth Token from www.twilio.com/console
+
+var twilio = require('twilio');
+var client = new twilio.RestClient(accountSid, authToken);
+
+// client.messages.create({
+//     body: 'Hello from Node',
+//     to: '+19146469449',  // Text this number
+//     from: '+19143716113 ' // From a valid Twilio number
+// }, function(err, message) {
+//     if(err) {
+//     	console.log(err.message);
+//     }
+// });
 
 
 var app = express();
