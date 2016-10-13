@@ -22,14 +22,4 @@ function closeNav() {
 	  } 
 	});
 
-// 		$(".click").click(function() {
-// 			$("mySidenav").style.width = "250";
-// 			$("#main").style.width = "250";
-// 			$.body.style.backgroundColor = rgba(0,0,0,0.4);
-// 		});
-// 		function closeNav() {
-// 		    $(".mySidenav").style.width = "0";
-// 		    $("#main").style.marginRight = "0";
-// 		    $.body.style.backgroundColor = "white";
-// 	}
-// });
+// click on the ".open" link (the right arrow in the nav)
