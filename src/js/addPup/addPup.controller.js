@@ -44,21 +44,6 @@
                 }
             );
         }
-        //////////////////////////////////////////////////////////
-        // function uploadMultiple() {
-        //     filepickerService.pickMultiple({
-        //             mimetype: 'image/*',
-        //             language: 'en',
-        //             maxFiles: 5, //pickMultiple has one more option
-        //             services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
-        //             openTo: 'IMAGE_SEARCH'
-        //         },
-        //         function(Blob) {
-        //             console.log(JSON.stringify(Blob));
-        //             vm.newPup.morePictures = Blob;
-        //         }
-        //     );
-        // }
     }
 })();
 

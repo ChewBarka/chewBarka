@@ -58,6 +58,7 @@
         medicalFactory.update(vm.pup.medicalRecord[0], vm.pup.medicalRecord[0]._id).then(
             function(data) {
                 console.log(data);
+                $state.reload();
             }
         );
     }
@@ -78,6 +79,7 @@
             pupFactory.update(pup, id).then(
                 function(data) {
                     console.log(data);
+
                 }
             );
         }
