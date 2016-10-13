@@ -1,57 +1,112 @@
-<div class="large-3 large-centered columns">
-  <div class="login-box">
-    <div class="row">
-      <div class="large-12 columns">
-        <form ng-submit="login.fakeLogin(login.loginInfo)">
-          <div class="row">
+<!-- <div class="large-3 large-centered columns">
+    <div class="login-box">
+        <div class="row">
             <div class="large-12 columns">
-              <input type="text" name="username" placeholder="email" ng-model="login.loginInfo.email"/>
+                <form>
+                    <div data-abide-error class="alert callout" style="display: none;">
+                        <p><i class="fi-alert"></i> There are some errors in your form.</p>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <input type="text" name="username" placeholder="Email Address" required pattern="email" ng-model="login.loginInfo.email" aria-describedby="exampleHelpTex" data-abide-ignore/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <input type="password" name="password" id="password" placeholder="Password" ng-model="login.loginInfo.password" aria-describedby="exampleHelpText" required/>
+                            <span class="form-error">Yo, you had better fill this out, it's required.</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 large-centered columns">
+                            <input type="submit" class="button expand" value="Log In" ng-click="login.fakeLogin()" />
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
+                        <select ng-options="select as label for value in array"></select>
+                        <option value="" disabled>Select Owner</option>
+                    </select>
+                </div>
             </div>
-            <div>
-              <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
-           <!--  <select ng-options="select as label for value in array"></select> -->
-              <option value="" disabled >Select Owner</option>
-            </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-3 columns">
-              <input type="password" name="password" placeholder="Password" ng-model="login.loginInfo.password" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-3 large-centered columns">
-              <input type="submit" class="button expand" value="Log In" ng-click="login.fakeLogin()"/>
-            </div>
-            
-          </div>
-        </form>
-      </div>
+        </div>
+    </div>
+</div>
+ -->
+
+<div id="loginField" class="column is-mobile">
+<div class="column is-half is-offset-one-quarter">
+<label class="label">Enter Your Email</label>
+<p class="control has-icon">
+    <input class="input is-medium" type="email" placeholder="Email" ng-model="login.loginInfo.email">
+    <i class="fa fa-envelope"></i>
+</p>
+<label class="label">Enter Your Password</label>
+<p class="control has-icon">
+    <input class="input is-medium" type="password" placeholder="Password" ng-model="login.loginInfo.password">
+    <i class="fa fa-lock"></i>
+</p>
+<p class="control">
+    <label class="checkbox">
+        <input type="checkbox"> Remember me
+    </label>
+</p>
+<p class="control">
+    <button class="button is-success" ng-click="login.fakeLogin()">Log In</button>
+</p>
+  <div class="label">
+    <label class="label">Select an Owner</label>
+  </div>
+  <div class="control">
+    <div class="select is-succes is-fullwidth">
+      <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
+        <option value="" disabled>Owners</option>
+      </select>
     </div>
   </div>
 </div>
+</div>
 
-<!-- <div id="loginBackground">
-    <div class="columns">
-        <div class="container column is-one-third loginBox">
-            <div class="content is-medium">
-                <h1>Login</h1>
-            </div>
-            <form ng-submit="login.loginAdmin(login.loginInfo)">
-                <p class="control has-icon">
-                    <input class="input is-large" type="email" placeholder="Email" ng-model="login.loginInfo.email">
-                    <i class="fa fa-envelope"></i>
-                </p>
-                <p class="control has-icon">
-                    <input class="input is-large" type="password" placeholder="Password" ng-model="login.loginInfo.password">
-                    <i class="fa fa-lock"></i>
-                </p>
-                <p class="control">
-                    <button class="button is-medium login-button" ng-click="login.loginAdmin();">
-                        Login <i class="icons fa fa-check login-button-icon"></i>
-                    </button>
-                </p>
-            </form>
-        </div>
-    </div>
- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

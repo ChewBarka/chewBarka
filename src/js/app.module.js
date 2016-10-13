@@ -2,22 +2,14 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker', 'mcwebb.twilio'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker'])
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=PHvPmBT9VSd7vS6C')
         // .value('key', 'ThPMmx93M7QSk4Mq')
-        
-        .config(function(filepickerProvider) {
-            filepickerProvider.setKey('AfHoDw3QbRvmz6BCmkmQqz');
-        })
 
-        .config(function(TwilioProvider) {
-            TwilioProvider.setCredentials({
-                accountSid: 'AC5b426d1b75984a95d899263753e1ea6f',
-                authToken: '6f2d5c4cb05804dcb66555d464dc7f99'
-            });
-         })
-
+    .config(function(filepickerProvider) {
+        filepickerProvider.setKey('AfHoDw3QbRvmz6BCmkmQqz');
+    })
 
     .config(appConfig);
 
@@ -33,7 +25,7 @@
                 controller: 'loginController as login',
                 templateUrl: 'js/login/login.html',
                 data: {
-                    css: 'js/login/login.css'
+                    css: ['js/login/login.css', 'style/main.css']
                 }
             })
             /**************OVERVIEW****************************************/
@@ -42,7 +34,7 @@
                 controller: 'overviewController as overview',
                 templateUrl: 'js/overview/overview.html',
                 data: {
-                    css: ['style/main.css', 'style/main.css']
+                    css: ['js/overview/overview.css', 'style/main.css']
                 }
             })
             /**************ADD-a-Pup****************************************/
@@ -107,15 +99,6 @@
                 templateUrl: 'js/equipment/equipment.html',
                 data: {
                     css: ['js/equipment/equipment.css', 'style/main.css']
-                }
-            })
-            /*****************About Us******************************************************************/
-            .state('about', {
-                url: '/about?_id',
-                controller: 'aboutController as about',
-                templateUrl: 'js/about/about.html',
-                data: {
-                    css: ['js/about/about.css', 'style/main.css']
                 }
             })
             /******************Account*************************************************************/

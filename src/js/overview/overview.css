@@ -1,0 +1,27 @@
+.pupPhoto {
+	width: 100px;
+    height: auto;
+}
+
+.pupPhoto img {
+	width: 100%;
+    height: auto;
+}
+
+.pupName {
+	font-family: 'Lobster', cursive;
+	font-size: 20px;
+}
+
+.pupData {
+font-family: 'Gabriela', serif;
+}
+
+.bodyFont {
+font-family: 'Gabriela', serif;
+
+}
+/*
+font-family: 'Lobster', cursive;
+font-family: 'Gabriela', serif;
+*/
