@@ -1,39 +1,109 @@
-<!-- <div class="large-3 large-centered columns">
-    <div class="login-box">
-        <div class="row">
+<div style="float: center;">
+<div class="large-3 large-centered columns">
+  <div class="signup-box">
+    <div class="row">
+      <div class="large-12 columns">
+        <form ng-submit="login.registerUser(login.registerInfo)">
+        <!-- All inputs need a ng-model class!!! -->
+  <!--Sign Up -->
+          <div class="row">
             <div class="large-12 columns">
-                <form>
-                    <div data-abide-error class="alert callout" style="display: none;">
-                        <p><i class="fi-alert"></i> There are some errors in your form.</p>
-                    </div>
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <input type="text" name="username" placeholder="Email Address" required pattern="email" ng-model="login.loginInfo.email" aria-describedby="exampleHelpTex" data-abide-ignore/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <input type="password" name="password" id="password" placeholder="Password" ng-model="login.loginInfo.password" aria-describedby="exampleHelpText" required/>
-                            <span class="form-error">Yo, you had better fill this out, it's required.</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-12 large-centered columns">
-                            <input type="submit" class="button expand" value="Log In" ng-click="login.fakeLogin()" />
-                        </div>
-                    </div>
-                </form>
-                <div>
-                    <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
-                        <select ng-options="select as label for value in array"></select>
-                        <option value="" disabled>Select Owner</option>
-                    </select>
-                </div>
+              <input type="text" name="firstName" placeholder="FistName" ng-model="login.registerInfo.firstName">
             </div>
-        </div>
+          </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="lastName" placeholder="LastName" ng-model="login.registerInfo.lastName">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="address" placeholder="Address" ng-model="login.registerInfo.address">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="address" placeholder="Zipcode" ng-model="login.registerInfo.zipCode">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="tel" name="telephone" placeholder="Phone" ng-model="login.registerInfo.telephone">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="email" name="email" placeholder="Email" ng-model="login.registerInfo.email">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="text" name="nsrRegistration" placeholder="NSR Registration" ng-model="login.registerInfo.nsrRegistration">
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="large-12 columns">
+              <input type="password" name="password" placeholder="Password" ng-model="login.registerInfo.password">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="large-12 columns">
+              <input type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="login.registerInfo.confirmPassword">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="large-centered columns">
+              <button type="submit" class="button">Sign Up!<button>
+            </div>
+            
+          </div>
+
+        </form>
+      </div>
     </div>
+  </div>
 </div>
- -->
+</div>
+<!-- Login -->
+<div style="float: center;">
+<div class="large-3 large-centered columns">
+  <div class="login-box">
+    <div class="row">
+      <div class="large-12 columns">
+        <form ng-submit="login.authUser(login.loginInfo)">
+        <!-- All inputs need a ng-model class!!! -->
+
+            <div class="row">
+              <div class="large-12 columns">
+                <input type="email" name="email" placeholder="Email" ng-model="login.loginInfo.email">
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="large-12 columns">
+              <input type="password" name="password" placeholder="Password" ng-model="login.loginInfo.password">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="large-3 large-centered columns">
+              <button type="submit" class="button">Login<button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+<!-- >>>>>>> ceedb4c62f17723dc2294219174d7b84ffa0df31
 
 <div id="loginField" class="column is-mobile">
 <div class="column is-half is-offset-one-quarter">
@@ -64,49 +134,12 @@
         <option value="" disabled>Owners</option>
       </select>
     </div>
+<<<<<<< HEAD
+ --> 
+=======
   </div>
 </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+>>>>>>> ceedb4c62f17723dc2294219174d7b84ffa0df31
+ -->
