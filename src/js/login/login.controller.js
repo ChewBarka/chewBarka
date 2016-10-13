@@ -13,7 +13,7 @@
         vm.title = 'loginController';
 
         vm.registerInfo = {};
-
+        vm.loginInfo = {};
         /* COMMENT THIS OUT FOR NON-DEVELOPMENT */
         // vm.registerInfo.firstName = 'Cole';
         // vm.registerInfo.lastName = 'Logan';
@@ -30,9 +30,8 @@
        
         ////////////////
 
-        function authUser(email, password) {
-            console.log(email, password);
-            loginFactory.login(email, password).then(
+        function authUser() {
+            loginFactory.login(vm.loginInfo.email, vm.loginInfo.password).then(
                 function(ownerId) {
                     $state.go('overview', { _id: ownerId});
                 }

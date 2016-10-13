@@ -79,18 +79,18 @@
   <div class="login-box">
     <div class="row">
       <div class="large-12 columns">
-        <form ng-submit="login.authUser(login)">
+        <form ng-submit="login.authUser(login.loginInfo)">
         <!-- All inputs need a ng-model class!!! -->
 
             <div class="row">
               <div class="large-12 columns">
-                <input type="email" name="email" placeholder="Email" ng-model="login.email">
+                <input type="email" name="email" placeholder="Email" ng-model="login.loginInfo.email">
               </div>
             </div>
 
           <div class="row">
             <div class="large-12 columns">
-              <input type="password" name="password" placeholder="Password" ng-model="login.password">
+              <input type="password" name="password" placeholder="Password" ng-model="login.loginInfo.password">
             </div>
           </div>
 

@@ -15,6 +15,7 @@ router.route('/')
     //POST /login
     .post(function(req, res, next) {
         console.log('reached route');
+        console.log(JSON.stringify(req.body, null, 2));
         if (req.body.email && req.body.password) {
             console.log('there is a email and password');
             Owner.authenticate(req.body.email, req.body.password, function(error, owner) {
@@ -22,7 +23,7 @@ router.route('/')
                     console.log('uh oh, error');
                     var err = new Error('Wrong Email or Password');
                     err.status = 401;
-                    return res.send(500).json(err);
+                    return next(err, req, res);
                 } else {
                     console.log('hurray');
                     req.session.ownerId = owner._id;
@@ -32,7 +33,7 @@ router.route('/')
         } else {
             var err = new Error('Email and Password are required.');
             err.status = 401;
-            return res.send(500).json(err);
+            return next(err, req, res);
         }
     })
 
