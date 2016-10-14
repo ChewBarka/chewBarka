@@ -1,6 +1,7 @@
 body {
     font-family: "Lato", sans-serif;
     transition: background-color .5s;
+    background-color: white;
 }
 .sidenav {
     height: 100%;
@@ -43,6 +44,12 @@ body {
     text-align: right;
     display: block;
 }
+#push {
+    transition: margin-right .5s;
+    padding: 16px;
+    text-align: left;
+    display: block;
+}
 .fixedElement {
     position:fixed;
     top:0;
@@ -57,19 +64,6 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-.purple {
-    background-color: #5d4275;
-}
-.black {
-    background-color: #3a373d;
-}
-.green {
-    background-color: #50b235;
-}
-.yellow {
-    background-color: #bfc431;
-}
-
 
 .navTitle {
 font-family: 'Lobster', cursive;

@@ -23,6 +23,8 @@
         // vm.registerInfo.email = 'colelogan19@yahoo.com',
         // vm.registerInfo.password = 'password123';
         // vm.registerInfo.confirmPassword = 'password123';
+        vm.loginInfo.email = 'marky@mail.com';
+        vm.loginInfo.password = 'butts';
 
         vm.authUser = authUser;
         vm.registerUser = registerUser;

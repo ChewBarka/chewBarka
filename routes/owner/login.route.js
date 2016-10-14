@@ -20,7 +20,7 @@ router.route('/')
             console.log('there is a email and password');
             Owner.authenticate(req.body.email, req.body.password, function(error, owner) {
                 if (error || !owner) {
-                    console.log('uh oh, error');
+                    console.log('uh oh, error', owner);
                     var err = new Error('Wrong Email or Password');
                     err.status = 401;
                     return next(err, req, res);

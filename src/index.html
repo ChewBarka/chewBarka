@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app" ui-router-styles>
+
 <head>
     <meta charset="UTF-8">
     <title>Chew-Barka</title>
     <!--CSSPackages-->
-    <!-- <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" /> -->
-    <!-- <link rel="stylesheet" href="bower_components/toastr/toastr.css" /> -->
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <!--endcss-->
     <!--CustomCSS-->
     <!--endcustom-->
@@ -25,22 +26,11 @@
     <link rel="stylesheet" href="js/pupInfo/pupInfo.css">
     <!--endinject-->
     <link rel="stylesheet" href="style/main.css">
-<link href="https://fonts.googleapis.com/css?family=Gabriela|Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gabriela|Lobster">
 </head>
-<body>
 
-<nav class="nav">
-  <div class="nav-left">
-    <a class="navTitle nav-item is-brand" href="#">
-    chewBarka
-    </a>
-  </div>
-    </a>
-  </div>
-  </div>
-</nav>
-
-    <div ng-controller="navController as nav">
+<body onclick="screen()">
+    <div ng-controller="navController">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#" ng-click="nav.passId()" ui-sref="overview({_id: nav.ownerId})">Home</a>
@@ -50,30 +40,26 @@
             <a href="#" ng-click="nav.passId()" ui-sref="extra.links({_id: nav.ownerId})">Extra</a>
         </div>
     </div>
-    <div id="main">
-        <span class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    </div>
-    
-    <!--LazyLoad-->
-
-<div ui-view></div>
-
-    
-    <!--endlazyload-->
-    
-
-
-    <div align="center">
+    <div id="push">
+        <nav class="nav">
+            <div class="nav-left">
+                <a class="navTitle nav-item is-brand" href="#">chewBarka</a>
+            </div>
+        </nav>
+        <div id="main">
+            <span class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        </div>
+        <!--LazyLoad-->
+        <div ui-view></div>
+        <!--endlazyload-->
         <footer class="footer">
-            <div class="content">
+            <div class="content" align="center">
                 <p>
                     <strong>ChewBarka Creators:</strong> Cole Logan and Herberto Basulto
                 </p>
             </div>
         </footer>
     </div>
-
-
     <!--bower:js-->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -82,12 +68,12 @@
     <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/angular-ui-router-styles/ui-router-styles.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/filepicker-js/filepicker.min.js"></script>
     <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
     <!--endbower-->
     <!--inject:js-->
     <script src="js/app.module.js"></script>
-    <script src="js/addPup/addPup.controller.js"></script>
     <script src="js/core/crud.factory.js"></script>
     <script src="js/core/equipment.factory.js"></script>
     <script src="js/core/event.factory.js"></script>
@@ -99,7 +85,9 @@
     <script src="js/core/overview.factory.js"></script>
     <script src="js/core/photo.factory.js"></script>
     <script src="js/core/pup.factory.js"></script>
+    <script src="js/core/register.factory.js"></script>
     <script src="js/core/todo.factory.js"></script>
+    <script src="js/addPup/addPup.controller.js"></script>
     <script src="js/equipment/equipment.controller.js"></script>
     <script src="js/events/events.controller.js"></script>
     <script src="js/extra/grooming.controller.js"></script>
@@ -112,9 +100,10 @@
     <script src="js/parks/parks.controller.js"></script>
     <script src="js/photos/photo.controller.js"></script>
     <script src="js/pupInfo/pupInfo.controller.js"></script>
+    <script src="js/values/values.js"></script>
     <!--endinject-->
     <script src="style/main.js"></script>
-    <<script src="http://use.fontawesome.com/29fd29a782.js"></script>
+    <script src="http://use.fontawesome.com/29fd29a782.js"></script>
     <!--endanglarjs-->
 </body>
 
