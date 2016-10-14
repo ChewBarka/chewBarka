@@ -25,7 +25,7 @@
                 controller: 'loginController as login',
                 templateUrl: 'js/login/login.html',
                 data: {
-                    css: ['js/login/login.css', 'style/main.css']
+                    css: ['js/login/login.css']
                 }
             })
             /**************OVERVIEW****************************************/

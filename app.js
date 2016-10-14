@@ -36,8 +36,8 @@ var loginRoute = require('./routes/owner/login.route');
 var accountSid = 'AC5b426d1b75984a95d899263753e1ea6f'; // Your Account SID from www.twilio.com/console
 var authToken = '6f2d5c4cb05804dcb66555d464dc7f99';   // Your Auth Token from www.twilio.com/console
 
-var twilio = require('twilio');
-var client = new twilio.RestClient(accountSid, authToken);
+// var twilio = require('twilio');
+// var client = new twilio.RestClient(accountSid, authToken);
 
 // client.messages.create({
 //     body: 'Hello from Node',

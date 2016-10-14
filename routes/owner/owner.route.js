@@ -8,21 +8,6 @@ var mid = require('../../middleware/index');
 
 
 ///////////////////////////////////////////////////////////////////////
-
-/////////////Eddie's code////////////////////////////////////////////////////////////////////
-//GET: api/owners
-// .get(function(req, res){
-//Get all owners
-// 	Owner.find(function(err, owners) {
-// 		if(err) {
-// 			return res.send(500, err);
-// 		}
-// 		res.json(owners);
-// 	});
-// })
-////////////////End of Eddie's code///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-////////////////////OVERVIEW STATE'S///////////////////////////////////////////////////////////////////
 router.route('/overview')
     .get(mid.requiresLogin, function(req, res, next) {
         if (!req.session.ownerId) {
@@ -39,28 +24,8 @@ router.route('/overview')
                 }
             });
     });
-//////////Eddie's code/////////////////////////////////////////////////////////////////////////
-//POST: api/owners
-// .post(function(req, res){
-//Add owner
-// 	var owner = new Owner(); 
-// 	owner.firstName = req.body.firstName;
-// 	owner.lastName = req.body.lastName;
-// 	owner.address = req.body.address;
-// 	owner.telephone = req.body.telephone;
-// 	owner.email = req.body.email;
-// 	owner.nsrRegistration = req.body.nsrRegistration;
-// 	owner.password = req.body.password;
-// 	owner.save(function(err, owner){
-// 		if(err) {
-// 			return res.send(500,err);
-// 		}
-// 		return res.json(owner);
-// 	});
-// });
-///////////End of Eddie's code/////////////////////////////////////////////////////////////////////////////////////
+
 router.route('/:id')
-    ///////////////////////////////////////////////////////////////////////
 
 //GET: api/owner/1 * And populate the pups and todo fields *
 .get(function(req, res) {

@@ -2,12 +2,6 @@
 	width: 100px;
     height: auto;
 }
-
-.pupPhoto img {
-	width: 100%;
-    height: auto;
-}
-
 .pupName {
 	font-family: 'Lobster', cursive;
 	font-size: 20px;
