@@ -14,17 +14,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
+                            <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
                                 <td>{{task.task}}</td>
                                 <td>{{task.date | date}}</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" ng-model="overview.newTodo.task">
+                                    <input class="input" type="text" ng-model="overview.newTodo.task">
                                 </td>
                                 <td>
-                                    <input type="date" ng-model="overview.newTodo.date">
+                                    <input class="input" type="date" ng-model="overview.newTodo.date">
                                 </td>
+                            </tr>
+                            <tr>
                                 <td>
                                     <button ng-click="overview.addTodo(overview.newTodo, overview.ownerId)">Add new task</button>
                                 </td>
@@ -50,37 +52,40 @@
             </article>
         </div>
     </div>
-
-
     <!-- Here we will display pups -->
     <div>
         <button class="button success" ng-click="overview.addPup()"><strong>Add a Pup</strong></button>
     </div>
-    <div class="tile is-ancestor" ng-repeat="pup in overview.owner.pups">
-        <div class="tile is-parent is-6">
-            <article class="tile is-child is-vertical notification is-primary">
-                <table>
-                    <thead>
-                        <th class='pupName'>{{pup.name}}</th>
-                        <th class='pupData'>Puppy's Birthday:</th>
-                        <th class='pupData'>Puppy's Chip Information:</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <figure class="pupPhoto">
-                                    <img width="300" height="100" ng-src="{{pup.picture.url}}">
-                                </figure>
-                            </td>
-                            <td class='pupData'>{{pup.birthdate | date}}</td>
-                            <td class='pupData'>{{pup.chipInformation}}</td>          
-                            <td>
-                                <button class="button tiny" ui-sref="pupInfo({_id: pup._id})">PUP'S INFO</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
+    <div class="pupData columns" ng-repeat="pup in overview.owner.pups">
+        <div class="column">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img ng-src="{{pup.picture.url}}" alt="">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image">
+                                <i class="fa fa-paw fa-3x" aria-hidden="true"></i>
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-8 pupName">{{pup.name}}</p>
+                            <p class="subtitle is-5">{{pup.birthdate | date}}</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <ul>
+                            <li>Chip Information: {{pup.chipInformation}}</li>
+                            <li>Allergies: {{pup.allergies}}</li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                <button class="button tiny" ui-sref="pupInfo({_id: pup._id})">PUP'S INFO</button>
+            </div>
         </div>
     </div>
 </div>
