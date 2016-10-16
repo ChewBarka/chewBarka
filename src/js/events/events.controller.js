@@ -22,6 +22,7 @@
             eventsFactory.getAll(city).then(
                 function(data) {
                     vm.events = data;
+                    city = {};
                 }
             );
         }

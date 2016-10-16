@@ -1,6 +1,5 @@
 
 <div class="container">
-    <!-- Here the user will see their todo list and some important information -->
     <div class=" bodyFont tile is-ancestor">
         <div class="tile is-parent">
             <article class="tile is-child box">
@@ -15,7 +14,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
+                            <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
                                 <td>{{task.task}}</td>
                                 <td>{{task.date | date}}</td>
                             </tr>
@@ -52,7 +51,7 @@
     </div>
 
 
-    <!-- Here we will display pups -->
+    
     <div>
         <button class="button success" ng-click="overview.addPup()"><strong>Add a Pup</strong></button>
     </div>
@@ -84,7 +83,10 @@
         </div>
     </div>
 </div>
-<!-- <table>
+
+<!-- my code -->
+
+<table>
     <thead>
         <th>PUP Information</th>
     </thead>
@@ -111,10 +113,18 @@
             </td>
         </tr>
     </tbody>
-</table> -->
+</table>
+
+<div class="container">
+    <div class=" bodyFont tile is-ancestor">
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+            <p class="title">Here are your pup needs list</p>
+            <p class="subtitle">Add a new task and the date its due</p>
 <!--Add a todo-->
-<!-- <div class="form-control">
-    <div class="row">
+<div class="content">
+    <div class="table">
+
         <div class="large-4 columns">
             <label class='label black'>Enter New Task</label>
             <input type="text" ng-model="overview.newTodo.task">
@@ -126,7 +136,13 @@
         <button class="button medium warning" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)">Add new task</button>
     </div>
 </div>
-<table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Enter New Task</th>
+            <th>When is it Due</th>
+        </tr>
+    </thead>
     <tbody>
         <tr ng-repeat="task in overview.owner.todo | orderBy: Date">
             <td ng-hide="editing" ng-click="editing = true">{{task.task}} | {{task.date | date}}</td>
@@ -151,4 +167,7 @@
         </tr>
     </tbody>
 </table>
-</div> -->
+</div>
+</article>
+</div>
+</div>

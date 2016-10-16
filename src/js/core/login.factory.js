@@ -22,6 +22,7 @@
             }).then(
                 function(response) {
                     service.isAuth = true;
+                    console.log(response);
                     defer.resolve(response.data);
                 },
                 function(error) {
