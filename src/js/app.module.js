@@ -2,9 +2,9 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize'])
         .value('apiUrl', 'http://localhost:3000')
-        .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=PHvPmBT9VSd7vS6C')
+        .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
         // .value('key', 'ThPMmx93M7QSk4Mq')
 
     .config(function(filepickerProvider) {
@@ -25,7 +25,7 @@
                 controller: 'loginController as login',
                 templateUrl: 'js/login/login.html',
                 data: {
-                    css: ['js/login/login.css', 'style/main.css']
+                    css: ['js/login/login.css']
                 }
             })
             /**************OVERVIEW****************************************/

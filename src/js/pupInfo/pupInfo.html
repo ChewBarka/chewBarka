@@ -1,4 +1,209 @@
-<div>
+<!-- <div class="container">
+    <div class="columns is-mobile">
+        <div class="column is-4 is-offset-6">
+            <article class="message">
+                <div class="message-header">
+                    <strong>{{pupInfo.pup.name}}</strong> <strong>{{pupInfo.pup.age}}</strong>
+                </div>
+                <div class="message-body ">
+                    <div class="">
+                        <figure class="image is-128x128">
+                            <img ng-src="{{pupInfo.pup.picture.url}}" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="">
+                        Allergies: {{pupInfo.pup.allergies}}
+                        <br> Birthday: {{pupInfo.pup.birthdate | date}}
+                        <br> Chip Information: {{pupInfo.pup.chipInformation}}
+                        <br> Medical Conditions: {{pupInfo.pup.medConditions}}
+                        <br> Weight: {{pupInfo.pup.weight}} lbs
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div> -->
+<div class="tile is-ancestor font">
+    <div class="tile is-vertical is-6">
+        <div class="tile">
+            <div class="tile is-parent is-vertical">
+                <article class="tile is-child notification is-primary">
+                    <p class="title dogName"><strong>{{pupInfo.pup.name}}</strong></p>
+                </article>
+                <article class="tile is-child notification is-warning">
+                    <p class="title">Who's {{pupInfo.pup.name}}</p>
+                    <p class="subtitle">
+                        Birthday: {{pupInfo.pup.birthdate | date}}
+                        <br> Allergies: {{pupInfo.pup.allergies}}
+                        <br> Chip Information: {{pupInfo.pup.chipInformation}}
+                        <br> Medications: {{pupInfo.pup.medConditions}}
+                        <br> Weight: {{pupInfo.pup.weight}} lbs
+                    </p>
+                </article>
+            </div>
+            <div class="tile is-parent blueTile">
+                <article class="tile is-child notification is-info">
+                    <p class="title">Let's take a closer Look</p>
+                    <figure class="image is-4by3">
+                        <img ng-src="{{pupInfo.pup.picture.url}}" alt="Image">
+                    </figure>
+                </article>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-danger">
+                <p class="title">{{pupInfo.pup.name}}'s Workout Log</p>
+                <p class="subtitle">Enter a recent activity you've done with {{pupInfo.pup.name}}</p>
+                <div class="content">
+                    <div>
+                        <label>Date event took place: </label>
+                        <input class="input" type="date" ng-model="pupInfo.newFitness.date">
+                    </div>
+                    <div>
+                        <label>What did you do and how'd it go: </label>
+                        <input class="input" type="text" ng-model="pupInfo.newFitness.notes">
+                    </div>
+                        <br>
+                    <div>
+                        <button class="button" ng-click="pupInfo.addFit(pupInfo.newFitness)">Log It!</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-success">
+            <div class="content">
+                <p class="title medTitle">{{pupInfo.pup.name}}'s</p>
+                <p class="subtitle medSubTitle">Here are the most recent dates for each item</p>
+                <div class="content">
+                    <ul class="medRecord">
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.rabies">Rabies shot:
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.lepto">Lepto shot
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.dhpp">DHPP shot
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.bordetella">Bordetella shot
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.chipInfo">Date for chip renewal
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.heartWorm">Heartworm shot
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+        <article class="tile is-child notification is-success">
+            <div class="content">
+                <p class="title medTitle">Medical Record</p>
+                <p class="subtitle medSubTitle">(If any shot is not applicable, leave blank)</p>
+                <div class="content">
+                    <ul class="medRecord">
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.fleaPrevention">Flea Prevention:
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.bloodUrine">Blood/Urine Check
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.nextVisit">Next Vet Visit
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.dentalExam">Last Dental Exam
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.rattleSnakeTraining">Rattle Snake Training (Optional)
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.medications">Last Time Medication Was Picked Up
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <td>
+                <button style="float: right;" class="button" ng-click="pupInfo.addMed(pupInfo.med)">Update Medical Record</button>
+            </td>
+        </article>
+    </div>
+</div>
+<section class="hero is-small is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+        Fitness History
+      </h1>
+            <h2 class="subtitle">
+        How active has {{pupInfo.pup.name}} been -
+      </h2>
+        </div>
+
+    </div>
+</section>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>How'd it Go</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Date</th>
+      <th>How'd it Go</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr ng-repeat="fit in pupInfo.pup.fitness">
+      <td>{{fit.date | date}}</td>
+      <td>{{fit.notes}}</td>
+    </tr>
+  </tbody>
+</table>
+<!-- <div class="tile is-parent"> -->
+<!-- <article class="tile is-child notification is-success">
+            <div class="content">
+                <p class="title">Medical Record</p>
+                <p class="subtitle">Here are some more... (If any shot is not applicable, leave blank)</p>
+                <div class="content">
+                    <ul class="medRecord">
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.fleaPrevention">Flea Prevention:
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.bloodUrine">Blood/Urine Check
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.nextVisit">Next Vet Visit
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.dentalExam">Last Dental Exam
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.rattleSnakeTraining">Rattle Snake Training (Optional)
+                        </li>
+                        <li>
+                            <input class="input" type="date" ng-model="pupInfo.med.medications">Last Time Medication Was Picked Up
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <td>
+                <button class="button" ng-click="pupInfo.addMed(pupInfo.med)">Submit</button>
+            </td>
+        </article> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div>
     <ul>
         <li ng-click="editing = true" ng-hide="editing">Puppy's Name: {{pupInfo.pup.name}}</li>
         <li ng-click="editing = true" ng-hide="editing">Puppy's Age: {{pupInfo.pup.age}}</li>
@@ -45,229 +250,230 @@
             </li>
         </form>
     </ul>
-    <form>
-        <!-- ****** Add the ability to edit all info on the page **** -->
-        <div>Pup's Medical Information</div>
-        <!-- ADD MEDICAL RECORDS -->
-        <table ng-if="!pupInfo.pup.medicalRecord.length">
-            <tbody>
+    <form> -->
+<!-- ****** Add the ability to edit all info on the page **** -->
+<!-- <div>Pup's Medical Information</div>
+ -->
+<!-- ADD MEDICAL RECORDS -->
+<!-- <table ng-if="!pupInfo.pup.medicalRecord.length">
+    <tbody>
+        <tr>
+            <td>
+                <label class="label">Last rabies shot</label>
+                <input class="input" type="date" ng-model="pupInfo.med.rabies">
+            </td>
+            <td>
+                <label class="label">Date: lepto shot</label>
+                <input class="input" type="date" ng-model="pupInfo.med.lepto">
+            </td>
+            <td>
+                <label class="label">Date: dhpp shot</label>
+                <input class="input" type="date" ng-model="pupInfo.med.dhpp">
+            </td>
+            <td>
+                <label class="label">Date: bordetella shot</label>
+                <input class="input" type="date" ng-model="pupInfo.med.bordetella">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="label">Enter date for chip renewal</label>
+                <input class="input" type="date" ng-model="pupInfo.med.chipInfo">
+            </td>
+            <td>
+                <label class="label">Last heartworm shot</label>
+                <input class="input" type="date" ng-model="pupInfo.med.heartWorm">
+            </td>
+            <td>
+                <label class="label">Last flea prevention</label>
+                <input class="input" type="date" ng-model="pupInfo.med.fleaPrevention">
+            </td>
+            <td>
+                <label class="label">Last Fecal Matter</label>
+                <input class="input" type="date" ng-model="pupInfo.med.fecal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="label">Last blood/urine test</label>
+                <input class="input" type="date" ng-model="pupInfo.med.bloodUrine">
+            </td>
+            <td>
+                <label class="label">Enter date for next vet visit</label>
+                <input class="input" type="date" ng-model="pupInfo.med.nextVisit">
+            </td>
+            <td>
+                <label class="label">Last dental exam</label>
+                <input class="input" type="date" ng-model="pupInfo.med.dentalExam">
+            </td>
+            <td>
+                <label class="label">Last rattlesnake training</label>
+                <input class="input" type="date" ng-model="pupInfo.med.rattleSnakeTraining">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="label">Medications: last dosage</label>
+                <input class="input" type="date" ng-model="pupInfo.med.medications">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="button" ng-click="pupInfo.addMed(pupInfo.med)">Submit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+ END OF ADD MEDICAL RECORDS -->
+<!-- UPDATE MEDICAL RECORDS -->
+<!-- <div ng-if="pupInfo.pup.medicalRecord.length">
+    <table ng-if="pupInfo.editing">
+        <tbody>
+            <form ng-submit="pupInfo.editing = !pupInfo.editing">
                 <tr>
                     <td>
                         <label class="label">Last rabies shot</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.rabies">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].rabies">
                     </td>
                     <td>
                         <label class="label">Date: lepto shot</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.lepto">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].lepto">
                     </td>
                     <td>
                         <label class="label">Date: dhpp shot</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.dhpp">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].dhpp">
                     </td>
                     <td>
                         <label class="label">Date: bordetella shot</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.bordetella">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].bordetella">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label class="label">Enter date for chip renewal</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.chipInfo">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].chipInfo">
                     </td>
                     <td>
                         <label class="label">Last heartworm shot</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.heartWorm">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].heartWorm">
                     </td>
                     <td>
                         <label class="label">Last flea prevention</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.fleaPrevention">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].fleaPrevention">
                     </td>
                     <td>
                         <label class="label">Last Fecal Matter</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.fecal">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].fecal">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label class="label">Last blood/urine test</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.bloodUrine">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].bloodUrine">
                     </td>
                     <td>
                         <label class="label">Enter date for next vet visit</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.nextVisit">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].nextVisit">
                     </td>
                     <td>
                         <label class="label">Last dental exam</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.dentalExam">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].dentalExam">
                     </td>
                     <td>
                         <label class="label">Last rattlesnake training</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.rattleSnakeTraining">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].rattleSnakeTraining">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label class="label">Medications: last dosage</label>
-                        <input class="input" type="date" ng-model="pupInfo.med.medications">
+                        <input class="input" ng-model="pupInfo.pup.medicalRecord[0].medications">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="button" ng-click="pupInfo.addMed(pupInfo.med)">Submit</button>
+                        <button class="button warning" type="submit" ng-click="pupInfo.updateMed(pupInfo.pup.medicalRecord[0], pupInfo.pup.medicalRecord[0]._id)">Save</button>
+                        <button class="button" ng-click="pupInfo.editing = !pupInfo.editing">close</button>
                     </td>
+                    <td></td>
                 </tr>
-            </tbody>
-        </table>
-        <!-- END OF ADD MEDICAL RECORDS -->
-        <!-- UPDATE MEDICAL RECORDS -->
-        <div ng-if="pupInfo.pup.medicalRecord.length">
-            <table ng-if="pupInfo.editing">
-                <tbody>
-                    <form ng-submit="pupInfo.editing = !pupInfo.editing">
-                        <tr>
-                            <td>
-                                <label class="label">Last rabies shot</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].rabies">
-                            </td>
-                            <td>
-                                <label class="label">Date: lepto shot</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].lepto">
-                            </td>
-                            <td>
-                                <label class="label">Date: dhpp shot</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].dhpp">
-                            </td>
-                            <td>
-                                <label class="label">Date: bordetella shot</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].bordetella">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="label">Enter date for chip renewal</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].chipInfo">
-                            </td>
-                            <td>
-                                <label class="label">Last heartworm shot</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].heartWorm">
-                            </td>
-                            <td>
-                                <label class="label">Last flea prevention</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].fleaPrevention">
-                            </td>
-                            <td>
-                                <label class="label">Last Fecal Matter</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].fecal">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="label">Last blood/urine test</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].bloodUrine">
-                            </td>
-                            <td>
-                                <label class="label">Enter date for next vet visit</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].nextVisit">
-                            </td>
-                            <td>
-                                <label class="label">Last dental exam</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].dentalExam">
-                            </td>
-                            <td>
-                                <label class="label">Last rattlesnake training</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].rattleSnakeTraining">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="label">Medications: last dosage</label>
-                                <input class="input" ng-model="pupInfo.pup.medicalRecord[0].medications">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="button warning" type="submit" ng-click="pupInfo.updateMed(pupInfo.pup.medicalRecord[0], pupInfo.pup.medicalRecord[0]._id)">Save</button>
-                                <button class="button" ng-click="pupInfo.editing = !pupInfo.editing">close</button>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </form>
-                </tbody>
-            </table>
-            <!-- END OF UPDATE MEDICAL RECORDS -->
-            <!-- SHOW MEDICAL RECORDS -->
-            <table ng-if="!pupInfo.editing">
-                <tbody>
-                    <tr>
-                        <td><strong>Last rabies shot</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].rabies | date}}</td>
-                        <td><strong>Lepto shot</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].lepto | date}}</td>
-                        <td><strong>Dhpp shot</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].dhpp | date}}</td>
-                        <td><strong>Bordetella shot</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].bordetella | date}}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Chip renewal</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].chipInfo | date}}</td>
-                        <td><strong>Last heartworm shot</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].heartWorm | date}}</td>
-                        <td><strong>Last flea prevention</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].fleaPrevention | date}}</td>
-                        <td><strong>Last fecal matter</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].fecal | date}}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Last blood/urine test</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].bloodUrine | date}}</td>
-                        <td><strong>Next vet visit</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].nextVisit | date}}</td>
-                        <td><strong>Last dental exam</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].dentalExam | date}}</td>
-                        <td><strong>Last rattlesnake training</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].rattleSnakeTraining | date}}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Last medication dosage</strong>
-                            <br />{{pupInfo.pup.medicalRecord[0].medications | date}}</td>
-                        <td>
-                            <button class="button warning" ng-click="pupInfo.editing = !pupInfo.editing">Edit Medical</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- END OF SHOWING MEDICAL RECORDS -->
-        <div>
-            <h3>fitness history</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Date</td>
-                        <td>How'd it go</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="fit in pupInfo.pup.fitness">
-                        <td>{{fit.date | date}}</td>
-                        <td>{{fit.notes}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <form>
-            <div>Add a fitness event to your pup</div>
-            <div>
-                <label class="label">Enter date event took place: </label>
-                <input class="input" type="text" ng-model="pupInfo.newFitness.date">
-            </div>
-            <div>
-                <label class="label">What did you do and how'd it go: </label>
-                <input class="input" type="text" ng-model="pupInfo.newFitness.notes">
-            </div>
-            <div>
-                <button ng-click="pupInfo.addFit(pupInfo.newFitness)">Submit</button>
-            </div>
-        </form>
+            </form>
+        </tbody>
+    </table>  -->
+<!-- END OF UPDATE MEDICAL RECORDS -->
+<!-- SHOW MEDICAL RECORDS -->
+<!-- <table ng-if="!pupInfo.editing">
+        <tbody>
+            <tr>
+                <td><strong>Last rabies shot</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].rabies | date}}</td>
+                <td><strong>Lepto shot</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].lepto | date}}</td>
+                <td><strong>Dhpp shot</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].dhpp | date}}</td>
+                <td><strong>Bordetella shot</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].bordetella | date}}</td>
+            </tr>
+            <tr>
+                <td><strong>Chip renewal</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].chipInfo | date}}</td>
+                <td><strong>Last heartworm shot</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].heartWorm | date}}</td>
+                <td><strong>Last flea prevention</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].fleaPrevention | date}}</td>
+                <td><strong>Last fecal matter</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].fecal | date}}</td>
+            </tr>
+            <tr>
+                <td><strong>Last blood/urine test</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].bloodUrine | date}}</td>
+                <td><strong>Next vet visit</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].nextVisit | date}}</td>
+                <td><strong>Last dental exam</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].dentalExam | date}}</td>
+                <td><strong>Last rattlesnake training</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].rattleSnakeTraining | date}}</td>
+            </tr>
+            <tr>
+                <td><strong>Last medication dosage</strong>
+                    <br />{{pupInfo.pup.medicalRecord[0].medications | date}}</td>
+                <td>
+                    <button class="button warning" ng-click="pupInfo.editing = !pupInfo.editing">Edit Medical</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+<!-- END OF SHOWING MEDICAL RECORDS -->
+<!-- <div>
+    <h3>fitness history</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>How'd it go</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="fit in pupInfo.pup.fitness">
+                <td>{{fit.date | date}}</td>
+                <td>{{fit.notes}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+<form>
+    <div>Add a fitness event to your pup</div>
+    <div>
+        <label class="label">Enter date event took place: </label>
+        <input class="input" type="text" ng-model="pupInfo.newFitness.date">
+    </div>
+    <div>
+        <label class="label">What did you do and how'd it go: </label>
+        <input class="input" type="text" ng-model="pupInfo.newFitness.notes">
+    </div>
+    <div>
+        <button ng-click="pupInfo.addFit(pupInfo.newFitness)">Submit</button>
+    </div>
+</form>
+</div> -->

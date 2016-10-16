@@ -1,4 +1,13 @@
 <div class="container">
-	<div >
+	<div class="large-6 columns">
+		<form ng-submit="events.getEvents(events.city)">
+			<input type="text" ng-model="events.city" placeholder="Enter Your Location">
+			<button class="button" type="submit">
+		</form>
+	</div>
+	<div ng-repeat="event in events.events.events.event">
+		<p>Title: {{event.title}}</p>
+		<p>Url: {{event.url}}</p>
+		<p ng-bind-html="event.description">Description: </p>
 	</div>
 </div>

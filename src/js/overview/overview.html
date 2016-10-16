@@ -1,4 +1,5 @@
-<div class=container>
+
+<div class="container">
     <!-- Here the user will see their todo list and some important information -->
     <div class=" bodyFont tile is-ancestor">
         <div class="tile is-parent">
@@ -44,9 +45,8 @@
                     <p>Email: {{overview.owner.email}}</p>
                     <p>Zip: {{overview.owner.zipCode}}</p>
                     <p>NSR Registration Number: {{overview.owner.nsrRegistration}}</p>
-                    <p>Next visit to the vet:</p>
                     <div ng-repeat='date in overview.vetAppt'>
-                        <p>{{date | date}}</p>
+                        <p>Next Visit to Vet: {{date | date}}</p>
                     </div>
                 </div>
             </article>

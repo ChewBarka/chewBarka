@@ -2,13 +2,21 @@
      transition: margin-right .5s;
      text-align: right;
      display: none;  
+} 
+body {
+	background-color: black;
 }
 
 #mySidenav {
     display: none;
     
 }
-
 #loginField {
 	padding-top: 170px;
-}`
+}
+p a {
+	padding-left: 30px;
+}
+html {
+	background-color: black;
+}

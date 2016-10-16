@@ -1,112 +1,163 @@
-<!-- <div class="large-3 large-centered columns">
-    <div class="login-box">
-        <div class="row">
-            <div class="large-12 columns">
-                <form>
-                    <div data-abide-error class="alert callout" style="display: none;">
-                        <p><i class="fi-alert"></i> There are some errors in your form.</p>
-                    </div>
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <input type="text" name="username" placeholder="Email Address" required pattern="email" ng-model="login.loginInfo.email" aria-describedby="exampleHelpTex" data-abide-ignore/>
+<!-- <div style="float: center;">
+    <div class="large-3 large-centered columns">
+        <div class="signup-box">
+            <div class="row">
+                <div class="large-12 columns">
+                    <form ng-submit="login.registerUser(login.registerInfo)">
+  
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="text" name="firstName" placeholder="FistName" ng-model="login.registerInfo.firstName">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <input type="password" name="password" id="password" placeholder="Password" ng-model="login.loginInfo.password" aria-describedby="exampleHelpText" required/>
-                            <span class="form-error">Yo, you had better fill this out, it's required.</span>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="text" name="lastName" placeholder="LastName" ng-model="login.registerInfo.lastName">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-12 large-centered columns">
-                            <input type="submit" class="button expand" value="Log In" ng-click="login.fakeLogin()" />
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="text" name="address" placeholder="Address" ng-model="login.registerInfo.address">
+                            </div>
                         </div>
-                    </div>
-                </form>
-                <div>
-                    <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
-                        <select ng-options="select as label for value in array"></select>
-                        <option value="" disabled>Select Owner</option>
-                    </select>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="text" name="zipcode" placeholder="Zipcode" ng-model="login.registerInfo.zipCode">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="tel" name="telephone" placeholder="Phone" ng-model="login.registerInfo.telephone">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="email" name="email" placeholder="Email" ng-model="login.registerInfo.email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="text" name="nsrRegistration" placeholder="NSR Registration" ng-model="login.registerInfo.nsrRegistration">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="password" name="password" placeholder="Password" ng-model="login.registerInfo.password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="login.registerInfo.confirmPassword">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-centered columns">
+                                <button type="submit" class="button">Sign Up!
+                                    <button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
- -->
-
-<div id="loginField" class="column is-mobile">
-<div class="column is-half is-offset-one-quarter">
-<label class="label">Enter Your Email</label>
-<p class="control has-icon">
-    <input class="input is-medium" type="email" placeholder="Email" ng-model="login.loginInfo.email">
-    <i class="fa fa-envelope"></i>
-</p>
-<label class="label">Enter Your Password</label>
-<p class="control has-icon">
-    <input class="input is-medium" type="password" placeholder="Password" ng-model="login.loginInfo.password">
-    <i class="fa fa-lock"></i>
-</p>
-<p class="control">
-    <label class="checkbox">
-        <input type="checkbox"> Remember me
-    </label>
-</p>
-<p class="control">
-    <button class="button is-success" ng-click="login.fakeLogin()">Log In</button>
-</p>
-  <div class="label">
-    <label class="label">Select an Owner</label>
-  </div>
-  <div class="control">
-    <div class="select is-succes is-fullwidth">
-      <select ng-model="login.selectedOwner" ng-options="owner._id as owner.firstName for owner in login.owners">
-        <option value="" disabled>Owners</option>
-      </select>
+</div> -->
+<!-- Login -->
+<!-- <div style="float: center;">
+    <div class="large-3 large-centered columns">
+        <div class="login-box">
+            <div class="row">
+                <div class="large-12 columns">
+                    <form ng-submit="login.authUser(login.loginInfo)">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="email" name="email" placeholder="Email" ng-model="login.loginInfo.email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input type="password" name="password" placeholder="Password" ng-model="login.loginInfo.password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 large-centered columns">
+                                <button type="submit" class="button">Login
+                                    <button>
+                            </div>
+                        </div>
+                    </form>
+                </div> -->
+<!-- REGISTER -->
+<div ng-hide="!showing">
+    <div class="column is-mobile">
+        <div class="column is-2 is-offset-5">
+            <form ng-submit="login.registerUser(login.registerInfo)">
+                <label class="label">FirstName</label>
+                <p class="control">
+                    <input class="input is-primary" type="text" name="firstName" placeholder="FirstName" ng-model="login.registerInfo.firstName">
+                </p>
+                <label class="label">LastName</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="text" name="lastName" placeholder="LastName" ng-model="login.registerInfo.lastName">
+                </p>
+                <label class="label">Address</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="text" name="address" placeholder="Address" ng-model="login.registerInfo.address">
+                </p>
+                <label class="label">ZipCode</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="text" name="zipcode" placeholder="Zipcode" ng-model="login.registerInfo.zipCode">
+                </p>
+                <label class="label">Phone</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="tel" name="telephone" placeholder="Phone" ng-model="login.registerInfo.telephone">
+                </p>
+                <label class="label">Email</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="email" name="email" placeholder="Email" ng-model="login.registerInfo.email">
+                </p>
+                <label class="label">NSR Registration</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="text" name="nsrRegistration" placeholder="NSR Registration" ng-model="login.registerInfo.nsrRegistration">
+                </p>
+                <label class="label">Password</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="password" name="password" placeholder="Password" ng-model="login.registerInfo.password">
+                    <i class="fa fa-password"></i>
+                </p>
+                <label class="label">Confirm Password</label>
+                <p class="control has-icon has-icon-right">
+                    <input class="input is-primary" type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="login.registerInfo.confirmPassword">
+                    <i class="fa fa-password"></i>
+                </p>
+                <p class="control">
+                    <button class="button is-success" type="submit">Sign Up</button>
+                    <a ng-click="showing = !showing">Go back to Login</a>
+                </p>
+            </form>
+        </div>
     </div>
-  </div>
 </div>
+<!-- LOGIN -->
+<div ng-hide="showing">
+    <div id="loginField" class="column is-mobile">
+        <div class="column is-2 is-offset-5">
+            <form ng-submit="login.authUser(login.loginInfo)">
+                <label class="label">Enter Your Email</label>
+                <p class="control has-icon">
+                    <input class="input is-medium" type="email" placeholder="Email" ng-model="login.loginInfo.email">
+                    <i class="fa fa-envelope"></i>
+                </p>
+                <label class="label">Enter Your Password</label>
+                <p class="control has-icon">
+                    <input class="input is-medium" type="password" placeholder="Password" ng-model="login.loginInfo.password">
+                    <i class="fa fa-lock"></i>
+                </p>
+                <p class="control">
+                    <button class="button is-success" type="submit">Log In</button>
+                    <a ng-click="showing = !showing">Create an Account</a>
+                </p>
+            </form>
+        </div>
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
