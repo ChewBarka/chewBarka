@@ -15,7 +15,6 @@
         vm.newPup = {};
         vm.addPup = addPup;
         vm.upload = upload;
-        // vm.uploadMultiple = uploadMultiple;
 
         ////////////////////////////////////////////////////////
         function addPup() {
@@ -25,8 +24,7 @@
                 function() {
                     alert("Pup was added");
                     $state.go('overview', { "_id": $stateParams._id });
-                    //addPhoto();
-                }
+                                    }
             );
         }
         //////////////////////////////////////////////////////////

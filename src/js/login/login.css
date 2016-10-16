@@ -1,7 +1,5 @@
 body {
-    background-color: black;
-    background-image: url(http://www.pageresource.com/wallpapers/wallpaper/cute-dog-pictures-background.jpg);
-    background-repeat: no-repeat;
+	background-color: black;
 }
 #mySidenav, #login, div span {
     display: none;
