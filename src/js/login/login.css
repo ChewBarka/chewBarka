@@ -1,22 +1,15 @@
-#main {
-     transition: margin-right .5s;
-     text-align: right;
-     display: none;  
-} 
 body {
 	background-color: black;
 }
-
-#mySidenav {
+#mySidenav, #login, div span {
     display: none;
-    
 }
+
 #loginField {
-	padding-top: 170px;
+    padding-top: 170px;
 }
+
 p a {
-	padding-left: 30px;
+    padding-left: 30px;
 }
-html {
-	background-color: black;
-}
+

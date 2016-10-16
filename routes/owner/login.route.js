@@ -27,6 +27,7 @@ router.route('/')
                 } else {
                     console.log('hurray');
                     req.session.ownerId = owner._id;
+                    console.log(req.session.ownerId, owner._id);
                     return res.json(owner._id);
                 }
             });
@@ -38,14 +39,15 @@ router.route('/')
     })
 
     //GET /logout
-    .get(mid.requiresLogin, function(req, res, next) {
+    .get(function(req, res, next) {
+        console.log('reached logout' + req.session);
         if (req.session) {
             //delete session object
             req.session.destroy(function(err) {
                 if (err) {
                     return next(err);
                 } else {
-                    return res.redirect('/');
+                    return res.send(200);
                 }
             });
         }
