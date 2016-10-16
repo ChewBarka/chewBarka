@@ -29,9 +29,9 @@
 
         getOwnerById();
 
-        if(!loginFactory.isAuth) {
-            $state.go('login');
-        }
+        // if(!loginFactory.isAuth) {
+        //     $state.go('login');
+        // }
 //////////////////////////////////////////////////////////////
 
         function getOwnerById() {
@@ -84,6 +84,7 @@
                 pupFactory.remove(pup._id).then(
                     function(data) {
                         console.log('deleted' + data);
+                        toastr.success("Deleted Sucessfully");
                         getOwnerById();
                     }
                 );
@@ -96,7 +97,7 @@
             overviewFactory.addTodo($stateParams._id, vm.newTodo).then(
                 function(data) {
                     console.log(data);
-                    alert("Task was added");
+                    toastr.success('Task was Added');
                     // Empty the todo fields
                     vm.newTodo = {};
                     // Refresh the page
@@ -109,6 +110,7 @@
             todoFactory.update(todo, id).then(
                 function(data) {
                     console.log(data);
+                    toastr.success("Task was Updated");
                     getOwnerById();
                 }
             );
@@ -119,6 +121,7 @@
             todoFactory.remove(todo._id).then(
                 function(data) {
                     console.log(data);
+                    toastr.success("Task Deleted");
                     getOwnerById();
                 }
             );

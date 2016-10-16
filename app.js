@@ -69,6 +69,7 @@ var upload = multer({ dest: './uploads/' });
 
 app.use(session({
 	secret: 'Chew bark bark',
+	cookie: {maxAge: 600},
 	resave: true,
 	saveUninitialized: false,
 	store: new  MongoStore({

@@ -19,6 +19,7 @@
         ////////////////
 
         function passId() {
+            console.log("navController");
         	vm.ownerId = $stateParams._id;
         	console.log(vm.ownerId);
         }

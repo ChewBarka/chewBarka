@@ -23,12 +23,12 @@
         // vm.registerInfo.email = 'colelogan19@yahoo.com',
         // vm.registerInfo.password = 'password123';
         // vm.registerInfo.confirmPassword = 'password123';
-        // vm.loginInfo.email = 'marky@mail.com';
-        // vm.loginInfo.password = 'butts';
+        vm.loginInfo.email = 'cole@mail.com';
+        vm.loginInfo.password = 'butts';
 
         vm.authUser = authUser;
         vm.registerUser = registerUser;
-
+        vm.logoutUser = logoutUser;
        
         ////////////////
 
@@ -49,6 +49,16 @@
                             $state.go('overview', { _id: ownerId });
                         }
                     ); 
+                }
+            );
+        }
+        function logoutUser() {
+            vm.session = $stateParams._id;
+            console.log(vm.ownerId);
+            loginFactory.logout(vm.session).then(
+                function(response) {
+                    console.log(response);
+                    $state.go('login');
                 }
             );
         }
