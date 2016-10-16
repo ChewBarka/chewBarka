@@ -6,17 +6,51 @@
 	font-family: 'Lobster', cursive;
 	font-size: 20px;
 }
+.profilePic {
+	border-radius: 50%;
+}
 
-.pupData {
-font-family: 'Gabriela', serif;
-display: inline-block;
+.userInfo {
+	padding-left: 20px;
+}
+
+.vetVisit {
+	font-size: 20px;
+}
+
+.profileTitle {
+	font-family: 'Lobster', cursive;
+	font-size: 30px;
+	padding-right: 80px;
+}
+
+.pupName {
+	font-family: 'Lobster', cursive;
+	font-size: 20px;
+	
 
 }
 
-.bodyFont {
-font-family: 'Gabriela', serif;
+.fontGabriela
+{
+	font-family: 'Gabriela', serif;
+}
+
+.addPup {
+	font-size: 80px;
+	text-align: center;
 
 }
+
+.addPupText {
+	text-align: center;
+	font-weight: bold;
+}
+
+.pupInfo {
+	text-align: center;
+}
+
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;

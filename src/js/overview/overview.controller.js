@@ -26,6 +26,7 @@
         vm.newTodo = {};
         vm.saveTodo = {};
         vm.vetAppt = [];
+        vm.fitnessData = [];
 
         getOwnerById();
 
@@ -64,13 +65,21 @@
                         console.log(data);
                         vm.pupData.push(data);
 
+                        // Here we grabbed all of the fitness Data, To disply the last one
+                        vm.fitnessData.push(data.fitness);
+                        // vm.fitnessData.push(data.fitness[0].notes);
+                        
+
                         // Here we grabbed the next vet visit from each dog
                         vm.vetAppt.push(data.medicalRecord[0].nextVisit);
                         console.log('List of Vet appointment date: ' + vm.vetAppt);
 
+
+
                     }
                 );
             }
+            console.log(vm.fitnessData);
         }
 
         //////////////////////////////////////////////////////////////

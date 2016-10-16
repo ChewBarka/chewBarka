@@ -5,7 +5,7 @@ html {
 }
 body {
     font-family: "Lato", sans-serif;
-    transition: background-color .5s;
+    /*transition: background-color .5s;*/
     background-image: none;                     
     height: 100%;
     width: 100%;
@@ -20,7 +20,7 @@ body {
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #111;
+    /*background-color: #111;*/
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -30,14 +30,14 @@ body {
     padding: 8px 32px 8px 8px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    /*color: #818181;*/
     display: block;
     text-align: right;
     transition: 0.3s;
 }
 
 .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+    /*color: #f1f1f1;*/
 }
 
 .sidenav .closebtn {
@@ -63,7 +63,7 @@ div span {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #efefef;
+  /*background-color: #efefef;*/
   text-align: center;
 }
 .fixedElement {
