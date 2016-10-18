@@ -5,6 +5,8 @@ var Owner = require('../../models/owner.model');
 var Pup = require('../../models/pup.model');
 var Todo = require('../../models/todo.model');
 var mid = require('../../middleware/index');
+var jwt = require('jwt-simple');
+var moment = require('moment');
 
 router.route('/')
 
@@ -20,15 +22,29 @@ router.route('/')
             console.log('there is a email and password');
             Owner.authenticate(req.body.email, req.body.password, function(error, owner) {
                 if (error || !owner) {
-                    console.log('uh oh, error', owner);
+                    console.log('uh oh, error', owner, error);
                     var err = new Error('Wrong Email or Password');
                     err.status = 401;
                     return next(err, req, res);
                 } else {
-                    console.log('hurray');
-                    req.session.ownerId = owner._id;
-                    console.log(req.session.ownerId, owner._id);
-                    return res.json(owner._id);
+                    // console.log('hurray');
+                    // req.session.ownerId = owner._id;
+                    // console.log(req.session.ownerId, owner._id);
+                    // return res.json(owner._id);
+
+                    // create an expiration date
+                    var expiry = moment().add(7, 'days').valueOf();
+
+                    // create a token
+                    var payload = { sub: owner._id, exp: expiry , name: owner.firstName + ' ' + owner.lastName };
+                    var secret = 'zSAfBxDEDHWx6kpLPKQedgc7KbMSKL4b';
+
+                    var token = jwt.encode(payload, secret);
+
+                    // and then respond with that token
+                    res.json({
+                        access_token: token
+                    });
                 }
             });
         } else {

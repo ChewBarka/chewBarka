@@ -104,8 +104,8 @@
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <a class="card-footer-item pupInfo" ui-sref="pupInfo({_id: pup._id})">{{pup.birthdate | date}}</a>
-                    <a class="card-footer-item pupInfo" ui-sref="pupInfo({_id: pup._id})">Pup's Info</a>
+                    <a class="card-footer-item pupInfo" ui-sref="pupInfo({_id: overview.ownerId,_pupId: pup._id})">{{pup.birthdate | date}}</a>
+                    <a class="card-footer-item pupInfo" ui-sref="pupInfo({_id: overview.ownerId,_pupId: pup._id})">Pup's Info</a>
                 </footer>
             </div>
             <br>

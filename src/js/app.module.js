@@ -52,7 +52,7 @@
             })
             /**************Pup-Info****************************************/
             .state('pupInfo', {
-                url: '/pupInfo?_id',
+                url: '/pupInfo?_id?_pupId',
                 controller: 'pupInfoController as pupInfo',
                 templateUrl: 'js/pupInfo/pupInfo.html',
                 data: {
