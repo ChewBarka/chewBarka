@@ -19,6 +19,7 @@
         vm.deleteTodo = deleteTodo;
         vm.updateTodo = updateTodo;
         vm.deletePup = deletePup;
+        vm.updateOwner = updateOwner;
 
         vm.owner = {};
         vm.pups = [];
@@ -132,6 +133,17 @@
                     console.log(data);
                     toastr.success("Task Deleted");
                     getOwnerById();
+                }
+            );
+        }
+
+        //////////////////////////////////////////////////////////////
+        // Update the owner Info
+        function updateOwner(owner, id) {
+            overviewFactory.update(owner, id).then(
+                function(data) {
+                    console.log(data);
+                    toastr.success("Task was Updated");
                 }
             );
         }
