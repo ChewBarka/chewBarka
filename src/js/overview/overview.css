@@ -27,8 +27,8 @@
 .pupName {
 	font-family: 'Lobster', cursive;
 	font-size: 20px;
-	
-
+	text-align: center;
+	padding-left: 30px;
 }
 
 .fontGabriela
@@ -49,6 +49,19 @@
 
 .pupInfo {
 	text-align: center;
+}
+
+a.editable-click { 
+    color: green;
+    border-bottom: dotted 2px green;
+}
+a.editable-click:hover { 
+    color: #47a447;
+    border-bottom-color: #47a447;
+}
+
+.ownerEdit {
+	text-align: left;
 }
 
 /*
