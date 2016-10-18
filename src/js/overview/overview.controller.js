@@ -116,6 +116,7 @@
             );
         }
 
+        // Not working, yet //
         function updateTodo(todo, id) {
             todoFactory.update(todo, id).then(
                 function(data) {
@@ -126,15 +127,16 @@
             );
         }
 
-        function deleteTodo(todo) {
-            console.log(todo._id);
-            todoFactory.remove(todo._id).then(
-                function(data) {
-                    console.log(data);
-                    toastr.success("Task Deleted");
-                    getOwnerById();
-                }
-            );
+        function deleteTodo(id) {
+            if(confirm("Are you sure you want remove task?")) {
+                todoFactory.remove(id).then(
+                    function(data) {
+                        console.log(data);
+                        toastr.success("Task Deleted");
+                        getOwnerById();
+                    }
+                );
+            }
         }
 
         //////////////////////////////////////////////////////////////

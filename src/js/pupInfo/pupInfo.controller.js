@@ -97,6 +97,7 @@
             fitnessFactory.remove(id).then(
                 function(data) {
                     console.log(data);
+                    toastr.success("Fitness Event Deleted");
                     $state.reload();
                 }
             );
