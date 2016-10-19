@@ -37,7 +37,7 @@
 //////////////////////////////////////////////////////////////
 
         function getOwnerById() {
-            vm.ownerId = $stateParams._id;
+            vm.ownerId = loginFactory.ownerId;
             console.log(vm.ownerId);
             overviewFactory.getById(vm.ownerId).then(
                 function(data) {
@@ -89,6 +89,8 @@
             $state.go('addPup', { "_id": vm.ownerId });
         }
 
+
+/////******** Do this Soon ********/////////
         function deletePup(pup) {
             if (confirm("Are you sure you want to delete this pup?")) {
                 pupFactory.remove(pup._id).then(
@@ -104,7 +106,7 @@
         //////////////////////////////////////////////////////////////
         // All of the TODO functions
         function addTodo() {
-            overviewFactory.addTodo($stateParams._id, vm.newTodo).then(
+            overviewFactory.addTodo(vm.ownerId, vm.newTodo).then(
                 function(data) {
                     console.log(data);
                     toastr.success('Task was Added');

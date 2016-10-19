@@ -2,13 +2,15 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize', 'xeditable'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize', 'xeditable', 'LocalStorageModule'])
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
         // .value('key', 'ThPMmx93M7QSk4Mq')
 
-        .run(function(editableOptions) {
+        .run(function(editableOptions, loginFactory) {
               editableOptions.theme = 'default';
+
+              loginFactory.initialize();
         })
 
     .config(function(filepickerProvider) {
@@ -34,7 +36,7 @@
             })
             /**************OVERVIEW****************************************/
             .state('overview', {
-                url: '/overview?_id',
+                url: '/overview',
                 controller: 'overviewController as overview',
                 templateUrl: 'js/overview/overview.html',
                 data: {
@@ -43,7 +45,7 @@
             })
             /**************ADD-a-Pup****************************************/
             .state('addPup', {
-                url: '/addPup?_id',
+                url: '/addPup',
                 controller: 'pupController as pup',
                 templateUrl: 'js/addPup/addPup.html',
                 data: {
@@ -52,7 +54,7 @@
             })
             /**************Pup-Info****************************************/
             .state('pupInfo', {
-                url: '/pupInfo?_id?_pupId',
+                url: '/pupInfo?_pupId',
                 controller: 'pupInfoController as pupInfo',
                 templateUrl: 'js/pupInfo/pupInfo.html',
                 data: {
@@ -62,7 +64,7 @@
             /****************Photos*************************************/
 
         .state('photo', {
-                url: '/photo?_id',
+                url: '/photo',
                 controller: 'photoController as photo',
                 templateUrl: 'js/photos/photo.html',
                 data: {
@@ -71,7 +73,7 @@
             })
             /****************MedicalRecord*******************************************/
             .state('medical', {
-                url: '/medical?_id',
+                url: '/medical',
                 controller: 'medicalDocumentsController as medicalDocs',
                 templateUrl: 'js/medical/medical.html',
                 data: {
@@ -80,7 +82,7 @@
             })
             /****************DogParks*******************************************/
             .state('parks', {
-                url: '/parks?_id',
+                url: '/parks',
                 controller: 'parksController as parks',
                 templateUrl: 'js/parks/parks.html',
                 data: {
@@ -89,7 +91,7 @@
             })
             /****************LocalDogEvents**************************************************/
             .state('events', {
-                url: '/events?_id',
+                url: '/events',
                 controller: 'eventsController as events',
                 templateUrl: 'js/events/events.html',
                 data: {
@@ -98,7 +100,7 @@
             })
             /******************Equipment*****************************************************/
             .state('equipment', {
-                url: '/equipment?_id',
+                url: '/equipment',
                 controller: 'equipmentController as equipment',
                 templateUrl: 'js/equipment/equipment.html',
                 data: {
@@ -107,7 +109,7 @@
             })
             /******************Account*************************************************************/
             .state('account', {
-                url: '/account?_id',
+                url: '/account',
                 controller: 'accountController as account',
                 templateUrl: 'js/account/account.html',
                 data: {
@@ -116,7 +118,7 @@
             })
             /**************Links***************************************************************/
             .state('extra', {
-                url: '/extra?_id',
+                url: '/extra',
                 abstract: true,
                 template: '<div ui-view></div>'
             })
