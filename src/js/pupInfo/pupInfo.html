@@ -10,10 +10,10 @@
                     <p class="title">Who's {{pupInfo.pup.name}}</p>
                     <p class="subtitle">
                         Birthday: {{pupInfo.pup.birthdate | date}}
-                        <br> Allergies: {{pupInfo.pup.allergies}}
-                        <br> Chip Information: {{pupInfo.pup.chipInformation}}
-                        <br> Medications: {{pupInfo.pup.medConditions}}
                         <br> Weight: {{pupInfo.pup.weight}} lbs
+                        <br> Allergies: {{pupInfo.pup.allergies}}
+                        <br> Medications: {{pupInfo.pup.medConditions}}
+                        <br> Chip Information: {{pupInfo.pup.chipInformation}}
                     </p>
                 </article>
             </div>
@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="tile is-parent">
-        <article class="tile is-child notification is-success">
+        <article class="tile is-child notification is-primary">
             <div class="content">
                 <p class="title medTitle">{{pupInfo.pup.name}}'s Medical Record</p>
                 <p class="subtitle medSubTitle">Here are the most recent dates for each item</p>
@@ -56,29 +56,29 @@
                     <br>
                         <!-- Owner can create and update the med record here -->
                     <form editable-form name="editableForm" onaftersave="pupInfo.addMed()">
-                        <p class="medText" ng-model="pupInfo.med.rabies">Rabies shot: <i editable-text="pupInfo.med.rabies" e-name="rabies" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].rabies | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.rabies">Rabies shot: <i editable-date="pupInfo.med.rabies" e-name="rabies" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].rabies | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.lepto">Lepto shot: <i editable-text="pupInfo.med.lepto" e-name="lepto" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].lepto | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.lepto">Lepto shot: <i editable-date="pupInfo.med.lepto" e-name="lepto" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].lepto | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.dhpp">DHPP shot: <i editable-text="pupInfo.med.dhpp" e-name="dhpp" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].dhpp | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.dhpp">DHPP shot: <i editable-date="pupInfo.med.dhpp" e-name="dhpp" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].dhpp | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.bordetella">Bordetella shot: <i editable-text="pupInfo.med.bordetella" e-name="bordetella" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].bordetella | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.bordetella">Bordetella shot: <i editable-date="pupInfo.med.bordetella" e-name="bordetella" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].bordetella | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.chipInfo">Date for chip renewal: <i editable-text="pupInfo.med.chipInfo" e-name="chipInfo" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].chipInfo | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.chipInfo">Date for chip renewal: <i editable-date="pupInfo.med.chipInfo" e-name="chipInfo" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].chipInfo | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.heartWorm">Heartworm shot: <i editable-text="pupInfo.med.heartWorm" e-name="heartWorm" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].heartWorm | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.heartWorm">Heartworm shot: <i editable-date="pupInfo.med.heartWorm" e-name="heartWorm" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].heartWorm | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.fleaPrevention">Flea Prevention: <i editable-text="pupInfo.med.fleaPrevention" e-name="fleaPrevention" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].fleaPrevention | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.fleaPrevention">Flea Prevention: <i editable-date="pupInfo.med.fleaPrevention" e-name="fleaPrevention" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].fleaPrevention | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.bloodUrine">Blood/Urine Check: <i editable-text="pupInfo.med.bloodUrine" e-name="bloodUrine" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].bloodUrine | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.bloodUrine">Blood/Urine Check: <i editable-date="pupInfo.med.bloodUrine" e-name="bloodUrine" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].bloodUrine | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.nextVisit">Next Vet Visit: <i editable-text="pupInfo.med.nextVisit" e-name="nextVisit" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].nextVisit | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.nextVisit">Next Vet Visit: <i editable-date="pupInfo.med.nextVisit" e-name="nextVisit" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].nextVisit | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.dentalExam">Last Dental Exam: <i editable-text="pupInfo.med.dentalExam" e-name="dentalExam" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].dentalExam | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.dentalExam">Last Dental Exam: <i editable-date="pupInfo.med.dentalExam" e-name="dentalExam" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].dentalExam | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.rattleSnakeTraining">Rattle Snake Training (Optional): <i editable-text="pupInfo.med.rattleSnakeTraining" e-name="rattleSnakeTraining" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].rattleSnakeTraining | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.rattleSnakeTraining">Rattle Snake Training (Optional): <i editable-date="pupInfo.med.rattleSnakeTraining" e-name="rattleSnakeTraining" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].rattleSnakeTraining | date }}</i>
                         </p>
-                        <p class="medText" ng-model="pupInfo.med.medications">Last Time Medication Was Picked Up: <i editable-text="pupInfo.med.medications" e-name="medications" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].medications | date }}</i>
+                        <p class="medText" ng-model="pupInfo.med.medications">Last Time Medication Was Picked Up (Optional): <i editable-date="pupInfo.med.medications" e-name="medications" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].medications | date }}</i>
                         </p>
                         <div class="buttons">
                             <button type="button" class="button" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
@@ -103,10 +103,10 @@
 <section class="hero is-small is-primary is-bold">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">
+            <h1 class="title fitTitle">
         Fitness History
       </h1>
-            <h2 class="subtitle">
+            <h2 class="subtitle fitTitle">
         How active has {{pupInfo.pup.name}} been -
       </h2>
         </div>
@@ -119,7 +119,7 @@
       <td style="width:60%">How'd it go</td>
       <td style="width:20%">Edit</td>
     </tr>
-    <tr ng-repeat="fit in pupInfo.pup.fitness | orderBy: Date">
+    <tr ng-repeat="fit in pupInfo.pup.fitness | orderBy: '-date'">
       <td ng-model="pupInfo.fit.date">
         <!-- editable username (text with validation) -->
           <i editable-text="fit.date" e-name="date" e-form="rowform" onbeforesave="checkName($data)">{{ fit.date | date}}</i>
@@ -141,9 +141,11 @@
           </button>
         </form>
         <div class="buttons" ng-show="!rowform.$visible">
-          <button class="button" ng-click="rowform.$show()">Edit</button>
+          <!-- Edit button is not wroking, yet -->
+          <!-- <button class="button" ng-click="rowform.$show()">Edit</button> -->
           <button class="button" ng-click="pupInfo.removeFit(fit._id)">Delete</button>
         </div>  
       </td>
     </tr>
   </table>
+  </div>

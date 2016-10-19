@@ -6,7 +6,8 @@ var Pup = require('../../models/pup.model');
 var Todo = require('../../models/todo.model');
 var mid = require('../../middleware/index');
 var jwt = require('jwt-simple');
-var moment = require('moment');
+var secrets = require('../../secrets/secrets');
+
 
 router.route('/')
 
@@ -36,14 +37,15 @@ router.route('/')
                     var expiry = moment().add(7, 'days').valueOf();
 
                     // create a token
-                    var payload = { sub: owner._id, exp: expiry , name: owner.firstName + ' ' + owner.lastName };
-                    var secret = 'zSAfBxDEDHWx6kpLPKQedgc7KbMSKL4b';
+                    var payload = { sub: owner._id, exp: expiry, name: owner.firstName + ' ' + owner.lastName };
+                    var secret = secrets.tokenSecret;
 
                     var token = jwt.encode(payload, secret);
 
                     // and then respond with that token
                     res.json({
-                        access_token: token
+                        access_token: token,
+                        owner_id: owner._id
                     });
                 }
             });
@@ -52,21 +54,7 @@ router.route('/')
             err.status = 401;
             return next(err, req, res);
         }
-    })
-
-    //GET /logout
-    .get(function(req, res, next) {
-        console.log('reached logout' + req.session);
-        if (req.session) {
-            //delete session object
-            req.session.destroy(function(err) {
-                if (err) {
-                    return next(err);
-                } else {
-                    return res.send(200);
-                }
-            });
-        }
     });
+
 
 module.exports = router;

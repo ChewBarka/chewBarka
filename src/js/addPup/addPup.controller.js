@@ -5,10 +5,10 @@
         .module('app')
         .controller('pupController', pupController);
 
-    pupController.$inject = ['$state', '$stateParams', 'overviewFactory', 'filepickerService', 'photoFactory'];
+    pupController.$inject = ['$state', '$stateParams', 'overviewFactory', 'filepickerService', 'photoFactory','loginFactory'];
 
     /* @ngInject */
-    function pupController($state, $stateParams, overviewFactory, filepickerService, photoFactory) {
+    function pupController($state, $stateParams, overviewFactory, filepickerService, photoFactory, loginFactory) {
         var vm = this;
         vm.title = 'pupController';
 
@@ -18,9 +18,9 @@
 
         ////////////////////////////////////////////////////////
         function addPup() {
-            vm.ownerId = $stateParams._id;
+            vm.ownerId = loginFactory.ownerId;
 
-            overviewFactory.addPet($stateParams._id, vm.newPup).then(
+            overviewFactory.addPet(vm.ownerId, vm.newPup).then(
                 function() {
                     alert("Pup was added");
                     $state.go('overview', { "_id": $stateParams._id });

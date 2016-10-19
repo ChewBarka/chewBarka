@@ -15,7 +15,6 @@ var moment = require('moment');
 
 // use sessions for tracking logins
 //authBranch
-var MongoStore = require('connect-mongo')(session);
 
 
 var pupRoute = require('./routes/pup/pup.route');
@@ -52,6 +51,11 @@ var authToken = '6f2d5c4cb05804dcb66555d464dc7f99';   // Your Auth Token from ww
 
 var app = express();
 app.use(bodyParser.json());
+
+/* passport initialization */
+var passport = require('passport');
+var passportConfig = require('./auth/passport-config')(passport);
+app.use(passport.initialize());
 
 app.set('view engine', 'ejs');
 

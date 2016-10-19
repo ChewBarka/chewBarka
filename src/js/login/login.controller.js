@@ -23,23 +23,25 @@
         // vm.registerInfo.email = 'colelogan19@yahoo.com',
         // vm.registerInfo.password = 'password123';
         // vm.registerInfo.confirmPassword = 'password123';
-        vm.loginInfo.email = 'john@gmail.com';
-        vm.loginInfo.password = 'butts';
+        // vm.loginInfo.email = 'john@gmail.com';
+        // vm.loginInfo.password = 'butts';
 
         vm.authUser = authUser;
         vm.registerUser = registerUser;
         vm.logoutUser = logoutUser;
-       
+
         ////////////////
 
         function authUser() {
+            console.log('hello');
             loginFactory.login(vm.loginInfo.email, vm.loginInfo.password).then(
                 function(ownerId) {
-                    $state.go('overview', { _id: ownerId});
+                    $state.go('overview', { _id: ownerId });
                 }
             );
         }
-        function registerUser(){
+
+        function registerUser() {
             console.log(vm.registerInfo);
             loginFactory.register(vm.registerInfo).then(
                 function(ownerId) {
@@ -48,19 +50,16 @@
                         function() {
                             $state.go('overview', { _id: ownerId });
                         }
-                    ); 
+                    );
                 }
             );
         }
+
         function logoutUser() {
             vm.session = $stateParams._id;
             console.log(vm.ownerId);
-            loginFactory.logout(vm.session).then(
-                function(response) {
-                    console.log(response);
-                    $state.go('login');
-                }
-            );
+            loginFactory.logout(vm.session);
+            $state.go('login');
         }
         //CAMERON'S CODE
         //  vm.login = function(username, password) {
