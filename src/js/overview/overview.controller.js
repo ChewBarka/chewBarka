@@ -37,7 +37,7 @@
 //////////////////////////////////////////////////////////////
 
         function getOwnerById() {
-            vm.ownerId = $stateParams._id;
+            vm.ownerId = loginFactory.ownerId;
             console.log(vm.ownerId);
             overviewFactory.getById(vm.ownerId).then(
                 function(data) {

@@ -45,31 +45,31 @@ var ownerSchema = new Schema({
 ownerSchema.statics.authenticate = function(email, password, callback) {
 	this.model('owners').findOne({ email: email })
 	.exec(function (error, user) {
+		console.log('came back with an owner.. i think');
 		if(error) {
-			return callback(error);
+			console.log('but theres an error');
+			console.log(error);
+			return callback(error);	
 		} else if (!user) {
+			console.log('user not found');
 			var err = new Error('User not found');
 			err.status = 401;
 			return callback(err);
 		}
+
+		console.log('comparing bcrypt stuff');
+		console.log('comparing', password, 'with', user.password);
 		bcrypt.compare(password , user.password, function(error, result) {
+			console.log('bcrypt came back', result);
 			if(result == true) {
+				console.log('good stuff happening over here');
 				return callback(null, user);
 			} else {
+				console.log(error);
 				return callback();
 			}
 		});
 	});
 };
-ownerSchema.pre('save', function(next) {
-	var owner = this;
-	bcrypt.hash(owner.password, 10, function(err, hash) {
-		if (err) {
-			return next(err);
-		}
-		owner.password = hash;
-		next();
-	});
-});
 
 module.exports = mongoose.model('owners', ownerSchema);

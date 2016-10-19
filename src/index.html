@@ -59,9 +59,11 @@
         <div>
             <span class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         </div>
-        
+            
         <!--LazyLoad-->
+        <main>
         <div ui-view></div>
+        </main>
         <!--endlazyload-->
 
         <footer class="footer">
@@ -85,10 +87,10 @@
     <script src="bower_components/filepicker-js/filepicker.min.js"></script>
     <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <!--endbower-->
     <!--inject:js-->
     <script src="js/app.module.js"></script>
-    <script src="js/addPup/addPup.controller.js"></script>
     <script src="js/core/crud.factory.js"></script>
     <script src="js/core/equipment.factory.js"></script>
     <script src="js/core/event.factory.js"></script>
@@ -102,6 +104,8 @@
     <script src="js/core/photo.factory.js"></script>
     <script src="js/core/pup.factory.js"></script>
     <script src="js/core/register.factory.js"></script>
+    <script src="js/addPup/addPup.controller.js"></script>
+    <script src="js/equipment/equipment.controller.js"></script>
     <script src="js/core/todo.factory.js"></script>
     <script src="js/events/events.controller.js"></script>
     <script src="js/equipment/equipment.controller.js"></script>

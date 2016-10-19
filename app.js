@@ -15,8 +15,6 @@ var moment = require('moment');
 
 // use sessions for tracking logins
 //authBranch
-var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
 
 
 var pupRoute = require('./routes/pup/pup.route');
@@ -27,6 +25,7 @@ var todoRoute = require('./routes/owner/todo.route');
 var photoRoute = require('./routes/owner/photos.route');
 var registerRoute = require('./routes/owner/register.route');
 var loginRoute = require('./routes/owner/login.route');
+var owner = require('./routes/owner/register.route');
 // var pupFitnessRoute = require('./routes/pup/pupFitness.route');
 //var ownerTodoRoute = require('./routes/owner/ownerTodo.route');
 //var pupHealthRoute = require('./routes/pup/pupHealth.route');
@@ -41,7 +40,7 @@ var authToken = '6f2d5c4cb05804dcb66555d464dc7f99';   // Your Auth Token from ww
 
 // client.messages.create({
 //     body: 'Hello from Node',
-//     to: '+19146469449',  // Text this number
+//     to: '+6183487337',  // Text this number
 //     from: '+19143716113 ' // From a valid Twilio number
 // }, function(err, message) {
 //     if(err) {
@@ -52,6 +51,11 @@ var authToken = '6f2d5c4cb05804dcb66555d464dc7f99';   // Your Auth Token from ww
 
 var app = express();
 app.use(bodyParser.json());
+
+/* passport initialization */
+var passport = require('passport');
+var passportConfig = require('./auth/passport-config')(passport);
+app.use(passport.initialize());
 
 app.set('view engine', 'ejs');
 
@@ -65,17 +69,6 @@ app.use(function(req, res, next) {
 //Use Multer
 var multer = require('multer');
 var upload = multer({ dest: './uploads/' });
-
-
-app.use(session({
-	secret: 'Chew bark bark',
-	cookie: {maxAge: 600},
-	resave: true,
-	saveUninitialized: false,
-	store: new  MongoStore({
-		mongooseConnection: db
-	})
-}));
 
 var apiRouter = express.Router();
 

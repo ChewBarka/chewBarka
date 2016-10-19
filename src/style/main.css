@@ -9,9 +9,16 @@ body {
     background-image: none;                     
     height: 100%;
     width: 100%;
-    margin: 0;
+    margin-bottom: 10;
     padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+main {
+    flex: 1 0 auto;
+  }
 
 .sidenav {
     height: 100%;

@@ -31,7 +31,8 @@
     "angular-sanitize": "^1.5.8",
     "angular-filepicker": "^1.1.4",
     "bulma": "^0.2.1",
-    "angular-xeditable": "^0.4.0"
+    "angular-xeditable": "^0.4.0",
+    "angular-local-storage": "^0.5.2"
   },
   "resolutions": {
     "angular-ui-router": "^0.3.1"

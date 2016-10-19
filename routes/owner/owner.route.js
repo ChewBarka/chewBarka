@@ -126,6 +126,8 @@ router.route('/:id/pet').post(function(req, res) {
 
 ///////////////////////////////////////////////////////////////////////
 router.route('/:id/todo').post(function(req, res) {
+    console.log('hitting the one we want');
+
     //Add todo
     var todo = new Todo();
 
@@ -142,10 +144,12 @@ router.route('/:id/todo').post(function(req, res) {
             if (err) {
                 return res.send(500, err);
             }
-
+            console.log(owner.password);
             owner.todo.push(todo.id);
+            console.log(owner.password);
 
             owner.save(function(err, owner) {
+                console.log(owner.password);
                 res.json(todo);
             });
         });

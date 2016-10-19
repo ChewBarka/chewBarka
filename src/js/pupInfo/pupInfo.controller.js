@@ -26,7 +26,7 @@
         //////////////////////////////////////////////////////////////
 
         function getPupById() {
-            vm.pupId = $stateParams._id;
+            vm.pupId = $stateParams._pupId;
             pupFactory.getById(vm.pupId).then(
                 function(data) {
                     console.log("PUP'S INFORMATION");
@@ -48,7 +48,7 @@
         // Add a new record or Update an old one
         function addMed() {
             if (vm.pup.medicalRecord.length === 0) {
-                vm.pupId = $stateParams._id;
+                vm.pupId = $stateParams._pupId;
                 pupFactory.addMedical(vm.pupId, vm.med).then(
                     function(data) {
                         alert("Medical Record added to pup");
@@ -72,7 +72,7 @@
         // Owner can add / edit / delete fitness events
         function addFit() {
 
-            pupFactory.addFitness($stateParams._id, vm.newFitness).then(
+            pupFactory.addFitness($stateParams._pupId, vm.newFitness).then(
                 function() {
                     alert("Fitness event added to pup");
                     vm.newFitness = {};
