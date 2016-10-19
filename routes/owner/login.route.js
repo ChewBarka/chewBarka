@@ -6,7 +6,7 @@ var Pup = require('../../models/pup.model');
 var Todo = require('../../models/todo.model');
 var mid = require('../../middleware/index');
 var jwt = require('jwt-simple');
-var secrets = require('../../secrets');
+var secrets = require('../../secrets/secrets');
 var moment = require('moment');
 
 router.route('/')
