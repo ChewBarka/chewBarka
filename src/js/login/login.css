@@ -13,3 +13,21 @@ p a {
     padding-left: 30px;
 }
 
+.loginTitle {
+	text-align: center;
+}
+
+.loginImage {
+	background-image: url("BlackDog.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 30% 20%;
+}
+
+.heroText {
+	color: white;
+}
+
+.loginFont {
+	/*font-family: 'Gabriela', serif;*/
+}
