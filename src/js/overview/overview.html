@@ -1,13 +1,14 @@
 <!-- Owners information on the top -->
-<div class="container profile fontGabriela">
-    <div class="section profile-heading">
+<div class="is-fluid ">
+<div class="profile is-fluid">
+    <div class="section profile-heading overviewBG fontColor">
         <div class="columns">
-            <div class="column is-2">
-                <div class="image is-128x128 avatar">
-                    <img class="profilePic" ng-src="{{overview.pupData[0].picture.url}}">
+            <div class="column is-2 profilePicBoarder">
+                <div class="image is-1by1 avatar">
+                    <img class="profilePic" ng-src="{{overview.pupData[0].picture.url}}" alt="No Profile Picture Yet">
                 </div>
             </div>
-            <div class="column is-4 name">
+            <div class="column is-4 ownerInfo">
                 <p>
                     <span class="title is-bold profileTitle">Welcome {{overview.owner.firstName}}!</span>
                 </p>
@@ -19,105 +20,95 @@
             </div>
             <div class="column is-2">
                 <p>
-                    <span class="title is-bold vetVisit has-text-centered">Next Vet Visit(s)</span>
+                    <span class="label is-bold vetVisit has-text-centered">Next Vet Visit(s)</span>
                 </p>
                 <br>
                 <div ng-repeat='date in overview.vetAppt'>
                     <p>{{date | date}}</p>
                 </div>
             </div>
-            <div class="column is-3">
+            <div class="column is-3 ownerInfo">
                 <p>
+<<<<<<< HEAD
                     <span class="title is-bold vetVisit has-text-centered">Most Recent Fitness Activity</span>
+=======
+                    <span class="label is-bold vetVisit has-text-centered">Most Recent Fitness Activity</span>
+>>>>>>> dev
                 </p>
                 <br>
                 <!-- FIX THIS, WE ONLY WANT TO RETRIVE THE MOST CURRENT ITEM IN THIS ARRAY -->
                 <!-- ISSUE: MULTIPLE DOGS WILL NOT WORK, MAYBE LOOK TO FIND BY CERTAIN DATE, 
                      OR DATE CLOSEST TO THE CURRENT DATE -->
+<<<<<<< HEAD
                 <p class="userInfo">Date: {{overview.fitnessData[0][3].date | date}}</p>
                 <p class="userInfo">How'd it Go: {{overview.fitnessData[0][3].notes}}</p>
+=======
+                <p class="userInfo">Date: {{overview.fitnessData[0][0].date | date}}</p>
+                <p class="userInfo">How'd it Go: {{overview.fitnessData[0][0].notes}}</p>
+>>>>>>> dev
             </div>
-            <div class="addPupText">
+            <div class="addPupText column is-1">
                 <label for="addPup">Add a new pup here!</label>
                 <a class="addPup" ng-click="overview.addPup()"><i class="fa fa-paw large" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>
+    </div>
     <!-- End of owners information -->
     <!-- Todo and Pup Info -->
-    <div class="columns">
-        <div class="column is-half-desktop is-full-mobile">
-            <section class="panel">
-                <p class="panel-heading">
+    <div class="columns is-fluid overviewBG">
+        <div class="column is-half-desktop is-full-mobile todoTable">
+            <section class="panel todoBackground">
+                <p class="panel-heading tableHeader todoTableColor">
                     Here's your Todo List
                 </p>
-                <div class="panel-block">
-                    <table class="table table-hover table-condensed">
+                <div class="panel todoTableColor">
+                    <table class="table table-hover is-narrow">
                         <tr style="font-weight: bold">
                             <td style="width:80%">What I need to Get Done</td>
                             <td style="width:20%">When</td>
                             <td></td>
-                            <td></td>
                         </tr>
-                        <tr ng-repeat="task in overview.owner.todo | orderBy: '-date'">
-                            <td ng-model="overview.task.task">
-                                <!-- editable task (text with validation) -->
-                                <i editable-text="task.task" e-name="task" e-form="rowform" onaftersave="checkName($data, todo._id)">{{ task.task }}</i>
-                            </td>
-                            <td ng-model="overview.task.date">
-                                <!-- editable date (select-local) -->
-                                <i editable-text="task.date" e-name="date" e-form="rowform" onafteresave="checkName($data, todo._id)">
-          {{ task.date | date }}
-        </i>
-                            </td>
+                        <tr ng-repeat="task in overview.owner.todo | orderBy: '+date'">
+                            <td ng-model="overview.task.task">{{ task.task }}</td>
+                            <td ng-model="overview.task.date">{{ task.date | date }}</td>
                             <td style="white-space: nowrap">
-                                <!-- form -->
-                                <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline">
-                                    <button type="submit" ng-click="overview.updateTodo(task, task._id)" ng-disabled="rowform.$waiting" class="button">
-                                        Update
-                                    </button>
-                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="button">
-                                        Cancel
-                                    </button>
-                                </form>
-                                <div class="buttons" ng-show="!rowform.$visible">
-                                    <!-- Update is not working, yet -->
-                                    <!-- <button class="button" ng-click="rowform.$show()">Edit</button> -->
-                                    <button class="button" ng-click="overview.deleteTodo(task._id)">Completed</button>
+                                <div class="buttons" >
+                                    <a class="todoCheckMark" ng-click="overview.deleteTodo(task._id)"><i class="fa fa-check-square" aria-hidden="true"></i></a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tfoot>
+                           <tr>
+                           <td>
                                 <input class="input" type="text" ng-model="overview.newTodo.task">
                             </td>
                             <td>
                                 <input class="input" type="date" ng-model="overview.newTodo.date">
                             </td>
-                        </tr>
-                        <tr>
                             <td>
-                                <button class="button success" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)">Add new task</button>
+                            <a class="todoAdd" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
                             </td>
-                        </tr>
+                        </tr> 
+                        </tfoot>
                     </table>
                 </div>
             </section>
         </div>
         <!-- Pup Card -->
         <div class="column is-2" ng-repeat="pup in overview.owner.pups">
-            <div class="card">
-                <div class="card-image">
+            <div class="card pupCard">
+                <div class="noOverflow card-image">
                     <figure class="image is-1by1">
-                        <img ng-src="{{pup.picture.url}}" alt="">
+                        <img class="pupProfilePic" ng-src="{{pup.picture.url}}" alt="">
                     </figure>
                 </div>
-                <div class="card-content">
+                <div class="noOverflow pupCardFooter card-content">
                     <div class="content">
                         <span class="title is-bold pupName">{{pup.name}}</span>
                     </div>
                 </div>
-                <footer class="card-footer">
+                <footer class=" card-footer pupCardFooter">
                     <a class="card-footer-item pupInfo" ui-sref="pupInfo({_id: overview.ownerId,_pupId: pup._id})">{{pup.birthdate | date}}</a>
                     <a class="card-footer-item pupInfo" ui-sref="pupInfo({_id: overview.ownerId,_pupId: pup._id})">Pup's Info</a>
                 </footer>

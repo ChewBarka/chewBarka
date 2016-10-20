@@ -8,7 +8,6 @@ var mid = require('../../middleware/index');
 var jwt = require('jwt-simple');
 var secrets = require('../../secrets/secrets');
 
-
 router.route('/')
 
         //Get /login

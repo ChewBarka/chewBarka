@@ -1,4 +1,4 @@
-
+<!-- 
 <button class="button" type="button" class="btn btn-default" ng-click="photo.upload()">Upload Another Photos<span class="caret"></span>
 </button>
 
@@ -12,6 +12,49 @@
 </div>
 <div ng-repeat="photo in photo.photos">
     <img ng-src="{{photo.picture.url | fpConvert: {w:200} }}">
-</div>
+</div> -->
+
+  <div class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-8">
+          <div class="title">Gallery</div>
+          <div>
+          	<button class="button" type="button" class="btn btn-default" ng-click="photo.upload()">Upload Another Photos<span class="caret"></span>
+</button><button class="button success" ng-click="photo.addPhoto(photo.newPhoto)">Add Photo</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="columns dogGrid">
+        <div class="column is-3 " ng-repeat="photo in photo.photos">
+          <div class="panel">
+            <p class="is-marginless">
+            <figure class="image is-1by1">
+                        <a href="{{photo.picture.url}}"><img ng-src="{{photo.picture.url}}"></a>
+              </figure>
+            </p>
+            <div class="panel-block">
+              <div class="columns">
+                <div class="column">
+                  <div class="panel-block-item">2 views</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>	
+    </div>
+  </div>
 
 
+
+
+
+
+
+
+
+
+
+ 

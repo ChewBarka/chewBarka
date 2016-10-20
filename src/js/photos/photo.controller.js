@@ -5,10 +5,10 @@
         .module('app')
         .controller('photoController', photoController);
 
-    photoController.$inject = ['$state','photoFactory', 'apiUrl', '$stateParams', 'filepickerService','overviewFactory'];
+    photoController.$inject = ['$state','photoFactory', 'apiUrl', '$stateParams', 'filepickerService','overviewFactory', 'loginFactory'];
 
     /* @ngInject */
-    function photoController($state, photoFactory, apiUrl, $stateParams, filepickerService, overviewFactory) {
+    function photoController($state, photoFactory, apiUrl, $stateParams, filepickerService, overviewFactory, loginFactory) {
         var vm = this;
         vm.title = 'photoController';
 
@@ -24,7 +24,7 @@
         ////////////////////////////////////////////////
 
         function activate() {
-            vm.ownerId = $stateParams._id;
+            vm.ownerId = loginFactory.ownerId;
             photoFactory.getAll().then(
                 function(data) {
                     console.log(data);
@@ -65,13 +65,13 @@
             );
         }
         ////////////////////////////////////////////////
-        function getPhotos() {
-            photoFactory.getAll().then(
-                function(data) {
-                    vm.photos = data;
-                }
-            );
-        }
+        // function getPhotos() {
+        //     photoFactory.getAll().then(
+        //         function(data) {
+        //             vm.photos = data;
+        //         }
+        //     );
+        // }
 
 
 
