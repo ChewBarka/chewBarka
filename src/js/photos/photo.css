@@ -1,0 +1,4 @@
+.dogGrid {
+    display: flex;   
+    flex-wrap: wrap;
+}
