@@ -142,7 +142,7 @@ a.editable-click:hover {
 /************ Overview *************/
 
 .overviewBG {
-	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("picture1.jpg");
+	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("abstract-blur.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;	
       -webkit-background-size: cover;

@@ -58,20 +58,22 @@ main {
     transition: margin-right .5s;
     display: block;
 }
-div span {
+/*div span {
     padding-right: 16px;
     margin-right: 16px;
     display: block;
     text-align: right;
-}
+}*/
 .footer {
-  position: relative;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #efefef;
+  background-color: black;
   text-align: center;
+
+
 }
 .fixedElement {
     position:fixed;
@@ -92,18 +94,31 @@ div span {
     font-family: 'Lobster', cursive;
     font-size: 30px;
 }
+
 #login {
     display: block;
 }
 div .nav-right {
-    padding-top:15px;
+    padding-top: 0;
     padding-right: 60px;
+    background-color: black;
 }
 div .nav-left {
     padding-left: 60px;
 }
 
-
+.navBackgrond {
+    background: black;
+/*    background-repeat: no-repeat;
+    background-attachment: fixed;   
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
+ .click {
+    padding-top: 8px;
+}
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;
