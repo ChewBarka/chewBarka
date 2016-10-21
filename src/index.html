@@ -35,6 +35,7 @@
     <!--endinject-->
 </head>
 <body>
+    <!--Right Navigation Bar -->
     <div ng-controller="navController as nav">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -43,29 +44,36 @@
             <a href="#" ng-click="nav.passId()" ui-sref="parks({_id: nav.ownerId})">Parks</a>
             <a href="#" ng-click="nav.passId()" ui-sref="photo({_id: nav.ownerId})">Photos</a>
             <a href="#" ng-click="nav.passId()" ui-sref="extra.links({_id: nav.ownerId})">Extra</a>
+            <a href="#" ng-click="login.logoutUser()">Logout</a>
         </div>
     </div>
     <div id="push">
-<!--         <nav class="nav">
-            <div class="nav-left">
-                <a class="navTitle nav-item is-brand" href="#">chewBarka</a>
+
+    <!-- Right Navigation Bar Button -->
+        
+
+    <!-- Top Navigation Bar -->
+        <nav class="nav">
+            <div class="nav-left navBackgrond">
+                <a class="navTitle nav-item is-brand" href="#" ui-sref="overview({_id: nav.ownerId})">chewBarka</a>
             </div>
-            <div ng-controller="loginController as login">
-                <div class="nav-right">
-                    <button id="login" ng-click="login.logoutUser()" class="button is-success">Logout</button>
-                </div>  
+            <div class="nav-right">
+                 <a class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</a>
             </div>
-        </nav> -->
-        <div>
-            <span class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-        </div>
-            
+
+           <!--  <div class="">
+               
+            </div> -->
+        </nav>
+    
+    <div ng-controller="loginController as login">
         <!--LazyLoad-->
         <main>
         <div ui-view></div>
         </main>
         <!--endlazyload-->
 
+        <!-- Footer -->
         <footer class="footer">
             <div class="content" align="center">
                 <p>
@@ -74,7 +82,7 @@
             </div>
         </footer>
     </div>
-    
+    </div>
     <!--bower:js-->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
