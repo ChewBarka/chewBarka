@@ -5,24 +5,28 @@
         .module('app')
         .controller('pupInfoController', pupInfoController);
 
-    pupInfoController.$inject = ['$state', '$stateParams', 'pupFactory', 'medicalFactory', 'fitnessFactory'];
+    pupInfoController.$inject = ['$state', '$stateParams', 'pupFactory', 'medicalFactory', 'fitnessFactory', 'filepickerService'];
 
     /* @ngInject */
-    function pupInfoController($state, $stateParams, pupFactory, medicalFactory, fitnessFactory) {
+    function pupInfoController($state, $stateParams, pupFactory, medicalFactory, fitnessFactory, filepickerService) {
         var vm = this;
         vm.title = 'pupInfoController';
 
         vm.med = {};
         vm.newFitness = {};
         vm.ownerId = "";
+        vm.lastFit = '';
+        vm.newPDF = [];
+        vm.pdfURL = '';
 
         vm.addMed = addMed;
         vm.addFit = addFit;
         vm.editPup = editPup;
-        vm.updateFit = updateFit;
         vm.removeFit = removeFit;
-        getPupById();
+        vm.upload = upload;
+        vm.redirectTo = redirectTo;
 
+        getPupById();
         //////////////////////////////////////////////////////////////
 
         function getPupById() {
@@ -32,11 +36,15 @@
                     console.log("PUP'S INFORMATION");
                     console.log(data);
 
-
                     //Grab data and assign it to pup var. Doing it here -
                     // gives us the most current data.
                     vm.pup = data;
                     vm.med = vm.pup.medicalRecord[0];
+
+                    vm.lastFit = vm.pup.fitness[vm.pup.fitness.length-1].date;
+                    console.log(vm.lastFit);
+
+                    vm.pdfURL = vm.pup.medPDF.url;
 
                     // Get the owners ID so we can go back to overview page
                     vm.ownerId = vm.pup.owner[0]._id;
@@ -54,6 +62,7 @@
                         alert("Medical Record added to pup");
                         //Reload the page with most current data
                         getPupById();
+                        $state.reload();
                     }
                 );
             } else {
@@ -81,26 +90,15 @@
                 }
             );
         }
-
-        function updateFit(fit, id) {
-            //console.log(id);
-            fitnessFactory.update(fit, id).then(
-                function(data) {
-                    console.log(data);
-
-                }
-            );
-        }
-
         function removeFit(id) {
-            if (confirm("Are you sure you want to delete this event?")){
-            fitnessFactory.remove(id).then(
-                function(data) {
-                    console.log(data);
-                    toastr.success("Fitness Event Deleted");
-                    $state.reload();
-                }
-            );
+            if (confirm("Are you sure you want to delete this event?")) {
+                fitnessFactory.remove(id).then(
+                    function(data) {
+                        console.log(data);
+                        toastr.success("Fitness Event Deleted");
+                        $state.reload();
+                    }
+                );
             }
         }
 
@@ -109,12 +107,52 @@
 
 
         function editPup() {
-            pupFactory.update(pup, id).then(
+            pupFactory.update(vm.pup, vm.pup._id).then(
                 function(data) {
                     console.log(data);
+                    $state.reload();
 
                 }
             );
         }
+
+        ////////////////////////////////////////////////////////////////////
+
+        //Add pdf medical rec.
+
+        function upload() {
+            filepickerService.pick({
+                    
+                    language: 'en',
+                    services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE'],
+                    openTo: 'COMPUTER'
+                },
+                function(Blob) {
+                    console.log(JSON.stringify(Blob));
+                    vm.pup.medPDF = Blob;
+                    console.log(Blob);
+                    editPup(vm.pup, vm.pup._id);
+                }
+
+
+            );
+        }
+
+        function redirectTo() {
+                window.location.href=vm.pdfURL;
+        }
+
     }
 })();
+
+
+
+
+
+
+
+
+
+
+
+

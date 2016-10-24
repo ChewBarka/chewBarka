@@ -1,19 +1,9 @@
-ul li input {
-  border: none;
-  background: transparent;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  box-shadow: none;
-}
-ul li {
-	list-style-type: none;
-}	
+
 
 .dogName {
 	    text-align: center;
 	    font-family: 'Lobster', cursive;
 		font-size: 80px;
-
 }
 
 .font {
@@ -28,10 +18,10 @@ ul li {
 	display: inline;
 }
 
-.medTitle {
+.pupMedTitle {
 	font-family: 'Lobster', cursive;
 	text-align: center;
-	font-size: 40px;
+	font-size: 20px;
 }
 
 .medSubTitle {
@@ -40,9 +30,52 @@ ul li {
 }
 
 .medText {
-	font-size: 15px;
+	font-size: 11px;
 }
 
 .fitTitle {
 	padding-left: 20px;
+}
+
+.pupInfoBackground {
+		background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../overview/picture1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;	
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+form input {
+	border: none;
+	background: transparent;
+}
+
+.medDate {
+	font-size: 11px;
+	color: #3273dc;
+}
+
+.editPup {
+		text-align: right;
+	color: white;
+	font-size: 20px;
+}
+
+.pupInfoInput {
+		color: #3273dc;;
+	font-size: 14px;
+	width: 100px;
+		border: none;
+	background: transparent;
+}
+
+.pictureBorder {
+	    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.logItBtn {
+	padding-top: 20px;
 }

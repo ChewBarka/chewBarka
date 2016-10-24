@@ -1,5 +1,21 @@
-body{
+.paddingTop {
+	padding-top: 10px;
+}
+
+.urlColor {
+	color: black;
+}
+
+.eventsBackground {
+	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../../js/overview/picture1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;	
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.mediaBackground {
 	background-color: white;
-	background-image: none;
-	height: 100%;
 }

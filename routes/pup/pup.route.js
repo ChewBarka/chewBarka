@@ -43,6 +43,7 @@ router.route('/')
     pup.chipInformation = req.body.chipInformation;
     pup.picture = req.body.picture;
     pup.morePictures = req.body.morePictures;
+    pup.medPDF = req.body.medPDF;
     pup.createdAt = req.body.createdAt;
 
     pup.save(function(err, pup) {
@@ -95,6 +96,7 @@ router.route('/:id')
             pup.chipInformation = req.body.chipInformation;
             pup.picture = req.body.picture;
             pup.morePictures = req.body.morePictures;
+            pup.medPDF = req.body.medPDF;
             pup.createdAt = req.body.createdAt;
 
             pup.save(function(err, pup) {

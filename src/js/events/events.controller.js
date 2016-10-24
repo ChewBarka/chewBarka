@@ -5,24 +5,44 @@
         .module('app')
         .controller('eventsController', eventsController);
 
-    eventsController.$inject = ['$state', '$stateParams', 'eventsFactory', '$sce'];
+    eventsController.$inject = ['$state', '$stateParams', 'eventsFactory', '$sce', 'loginFactory', 'overviewFactory'];
 
     /* @ngInject */
-    function eventsController($state, $stateParams, eventsFactory, $sce) {
+    function eventsController($state, $stateParams, eventsFactory, $sce, loginFactory, overviewFactory) {
         var vm = this;
         vm.title = 'eventController';
-        // vm.city = {};
+        
+        vm.zipcode = '';
+        vm.owner = {};
+        vm.search = '';
+
 
         vm.getEvents = getEvents;
-        getEvents();
+        getOwnerById();
 
         ////////////////
 
-        function getEvents(city) {
-            eventsFactory.getAll(city).then(
+        function getOwnerById() {
+            vm.ownerId = loginFactory.ownerId;
+            console.log(vm.ownerId);
+            overviewFactory.getById(vm.ownerId).then(
+                function(data) {
+                    console.log("OWNERS INFORMATION:");
+                    console.log(data);
+                    vm.owner = data;
+                    vm.zipcode = vm.owner.zipCode;
+                    getEvents(vm.zipcode);
+                }
+            );
+
+
+
+        }
+        function getEvents(zip) {
+            eventsFactory.getAll(zip).then(
                 function(data) {
                     vm.events = data;
-                    city = {};
+                    console.log(vm.events);
                 }
             );
         }
