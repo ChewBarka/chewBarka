@@ -49,6 +49,10 @@ var pupSchema = new Schema({
 		type: Schema.Types.Mixed, 
 		required: false
 	},
+	medPDF: {
+		type: Schema.Types.Mixed, 
+		required: false
+	},
 	createdAt: {
 		type: Date,
 		default: Date.now

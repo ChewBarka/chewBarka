@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <link rel="stylesheet" href="bower_components/bulma/css/bulma.css" />
     <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/angular-datepicker/dist/angular-datepicker.css" />
     <!--endbower-->
 
     <!--inject:css-->
@@ -60,10 +61,6 @@
             <div class="nav-right">
                  <a class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</a>
             </div>
-
-           <!--  <div class="">
-               
-            </div> -->
         </nav>
     
     <div ng-controller="loginController as login">
@@ -74,13 +71,13 @@
         <!--endlazyload-->
 
         <!-- Footer -->
-        <footer class="footer">
+        <!-- <footer class="footer">
             <div class="content" align="center">
                 <p>
                     <strong>ChewBarka Creators:</strong> Cole Logan and Herberto Basulto
                 </p>
             </div>
-        </footer>
+        </footer> -->
     </div>
     </div>
     <!--bower:js-->
@@ -96,6 +93,9 @@
     <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+    <script src="bower_components/angular-datepicker/dist/angular-datepicker.js"></script>
     <!--endbower-->
     <!--inject:js-->
     <script src="js/app.module.js"></script>

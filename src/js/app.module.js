@@ -2,13 +2,15 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize', 'xeditable', 'LocalStorageModule'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize', 'xeditable', 'LocalStorageModule', 'datePicker'])
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
         // .value('key', 'ThPMmx93M7QSk4Mq')
 
-        .run(function(editableOptions, loginFactory) {
+        .run(function(editableOptions, editableThemes, loginFactory) {
               editableOptions.theme = 'default';
+
+              editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 
               loginFactory.initialize();
         })

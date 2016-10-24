@@ -32,7 +32,9 @@
     "angular-filepicker": "^1.1.4",
     "bulma": "^0.2.1",
     "angular-xeditable": "^0.4.0",
-    "angular-local-storage": "^0.5.2"
+    "angular-local-storage": "^0.5.2",
+    "moment": "^2.15.1",
+    "angular-datepicker": "^2.0.3"
   },
   "resolutions": {
     "angular-ui-router": "^0.3.1"

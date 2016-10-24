@@ -1,13 +1,43 @@
-<div class="container">
-	<div class="large-6 columns">
-		<form ng-submit="events.getEvents(events.city.cityName)">
-			<input type="text" class="input is-primary" ng-model="events.city.cityName" placeholder="Enter Your Location">
-			<button class="button is-primary" type="submit">Search</button>
-		</form>
-	</div>
-	<div ng-repeat="event in events.events.events.event">
-		<p>Title: {{event.title}}</p>
-		<p>Url: {{event.url}}</p>
-		<p ng-bind-html="event.description">Description: </p>
-	</div>
+<div class="eventsBackground">
+    <div class="container paddingTop">
+        <div class="columns">
+            <div class="column is-three-quarters is-offset-1">
+                <input type="text" class="input is-primary" ng-model="events.search" placeholder="Enter Your Location" />
+            </div>
+            <div class="column">
+                <button class="button is-primary" type="submit" ng-click="events.getEvents(events.search)" value="">Search</button>
+            </div>
+        </div>
+        <!--  <div ng-repeat="event in events.events.events.event">
+	        <article class="media mediaBackground">
+	            <div class="media-content">
+	                <div class="content">
+	                   
+	                </div>
+	            </div>
+	            <div class="media-right">
+	            </div>
+	        </article>
+	        <br>
+		</div> -->
+
+        <div class="tile" ng-repeat="event in events.events.events.event">
+            <!-- The magical tile element! -->
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-success">
+                    <div class="content">
+                        <!-- Content -->
+                         <p>
+	                        <strong>{{event.title}}</strong><br>
+	                        <strong>{{event.city_name}}, {{event.region_abbr}}.</strong><br>
+	                        <strong>{{event.start_time}}</strong>
+	                        <br> 
+	                        <p ng-bind-html="event.description">Description: </p>
+	                        <a class="urlColor" href="{{event.url}}">{{event.url}}</a>
+	                    </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
 </div>
