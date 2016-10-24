@@ -1,54 +1,59 @@
-<div class="columns is-mobile">
-    <div class="column is-6 is-offset-1">
-        <label class="label">Enter Pup's Name</label>
-        <p class="control">
-            <input class="input is-success is-medium" type="text" placeholder="Name" ng-model="pup.newPup.name" required>
-        </p>
-        <label class="label">Enter {{pup.newPup.name}}'s Color</label>
-        <p class="control">
-            <input class="input is-success is-medium" type="text" placeholder="Color" ng-model="pup.newPup.color">
-        </p>
-        <label class="label">Enter {{pup.newPup.name}}'s Size</label>
-        <p class="control">
-            <input class="input is-success is-medium" type="text" placeholder="Size" ng-model="pup.newPup.size" required>
-        </p>
-        <label class="label">Enter {{pup.newPup.name}}'s Weight</label>
-        <p class="control">
-            <input class="input is-success is-medium" type="number" placeholder="Weight" ng-model="pup.newPup.weight" required>
-        </p>
-        <p class="control">
-            <label class="label">Enter {{pup.newPup.name}}'s Allergies</label>
-            <input class="input is-success is-medium" type="text" placeholder="Allergies" ng-model="pup.newPup.allergies" required>
-        </p>
-        <label class="label">Enter {{pup.newPup.name}}'s Birthdate</label>
-        <p class="control">
-            <input class="input is-success is-medium" type="date" placeholder="Birthdate" ng-model="pup.newPup.birthdate" required>
-        </p>
-        <p class="control">
-            <label class="label">Enter any Medications</label>
-            <input class="input is-success is-medium" type="text" placeholder="Medical Conditions" ng-model="pup.newPup.medConditions" required>
-        </p>
-        <label class="label">Enter the {{pup.newPup.name}}'s Chip Information</label>
-        <p class="control">
-            <input class="input is-success is-medium" type="text" placeholder="Chip Information" ng-model="pup.newPup.chipInformation">
-        </p>
-        <label class="label">Enter all Medication {{pup.newPup.name}} is taking</label>
-        <p class="control">
-            <input class="input is-success is-medium" type="text" placeholder="Medications" ng-model="pup.newPup.medications">
-        </p>
-        <p class="control addDogBtn">
-            <button class="button is-primary is-medium" ng-click="pup.addPup(pup.newPup)">Submit</button>
-            <button class="button is-link is-medium" ui-sref="overview({_id: $stateParams._id})">Cancel</button>
-        </p>
-    </div>
-    <div class="column">
-        <p>
-            <div style="margin-top:10px;">
-                <a href="{{pup.newPup.picture.url}}" class="thumbnail" ng-if="pup.newPup.picture">
-                    <img ng-src="{{pup.newPup.picture.url | fpConvert: {w:200} }}">
-                </a>
+<div class="addPupBackground">
+    <div class="columns is-mobile">
+        <div class="column is-6 is-offset-2" style="margin-top:10px;">
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <article class="tile is-child notification is-primary">
+                        <div class="content">
+                            <a ng-click="pup.upload()">
+                                <p class="addPupPicBtn is-outlined">Upload a Profile Picture</p>
+                            </a>
+                            <label class="label">Enter Pup's Name</label>
+                            <p class="control">
+                                <input class="input is-medium" type="text" placeholder="Name" ng-model="pup.newPup.name" required>
+                            </p>
+                            <label class="label">Enter {{pup.newPup.name}}'s Color</label>
+                            <p class="control">
+                                <input class="input  is-medium" type="text" placeholder="Color" ng-model="pup.newPup.color">
+                            </p>
+                            <label class="label">Enter {{pup.newPup.name}}'s Size</label>
+                            <p class="control">
+                                <input class="input is-medium" type="text" placeholder="Size" ng-model="pup.newPup.size" required>
+                            </p>
+                            <label class="label">Enter {{pup.newPup.name}}'s Weight</label>
+                            <p class="control">
+                                <input class="input is-medium" type="number" placeholder="Weight" ng-model="pup.newPup.weight" required>
+                            </p>
+                            <p class="control">
+                                <label class="label">Enter {{pup.newPup.name}}'s Allergies</label>
+                                <input class="input  is-medium" type="text" placeholder="Allergies" ng-model="pup.newPup.allergies" required>
+                            </p>
+                            <label class="label">Enter {{pup.newPup.name}}'s Birthdate</label>
+                            <p class="control">
+                                <input class="input is-medium" type="date" placeholder="Birthdate" ng-model="pup.newPup.birthdate" required>
+                            </p>
+                            <p class="control">
+                                <label class="label">Enter any Medications</label>
+                                <input class="input  is-medium" type="text" placeholder="Medical Conditions" ng-model="pup.newPup.medConditions" required>
+                            </p>
+                            <label class="label">Enter the {{pup.newPup.name}}'s Chip Information</label>
+                            <p class="control">
+                                <input class="input is-medium" type="text" placeholder="Chip Information" ng-model="pup.newPup.chipInformation">
+                            </p>
+                            <label class="label">Enter all Medication {{pup.newPup.name}} is taking</label>
+                            <p class="control">
+                                <input class="input is-medium" type="text" placeholder="Medications" ng-model="pup.newPup.medications">
+                            </p>
+                            <p class="control addDogBtn">
+                                <button class="button is-danger is-outlined is-medium" ng-click="pup.addPup(pup.newPup)">Submit</button>
+                                <button class="button is-link is-medium" ui-sref="overview({_id: $stateParams._id})">Cancel</button>
+                            </p>
+                        </div>
+                </div>
+                </article>
             </div>
         </p>
+        <!-- HEAD: cole's -->
         <p class="control pupUploadbtn">
             <label class="label">Upload a Profile Picture for Your Pup</label>
             <button class="button is-primary is-medium" ng-click="pup.upload()"><span class="caret"></span>Click Here!
@@ -58,5 +63,16 @@
         <h2><strong>"Do or do not, there is no try."<strong> -Yoda</h2>
         <img src="images/cartoonYoda.png" height="500" width="400">
     </div>
+    <!-- Eddie's -->
+        </div>
+        <div class="column">
+            <p>
+                <div style="margin-top:10px;">
+                    <a href="{{pup.newPup.picture.url}}" class="thumbnail pupProfilePicture" ng-if="pup.newPup.picture">
+                        <img ng-src="{{pup.newPup.picture.url | fpConvert: {w:200} }}">
+                    </a>
+                </div>
+            </p>
+        </div>
     </div>
 </div>

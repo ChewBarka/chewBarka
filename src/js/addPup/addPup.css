@@ -1,12 +1,18 @@
-.pupUploadbtn {
-	display: inline;
-	/*align-content: right;*/
+.addPupPicBtn {
+
+	color: #3273dc;
+	font-size: 20px;
+	text-align: center;
+	align-content: center;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 .addDogBtn {
 	display: inline;
 	align-content: right;
 }
+
 #yoda {
 	margin-top: 120px;
 }
@@ -16,4 +22,18 @@
 #yoda img {
 	margin-left: 70px;
 	border: none;
+
+.addPupBackground {
+	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../overview/picture1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;	
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.pupProfilePicture {
+	border-color: white;
+	border-radius: 10px;
 }

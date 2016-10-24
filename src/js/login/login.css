@@ -1,7 +1,5 @@
-body {
-	background-color: blue;
-}
-#mySidenav, #login, div span, .click {
+
+#mySidenav, #login, div span,.click{
     display: none;
 }
 

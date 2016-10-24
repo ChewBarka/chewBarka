@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <link rel="stylesheet" href="bower_components/bulma/css/bulma.css" />
     <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/angular-datepicker/dist/angular-datepicker.css" />
     <!--endbower-->
 
     <!--inject:css-->
@@ -65,10 +66,6 @@
                  <a class="nav-item" id="rouge" href="#" style="font-size: 25px; margin-right: 480px;">Rouge One <i class="fa fa-rebel"> </i> </a>
                  <a class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</a>
             </div>
-
-           <!--  <div class="">
-               
-            </div> -->
         </nav>
     
     <div ng-controller="loginController as login">
@@ -79,13 +76,13 @@
         <!--endlazyload-->
 
         <!-- Footer -->
-        <footer class="footer" style="background-color: black;">
+        <footer class="footer" style="background-color: black; height: 60px;">
             <div class="content" align="center">
                 <p style="color: white; display: inline;">
                     <strong>ChewBarka Creators:</strong> Cole Logan and Herberto Basulto
                 </p>
             </div>
-        </footer>
+        </footer> 
     </div>
     </div>
     <!--bower:js-->
@@ -101,6 +98,9 @@
     <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+    <script src="bower_components/angular-datepicker/dist/angular-datepicker.js"></script>
     <!--endbower-->
     <!--inject:js-->
     <script src="js/app.module.js"></script>
@@ -121,13 +121,13 @@
     <script src="js/core/todo.factory.js"></script>
     <script src="js/equipment/equipment.controller.js"></script>
     <script src="js/events/events.controller.js"></script>
-    <script src="js/login/login.controller.js"></script>
     <script src="js/extra/grooming.controller.js"></script>
     <script src="js/extra/links.controller.js"></script>
     <script src="js/extra/shelter.controller.js"></script>
+    <script src="js/login/login.controller.js"></script>
+    <script src="js/medical/medical.controller.js"></script>
     <script src="js/navBar/navbar.controller.js"></script>
     <script src="js/overview/overview.controller.js"></script>
-    <script src="js/medical/medical.controller.js"></script>
     <script src="js/parks/parks.controller.js"></script>
     <script src="js/photos/photo.controller.js"></script>
     <script src="js/pupInfo/pupInfo.controller.js"></script>

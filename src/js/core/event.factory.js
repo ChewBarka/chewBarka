@@ -19,7 +19,7 @@
         function getAll(city) {
         	var defer = $q.defer();
         	console.log(city);
-        	$http.get(apiEventful + '&keywords=dogs+events&location=' + city)
+        	$http.get(apiEventful + '&keywords=dogs+events&location=' + city + '&within=25')
         	.then(
         		function(response) {
         			defer.resolve(response.data);

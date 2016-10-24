@@ -1,151 +1,201 @@
-<div class="container">
-<div class="tile is-ancestor font">
-    <div class="tile is-vertical is-6">
-        <div class="tile">
-            <div class="tile is-parent is-vertical">
+<section class="section app pupInfoBackground">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-7">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child notification is-primary">
+                            <p class="title">About {{pupInfo.pup.name}}</p>
+                            <form name="editableOwnerInfo">
+                                <p class="">
+                                    Weight:
+                                    <i ng-hide="pupInfo.showeditableOwnerInfo">{{ pupInfo.pup.weight}}</i>
+                                    <input type="number" class="pupInfoInput" ng-model="pupInfo.pup.weight" ng-show="pupInfo.showeditableOwnerInfo" size="3" />
+                                </p>
+                                <p class="">
+                                    Allergies:
+                                    <i ng-hide="pupInfo.showeditableOwnerInfo">{{ pupInfo.pup.allergies}}</i>
+                                    <input type="text" class="pupInfoInput" ng-model="pupInfo.pup.allergies" ng-show="pupInfo.showeditableOwnerInfo" />
+                                </p>
+                                <p class="">
+                                    Medications:
+                                    <i ng-hide="pupInfo.showeditableOwnerInfo">{{ pupInfo.pup.medConditions}}</i>
+                                    <input type="text" class="pupInfoInput" ng-model="pupInfo.pup.medConditions" ng-show="pupInfo.showeditableOwnerInfo" />
+                                </p>
+                                <p class="">
+                                    Chip Information:
+                                    <i ng-hide="pupInfo.showeditableOwnerInfo">{{ pupInfo.pup.chipInformation}}</i>
+                                    <input type="text" class="pupInfoInput" ng-model="pupInfo.pup.chipInformation" ng-show="pupInfo.showeditableOwnerInfo" />
+                                </p>
+                                <div class="buttons">
+                                    <div class="editPup">
+                                        <a class="editPup" ng-click="pupInfo.showeditableOwnerInfo = true" ng-show="!pupInfo.showeditableOwnerInfo">Edit <i class="fa fa-paw large" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div ng-show="pupInfo.showeditableOwnerInfo">
+                                        <button type="submit" class="button is-info" ng-click="pupInfo.editPup()">
+                                            Update
+                                        </button>
+                                        <button type="button" class="button is-danger" ng-click="pupInfo.showeditableOwnerInfo = false">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </article>
+                        <!--  -->
+                        <article class="tile is-child notification is-warning">
+                            <p>Next Vet Visit: {{ pupInfo.pup.medicalRecord[0].nextVisit | date }}</p>
+                        </article>
+                        <!--  -->
+                        <article class="tile is-child notification is-warning">
+                            <p>Last Workout Session: {{pupInfo.lastFit | date}}</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-danger">
+                            <p class="title"></p>
+                            <figure class="image is-1by1">
+                                <img class="pictureBorder" ng-src="{{pupInfo.pup.picture.url}}" alt="Image">
+                            </figure>
+                            <p class="title">{{pupInfo.pup.name}}</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="tile is-parent is-bold">
+                    <article class="tile is-child notification is-info">
+                        <p class="title">{{pupInfo.pup.name}}'s Workout Log</p>
+                        <p class="subtitle">Enter a recent activity you've done with {{pupInfo.pup.name}}</p>
+                    </article>
+                </div>
+            </div>
+            <div class="tile is-parent">
                 <article class="tile is-child notification is-primary">
-                    <p class="title dogName"><strong>{{pupInfo.pup.name}}</strong></p>
-                </article>
-                <article class="tile is-child notification is-warning">
-                    <p class="title">Who's {{pupInfo.pup.name}}</p>
-                    <p class="subtitle">
-                        <br>Age: {{pupInfo.pup.age}}
-                        <br> Weight: {{pupInfo.pup.weight}} lbs
-                        <br> Allergies: {{pupInfo.pup.allergies}}
-                        <br> Medications: {{pupInfo.pup.medConditions}}
-                        <br> Chip Information: {{pupInfo.pup.chipInformation}}
-                    </p>
-                </article>
-            </div>
-            <div class="tile is-parent blueTile">
-                <article class="tile is-child notification is-info">
-                    <p class="title">Let's take a closer Look</p>
-                    <figure class="image is-4by3">
-                        <img ng-src="{{pupInfo.pup.picture.url}}" alt="Image">
-                    </figure>
-                </article>
-            </div>
-        </div>
-        <div class="tile is-parent">
-            <article class="tile is-child notification is-danger">
-                <p class="title">{{pupInfo.pup.name}}'s Workout Log</p>
-                <p class="subtitle">Enter a recent activity you've done with {{pupInfo.pup.name}}</p>
-                <div class="content">
-                    <div>
-                        <label>Date event took place: </label>
-                        <input class="input" type="date" ng-model="pupInfo.newFitness.date">
-                    </div>
-                    <div>
-                        <label>What did you do and how'd it go: </label>
-                        <input class="input" type="text" ng-model="pupInfo.newFitness.notes">
-                    </div>
-                    <br>
-                    <div>
-                        <button class="button" ng-click="pupInfo.addFit(pupInfo.newFitness)">Log It!</button>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-    <div class="tile is-parent">
-        <article class="tile is-child notification is-primary">
-            <div class="content">
-                <p class="title medTitle">{{pupInfo.pup.name}}'s Medical Record</p>
-                <p class="subtitle medSubTitle">Here are the most recent dates for each item</p>
-                <div class="content">
-                    <br>
-                        <!-- Owner can create and update the med record here -->
-                    <form editable-form name="editableForm" onaftersave="pupInfo.addMed()">
-                        <p class="medText" ng-model="pupInfo.med.rabies">Rabies shot: <i editable-date="pupInfo.med.rabies" e-name="rabies" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].rabies | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.lepto">Lepto shot: <i editable-date="pupInfo.med.lepto" e-name="lepto" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].lepto | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.dhpp">DHPP shot: <i editable-date="pupInfo.med.dhpp" e-name="dhpp" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].dhpp | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.bordetella">Bordetella shot: <i editable-date="pupInfo.med.bordetella" e-name="bordetella" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].bordetella | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.chipInfo">Date for chip renewal: <i editable-date="pupInfo.med.chipInfo" e-name="chipInfo" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].chipInfo | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.heartWorm">Heartworm shot: <i editable-date="pupInfo.med.heartWorm" e-name="heartWorm" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].heartWorm | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.fleaPrevention">Flea Prevention: <i editable-date="pupInfo.med.fleaPrevention" e-name="fleaPrevention" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].fleaPrevention | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.bloodUrine">Blood/Urine Check: <i editable-date="pupInfo.med.bloodUrine" e-name="bloodUrine" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].bloodUrine | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.nextVisit">Next Vet Visit: <i editable-date="pupInfo.med.nextVisit" e-name="nextVisit" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].nextVisit | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.dentalExam">Last Dental Exam: <i editable-date="pupInfo.med.dentalExam" e-name="dentalExam" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].dentalExam | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.rattleSnakeTraining">Rattle Snake Training (Optional): <i editable-date="pupInfo.med.rattleSnakeTraining" e-name="rattleSnakeTraining" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].rattleSnakeTraining | date }}</i>
-                        </p>
-                        <p class="medText" ng-model="pupInfo.med.medications">Last Time Medication Was Picked Up (Optional): <i editable-date="pupInfo.med.medications" e-name="medications" onbeforesave="checkName($data)" e-required>{{ pupInfo.pup.medicalRecord[0].medications | date }}</i>
-                        </p>
-                        <div class="buttons">
-                            <button type="button" class="button" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-                                Make a change
-                            </button>
-                            <span ng-show="editableForm.$visible">
-                        <button type="submit" class="button-small" ng-disabled="editableForm.$waiting">
-                          Update
-                        </button>
-                        <button type="button" class="button-small" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-                          Cancel
-                        </button>
-                      </span>
+                    <div class="content">
+                        <p class="subtitle pupMedTitle">{{pupInfo.pup.name}}'s Medical Record</p>
+                        <p class="subtitle">Here are the most recent dates for each item</p>
+                        <div class="content">
+                            <!-- Owner can create and update the med record here -->
+                            <form name="editableForm ">
+                                <p class="medText">
+                                    Rabies shot:
+                                    <i ng-hide="pupInfo.showEditableForm" ng-model="pupInfo.med.rabies" date-time>{{ pupInfo.pup.medicalRecord[0].rabies | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.rabies" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Lepto shot:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].lepto | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.lepto" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    DHPP shot:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].dhpp | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.dhpp" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Bordetella shot:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].bordetella | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.bordetella" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Date for chip renewal:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].chipInfo | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.chipInfo" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Heartworm shot:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].heartWorm | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.heartWorm" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Flea Prevention:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].fleaPrevention | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.fleaPrevention" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Blood/Urine Check:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].bloodUrine | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.bloodUrine" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Next Vet Visit:
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].nextVisit | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.nextVisit" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Last Dental Exam (Optional):
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].dentalExam | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.dentalExam" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Rattle Snake Training (Optional):
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].rattleSnakeTraining | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.rattleSnakeTraining" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p class="medText">
+                                    Last Time Medication Was Picked Up (Optional):
+                                    <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].medications | date }}</i>
+                                    <input date-time class="medDate" ng-model="pupInfo.med.medications" ng-show="pupInfo.showEditableForm" />
+                                </p>
+                                <p>
+                                    <button type="button" class="button is-danger" ng-click="pupInfo.redirectTo()" ng-show="!pupInfo.showEditableForm">View Uploaded Medical File
+                                    </button>
+                                </p>
+                                <div class="buttons">
+                                    <button type="button is-primary" class="button is-info is-outlined" ng-click="pupInfo.showEditableForm = true" ng-show="!pupInfo.showEditableForm">
+                                        Make a change
+                                    </button>
+                                    <button type="button" class="button is-danger" ng-click="pupInfo.upload()" ng-show="!pupInfo.showEditableForm">
+                                        Upload
+                                    </button>
+                                    <div ng-show="pupInfo.showEditableForm">
+                                        <button type="submit " class="button is-info" ng-click="pupInfo.addMed()">
+                                            Update
+                                        </button>
+                                        <button type="button" class="button is-danger" ng-click="pupInfo.showEditableForm = false">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <section class="hero is-small is-warning is-bold">
+            <div class="hero-body">
+                <div class="container">
                 </div>
             </div>
-        </article>
-    </div>
-</div>
-<!-- Fitness Table -->
-<section class="hero is-small is-primary is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title fitTitle">
-        Fitness History
-      </h1>
-            <h2 class="subtitle fitTitle">
-        How active has {{pupInfo.pup.name}} been -
-      </h2>
-        </div>
+        </section>
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <td>Enter When Fitness Happened
+                        <input class="input" type="date" ng-model="pupInfo.newFitness.date">
+                    </td>
+                    <td>Enter How'd it Go
+                        <input class="input" type="text" ng-model="pupInfo.newFitness.notes">
+                    </td>
+                    <td>
+                        <a class="logItBtn" ng-click="pupInfo.addFit(pupInfo.newFitness)"><strong>Log it!</strong></a>
+                    </td>
+                </tr>
+            </thead>
+            <tr style="font-weight: bold">
+                <td style="width:20%">When did it Happen</td>
+                <td style="width:60%">How'd it go</td>
+                <td style="width:20%">Remove</td>
+            </tr>
+            <tr ng-repeat="fit in pupInfo.pup.fitness | orderBy: '-date'">
+                <td ng-model="fit.date">{{fit.date | date}}</td>
+                <td ng-model="fit.notes">{{fit.notes}}</td>
+                <td style="white-space: nowrap">
+                    <div class="buttons">
+                        <button class="button is-danger" ng-click="pupInfo.removeFit(fit._id)">Remove</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </section>
-
-<table class="table table-hover table-condensed">
-    <tr style="font-weight: bold">
-      <td style="width:20%">When did it Happen</td>
-      <td style="width:60%">How'd it go</td>
-      <td style="width:20%">Edit</td>
-    </tr>
-    <tr ng-repeat="fit in pupInfo.pup.fitness | orderBy: '-date'">
-      <td ng-model="pupInfo.fit.date">
-        <!-- editable username (text with validation) -->
-          <i editable-text="fit.date" e-name="date" e-form="rowform" onbeforesave="checkName($data)">{{ fit.date | date}}</i>
-      </td>
-      <td ng-model="pupInfo.fit.notes">
-        <!-- editable username (text with validation) -->
-          <i editable-text="fit.notes" e-name="notes" e-form="rowform" onbeforesave="checkName($data)">{{ fit.notes }}
-          </i>
-      </td>
-
-      <td style="white-space: nowrap">
-       <!-- form -->
-        <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline">
-          <button type="submit" ng-disabled="rowform.$waiting" class="button" ng-click="pupInfo.updateFit(fit, fit.__id)">
-            Update
-          </button>
-          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="button">
-            Cancel
-          </button>
-        </form>
-        <div class="buttons" ng-show="!rowform.$visible">
-          <!-- Edit button is not wroking, yet -->
-          <!-- <button class="button" ng-click="rowform.$show()">Edit</button> -->
-          <button class="button" ng-click="pupInfo.removeFit(fit._id)">Delete</button>
-        </div>  
-      </td>
-    </tr>
-  </table>
-  </div>
