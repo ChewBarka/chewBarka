@@ -40,6 +40,7 @@
                     vm.newPup.picture = Blob;
                     console.log(vm.newPup);
                 }
+
             );
         }
     }

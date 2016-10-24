@@ -5,10 +5,10 @@
         .module('app')
         .factory('overviewFactory', overviewFactory);
 
-    overviewFactory.$inject = ['$http', '$q', 'CRUDFactory', 'apiUrl'];
+    overviewFactory.$inject = ['$http', '$q', 'CRUDFactory', 'apiUrl','toastr'];
 
     /* @ngInject */
-    function overviewFactory($http, $q, CRUDFactory, apiUrl) {
+    function overviewFactory($http, $q, CRUDFactory, apiUrl, toastr) {
         var service = CRUDFactory(apiUrl + '/owners', 'owner');
 
 ///////////////////////////////////////////////////////////////////////
@@ -25,6 +25,7 @@
         		function(error) {
         			console.log(error);
         			defer.reject(error);
+                    toastr.error("Cannot Add Pet");
         		}
     		);
 
@@ -44,6 +45,7 @@
         		function(error) {
         			console.log(error);
         			defer.reject(error);
+                    toastr.error('Cannot Add ToDo');
         		}
     		);
 

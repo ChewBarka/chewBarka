@@ -1,165 +1,234 @@
-/************ PUP Stuff ************/
-.pupProfilePic {
-	 border-top-right-radius:1%;
-	 border-top-left-radius:1%;
+// /************ PUP Stuff ************/
+// .pupProfilePic {
+// 	 border-top-right-radius:1%;
+// 	 border-top-left-radius:1%;
+// }
+
+// .pupPhoto {
+// 	width: 100px;
+//     height: auto;
+// }
+
+// .pupName {
+// 	font-family: 'Lobster', cursive;
+// 	font-size: 20px;
+// 	color: white;
+// }
+
+// .pupCard {
+
+// 	    border: 2px solid white;
+//     	border-radius: 5px;
+//     	background-color: #12476B;	
+// }
+
+// .pupCardText {
+
+// }
+
+// .pupName {
+// 	font-family: 'Lobster', cursive;
+// 	font-size: 20px;
+// 	text-align: center;
+// 	padding-left: 30px;
+// }
+// .pupInfo {
+// 	text-align: center;
+// 	color: white;
+// }
+
+
+// /********* User Section **********/
+// .profilePicBoarder{
+// 	padding-top: 30px;
+// 	padding-left: 30px;
+// }
+
+// .profilePic {
+//     border: 2px solid white;
+//     border-radius: 5px;
+// }
+
+// .userInfo {
+// 	padding-left: 20px;
+// }
+
+// .vetVisit {
+// 	font-size: 20px;
+// 	color: white;
+// }
+
+// .profileTitle {
+// 	font-family: 'Lobster', cursive;
+// 	font-size: 35px;
+// 	padding-right: 80px;
+// 	color: white;
+// }
+
+// .fontGabriela
+// {
+// /*	font-family: 'Gabriela', serif;*/
+// }
+
+// .addPup {
+// 	font-size: 80px;
+// 	text-align: center;
+// 	color: white;
+
+// }
+
+// .addPupText {
+// 	text-align: center;
+// 	font-weight: bold;
+// }
+
+// .ownerInfo {
+// 	font-size: 17px;
+// }
+// ********** Table ****************
+
+// .todoBackground {
+// 	background-color: white;
+// }
+
+// .todoTable {
+// 	padding-left: 20px;
+// 	padding-bottom: 40px;
+// 	opacity: .9;
+// }
+
+// .todoTableColor {
+// 	background-color:  #BA3B46;
+
+// }
+
+// .tableHeader {
+// 	text-align: center;
+// 	color: white;
+// 	font-size: 20px;
+// 	font-weight: bold;
+// }
+
+// .footerPadding {
+// 	padding-bottom: 100px;
+// }
+
+// .todoCheckMark {
+// 	text-align: center;
+// 	font-size: 20px;
+// }
+
+// .todoAdd {
+// 	text-align: center;
+// 	font-size: 20px;
+// 	color: #DCDBA8;
+// }
+
+// /*********** Nav *****************/
+
+// a.editable-click { 
+//     color: green;
+//     border-bottom: dotted 2px green;
+// }
+// a.editable-click:hover { 
+//     color: #47a447;
+//     border-bottom-color: #47a447;
+// }
+
+// .ownerEdit {
+// 	text-align: left;
+// }
+
+// /************ Overview *************/
+
+// .overviewBG {
+// 	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("abstract-blur.jpg");
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;	
+//       -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
+
+// .fontColor {
+// 	color: white;
+// }
+
+// .noOverflow {
+// 	white-space: nowrap;
+//   overflow: hidden;
+// }
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-image: url("picture1.jpg");
 }
-
-.pupPhoto {
-	width: 100px;
-    height: auto;
+img {
+	 border: 5px solid white;
 }
-
-.pupName {
-	font-family: 'Lobster', cursive;
-	font-size: 20px;
-	color: white;
+#chewbarka {
+	border: none;
+	margin-left: auto;
+	margin-right: auto;
 }
-
-.pupCard {
-
-	    border: 2px solid white;
-    	border-radius: 5px;
-    	background-color: #12476B;	
-}
-
-.pupCardText {
-
-}
-
-.pupName {
-	font-family: 'Lobster', cursive;
-	font-size: 20px;
-	text-align: center;
-	padding-left: 30px;
-}
-.pupInfo {
-	text-align: center;
-	color: white;
-}
-
-
-/********* User Section **********/
-.profilePicBoarder{
-	padding-top: 30px;
-	padding-left: 30px;
-}
-
-.profilePic {
-    border: 2px solid white;
-    border-radius: 5px;
-}
-
-.userInfo {
-	padding-left: 20px;
-}
-
-.vetVisit {
-	font-size: 20px;
-	color: white;
-}
-
-.profileTitle {
-	font-family: 'Lobster', cursive;
-	font-size: 35px;
-	padding-right: 80px;
-	color: white;
-}
-
-.fontGabriela
-{
-/*	font-family: 'Gabriela', serif;*/
-}
-
-.addPup {
-	font-size: 80px;
-	text-align: center;
-	color: white;
-
-}
-
-.addPupText {
-	text-align: center;
-	font-weight: bold;
-}
-
-.ownerInfo {
-	font-size: 17px;
-}
-/*********** Table *****************/
-
-.todoBackground {
+#cardPup {
 	background-color: white;
-}
-
-.todoTable {
-	padding-left: 20px;
-	padding-bottom: 40px;
-}
-
-.todoTableColor {
-	background-color:  #BA3B46;
-
-}
-
-.tableHeader {
-	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-size: 20px;
 	color: white;
+	display: table-cell;
+}
+p {
+	color: black;
 	font-size: 20px;
-	font-weight: bold;
-}
 
-.footerPadding {
-	padding-bottom: 100px;
 }
-
-.todoCheckMark {
+div .is-multiline {
+	margin: 0;
+}
+div .card-content{
+	padding: 0;
+	margin: 0;
 	text-align: center;
-	font-size: 20px;
+	font-family: 'Lobster', cursive;
+	color: white;
 }
-
-.todoAdd {
-	text-align: center;
-	font-size: 20px;
-	color: #DCDBA8;
+h4 {
+	padding: 0;
+	margin: 0;
 }
+.topcorner{
+   position:absolute;
+   top:0;
+   right:0;
+   padding-top: 15px;
+  }
+  .click {
+  	display: block;
+  }
 
-/*********** Nav *****************/
-
-a.editable-click { 
-    color: green;
-    border-bottom: dotted 2px green;
-}
-a.editable-click:hover { 
-    color: #47a447;
-    border-bottom-color: #47a447;
-}
-
-.ownerEdit {
+#profileCard, #fitnessCard {
 	text-align: left;
+	margin-left: 10px;
+	margin-right: 10px;
 }
-
-/************ Overview *************/
-
-.overviewBG {
-	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("abstract-blur.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;	
-      -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+#profileCard {
+	margin-bottom: 0;
 }
-
-.fontColor {
-	color: white;
+#fitnessCard {
+	padding-top: 10px;
 }
-
-.noOverflow {
-	white-space: nowrap;
-  overflow: hidden;
+#profileCard input {
+	border: none;
+	background: transparent;
+	box-shadow: none;
 }
-
-
+#pupCard {
+	padding-left: 10px;
+	padding-right: 10px;
+}
 /*.placeholder {
 background-repeat: no-repeat;
 background-position: top right;

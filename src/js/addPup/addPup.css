@@ -13,6 +13,16 @@
 	align-content: right;
 }
 
+#yoda {
+	margin-top: 120px;
+}
+#yoda h2 {
+	font-size: 30px;
+}
+#yoda img {
+	margin-left: 70px;
+	border: none;
+
 .addPupBackground {
 	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../overview/picture1.jpg");
     background-repeat: no-repeat;

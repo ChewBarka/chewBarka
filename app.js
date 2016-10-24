@@ -38,6 +38,23 @@ var authToken = '6f2d5c4cb05804dcb66555d464dc7f99';   // Your Auth Token from ww
 // var twilio = require('twilio');
 // var client = new twilio.RestClient(accountSid, authToken);
 
+// cfg.accountSid = process.env.TWILIO_ACCOUNT_SID;
+// cfg.authToken = process.env.TWILIO_AUTH_TOKEN;
+// // cfg.sendingNumber = process.env.TWILIO_NUMBER;
+
+// var requiredConfig = [cfg.accountSid, cfg.authToken, cfg.sendingNumber];
+// var isConfigured = requiredConfig.every(function(configValue) {
+//   return configValue || false;
+// });
+
+// if (!isConfigured) {
+//   var errorMessage =
+//     'TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_NUMBER must be set.';
+
+//   throw new Error(errorMessage);
+// }
+
+
 // client.messages.create({
 //     body: 'Hello from Node',
 //     to: '+6183487337',  // Text this number
@@ -58,6 +75,8 @@ var passportConfig = require('./auth/passport-config')(passport);
 app.use(passport.initialize());
 
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -81,6 +100,7 @@ apiRouter.use('/todo', todoRoute);
 apiRouter.use('/photos', photoRoute);
 apiRouter.use('/register', registerRoute);
 apiRouter.use('/login', loginRoute);
+// apiRouter.use('/message', twilioRoute);
 //apiRouter.use('/ownerTodo', ownerTodoRoute);
 //apiRouter.use('/pupHealth', pupHealthRoute);
 //apiRouter.use('/family', familyRoute);

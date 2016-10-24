@@ -13,17 +13,20 @@
     </div>
 </section>
 <section class="hero is-fullheight is-bold">
-    <div class="hero-body">
+    <div class="hero-body" id="hi">
         <div class="container">
-            <div class="columns is-vcentered">
-                <div class="column is-4 is-offset-4">
+            <div class="columns">
+                <div class="column is-4">
+                        <img style="border: none;" src="images/DogwithLeash.png">
+                </div>
+                <div class="column is-4">
                     <!-- LOGIN -->
                     <div ng-hide="showing">
                         <form ng-submit="login.authUser(login.loginInfo)">
                             <h1 class="title loginTitle">
-              Login or <a ng-click="showing = !showing">Register</a>
-              <a class="" ng-click="showing = !showing"><i class="fa fa-paw large" aria-hidden="true"></i></a>
-            </h1>
+                              Login or <a ng-click="showing = !showing">Register</a>
+                              <a class="" ng-click="showing = !showing"><i class="fa fa-paw large" aria-hidden="true"></i></a>
+                            </h1>
                             <div class="box">
                                 <label class="label">Email</label>
                                 <p class="control">

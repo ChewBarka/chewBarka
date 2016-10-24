@@ -7,7 +7,6 @@ var Todo = require('../../models/todo.model');
 var mid = require('../../middleware/index');
 var jwt = require('jwt-simple');
 var secrets = require('../../secrets/secrets');
-var moment = require('moment');
 
 router.route('/')
 
@@ -54,21 +53,7 @@ router.route('/')
             err.status = 401;
             return next(err, req, res);
         }
-    })
-
-    //GET /logout
-    .get(function(req, res, next) {
-        console.log('reached logout' + req.session);
-        if (req.session) {
-            //delete session object
-            req.session.destroy(function(err) {
-                if (err) {
-                    return next(err);
-                } else {
-                    return res.send(200);
-                }
-            });
-        }
     });
+
 
 module.exports = router;

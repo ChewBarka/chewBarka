@@ -5,10 +5,10 @@
         .module('app')
         .factory('loginFactory', loginFactory);
 
-    loginFactory.$inject = ['$http', '$q', 'CRUDFactory', 'apiUrl', 'localStorageService'];
+    loginFactory.$inject = ['$http', '$q', 'CRUDFactory', 'apiUrl', 'localStorageService', 'toastr'];
 
     /* @ngInject */
-    function loginFactory($http, $q, CRUDFactory, apiUrl, localStorageService) {
+    function loginFactory($http, $q, CRUDFactory, apiUrl, localStorageService, toastr) {
         var service = CRUDFactory(apiUrl + '/owners', 'owner');
 
         service.isAuth = false;
@@ -35,10 +35,11 @@
                     service.ownerId = response.data.owner_id;
                     console.log(response);
                     defer.resolve(response.data);
+                    toastr.success("logged in");
                 },  
                 function(error) {
-                    console.log(error);
                     defer.reject(error);
+                    toastr.error("Wrong Email or Password!");
                 }
             );
 
@@ -51,10 +52,11 @@
             $http.post(apiUrl + '/register', registerInfo).then(
                 function(response) {
                     defer.resolve(response.data);
+                    toastr.success("You have been registered!");
                 },
                 function(error) {
-                    console.log(error);
                     defer.reject(error);
+                     toastr.error("Passwords must Match!");
                 }
             );
 
@@ -62,19 +64,7 @@
         };
 
         service.logout = function() {
-            var defer = $q.defer();
-
-            $http.get(apiUrl + '/login').then(
-                function(response) {
-                    defer.resolve(response.data);
-                },
-                function(error) {
-                    console.log(error);
-                    defer.reject(error);
-                }
-            );
-
-            return defer.promise;
+            localStorageService.remove('authData');
         };
 
         return service;
