@@ -51,7 +51,7 @@
                 vm.pupId = $stateParams._pupId;
                 pupFactory.addMedical(vm.pupId, vm.med).then(
                     function(data) {
-                        alert("Medical Record added to pup");
+                        toastr.success("Medical Record added to pup");
                         //Reload the page with most current data
                         getPupById();
                     }
@@ -74,7 +74,7 @@
 
             pupFactory.addFitness($stateParams._pupId, vm.newFitness).then(
                 function() {
-                    alert("Fitness event added to pup");
+                    toastr.success("Fitness event added to pup");
                     vm.newFitness = {};
                     //Reload the page with most current data
                     getPupById();

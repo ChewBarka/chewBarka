@@ -22,7 +22,7 @@
 
             overviewFactory.addPet(vm.ownerId, vm.newPup).then(
                 function() {
-                    alert("Pup was added");
+                    toastr.success("Pup was added");
                     $state.go('overview', { "_id": $stateParams._id });
                                     }
             );
@@ -40,6 +40,7 @@
                     vm.newPup.picture = Blob;
                     console.log(vm.newPup);
                 }
+
             );
         }
     }

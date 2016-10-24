@@ -12,4 +12,5 @@ window.addEventListener('mouseup', function(event){
 	if (event.target != mySidenav && event.target.parentNode != mySidenav){
         closeNav();
     }
+ 
 });

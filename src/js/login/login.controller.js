@@ -35,7 +35,7 @@
         function authUser() {
             console.log('hello');
             loginFactory.login(vm.loginInfo.email, vm.loginInfo.password).then(
-                function(ownerId) {
+                function(ownerId, error) {
                     $state.go('overview', { _id: ownerId });
                 }
             );

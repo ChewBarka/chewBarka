@@ -1,7 +1,7 @@
 body {
-	background-color: white;
+	background-color: blue;
 }
-#mySidenav, #login, div span {
+#mySidenav, #login, div span, .click {
     display: none;
 }
 
@@ -31,7 +31,6 @@ p a {
 .loginFont {
 	/*font-family: 'Gabriela', serif;*/
 }
-
-.bottomSection {
-    opacity: .5;
+#hi {
+    background-color: slategrey;
 }

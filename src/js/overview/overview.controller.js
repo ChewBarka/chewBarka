@@ -20,6 +20,7 @@
         vm.updateTodo = updateTodo;
         vm.deletePup = deletePup;
         vm.updateOwner = updateOwner;
+        vm.updateProfile = updateProfile;
 
         vm.owner = {};
         vm.pups = [];
@@ -72,8 +73,8 @@
                         
 
                         // Here we grabbed the next vet visit from each dog
-                        vm.vetAppt.push(data.medicalRecord[0].nextVisit);
-                        console.log('List of Vet appointment date: ' + vm.vetAppt);
+                        // vm.vetAppt.push(data.medicalRecord[0].nextVisit);
+                        // console.log('List of Vet appointment date: ' + vm.vetAppt);
 
 
 
@@ -92,6 +93,7 @@
 
 /////******** Do this Soon ********/////////
         function deletePup(pup) {
+            console.log('delete pup');
             if (confirm("Are you sure you want to delete this pup?")) {
                 pupFactory.remove(pup._id).then(
                     function(data) {
@@ -124,6 +126,15 @@
                 function(data) {
                     console.log(data);
                     toastr.success("Task was Updated");
+                    getOwnerById();
+                }
+            );
+        }
+        function updateProfile() {
+            overviewFactory.update(vm.owner, $stateParams._id) .then(
+                function(data) {
+                    console.log(data);
+                    toastr.success("Profile was saved");
                     getOwnerById();
                 }
             );
