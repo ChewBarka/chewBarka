@@ -5,7 +5,6 @@
         .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize', 'xeditable', 'LocalStorageModule', 'datePicker'])
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
-        // .value('key', 'ThPMmx93M7QSk4Mq')
 
         .run(function(editableOptions, editableThemes, loginFactory) {
               editableOptions.theme = 'default';
@@ -99,84 +98,9 @@
                 data: {
                     css: ['js/events/events.css', 'style/main.css']
                 }
-            })
-            /******************Equipment*****************************************************/
-            .state('equipment', {
-                url: '/equipment',
-                controller: 'equipmentController as equipment',
-                templateUrl: 'js/equipment/equipment.html',
-                data: {
-                    css: ['js/equipment/equipment.css', 'style/main.css']
-                }
-            })
-            /******************Account*************************************************************/
-            .state('account', {
-                url: '/account',
-                controller: 'accountController as account',
-                templateUrl: 'js/account/account.html',
-                data: {
-                    css: ['js/account/account.css', 'style/main.css']
-                }
-            })
-            /**************Links***************************************************************/
-            .state('extra', {
-                url: '/extra',
-                abstract: true,
-                template: '<div ui-view></div>'
-            })
-            .state('extra.links', {
-                url: '/links',
-                controller: 'linksController as links',
-                templateUrl: 'js/extra/extraLinks.html',
-                data: {
-                    css: 'style/main.css'
-                }
-            })
-            .state('extra.links.tabs', {
-                url: '/tabs',
-                abstract: true,
-                template: '<div ui-view></div>'
-            })
-            .state('extra.links.tabs.shelters', {
-                url: '/shelters',
-                controller: 'linkShelterController as linkShelter',
-                templateUrl: 'js/extra/linkShelter.html',
-                data: {
-                    css: 'js/extra/linkShelter.css'
-                }
-            })
-            .state('extra.links.tabs.grooming', {
-                url: '/grooming',
-                controller: 'linkGroomingController as linkGrooming',
-                templateUrl: 'js/extra/linkGrooming.html',
-                data: {
-                    css: 'js/extra/linkGrooming.css'
-                }
-            })
-            .state('extra.links.tabs.training', {
-                url: '/training',
-                controller: 'linkTrainingController as linkTraining',
-                templateUrl: 'js/extra/linkTraining.html',
-                data: {
-                    css: 'js/extra/linkTraining.css'
-                }
-            })
-            .state('extra.links.tabs.breed', {
-                url: '/breed',
-                controller: 'linkBreedController as linkBreed',
-                templateUrl: 'js/extra/linkBreed.html',
-                data: {
-                    css: 'js/extra/linkBreed.css'
-                }
-            })
-            .state('extra.links.tabs.overnightstays', {
-                url: '/overnightstays',
-                controller: 'linkOverNightStaysController as linkOverNightStays',
-                templateUrl: 'js/extra/linkOverNightStays.html',
-                data: {
-                    css: 'js/extra/linkOverNightStays.css'
-                }
             });
-
+            /******************Equipment*****************************************************/
+            /******************Account*************************************************************/
+            /**************Links***************************************************************/
     }
 })();

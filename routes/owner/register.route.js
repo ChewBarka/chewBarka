@@ -11,9 +11,6 @@ router.route('/')
 
 ////////////////LOGIN AND SIGN UP STATES////////////////////////////////////////////////////
 //POST /register
-// .get(mid.loggedOut, function(req, res, next) {
-//  return res.render('login', {title: 'Sign UP'});
-// })
 .post(mid.loggedOut, function(req, res, next) {
     console.log('route reached!');
 

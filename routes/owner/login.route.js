@@ -10,10 +10,6 @@ var secrets = require('../../secrets/secrets');
 
 router.route('/')
 
-        //Get /login
-    // .get(mid.requiresLogin, function(req, res, next) {
-    //  return res.render('login', {title: 'Log In'});
-    // })
     //POST /login
     .post(function(req, res, next) {
         console.log('reached route');
@@ -27,10 +23,6 @@ router.route('/')
                     err.status = 401;
                     return next(err, req, res);
                 } else {
-                    // console.log('hurray');
-                    // req.session.ownerId = owner._id;
-                    // console.log(req.session.ownerId, owner._id);
-                    // return res.json(owner._id);
 
                     // create an expiration date
                     var expiry = moment().add(7, 'days').valueOf();

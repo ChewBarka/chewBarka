@@ -1,85 +1,91 @@
-
 .borderWhite {
-	border: 5px solid white;
+    border: 5px solid white;
 }
+
 #chewbarka {
-	border: none;
-	margin-left: auto;
-	margin-right: auto;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 #cardPup {
-	background-color: white;
-	font-family: 'Lobster', cursive;
-	font-size: 20px;
-	color: white;
-	display: table-cell;
+    background-color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    color: white;
+    display: table-cell;
 }
 
 .black {
-	color: black;
+    color: black;
 }
+
 .font {
-	font-size: 20px;
-}
-div .is-multiline {
-}
-div .is-multiline {
-	margin: 0;
+    font-size: 20px;
 }
 
-.topcorner{
-   position:absolute;
-   top:0;
-   right:0;
-   padding-top: 15px;
-  }
-  .click {
-  	display: block;
-  }
+div .is-multiline {}
 
-#profileCard, #fitnessCard {
-	text-align: left;
-	margin-left: 10px;
-	margin-right: 10px;
-	font-style: normal; !important
+div .is-multiline {
+    margin: 0;
 }
-#profileCard {
-	margin-bottom: 0;
-	color: black;
+
+.topcorner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 15px;
 }
+
+.click {
+    display: block;
+}
+
+#profileCard,
 #fitnessCard {
-	padding-top: 10px;
-	color: black;
-	display: block;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-style: normal;
+    !important
 }
+
+#profileCard {
+    margin-bottom: 0;
+    color: black;
+}
+
+#fitnessCard {
+    padding-top: 10px;
+    color: black;
+    display: block;
+}
+
 #profileCard input {
-	border: none;
-	background: transparent;
-	box-shadow: none;
+    border: none;
+    background: transparent;
+    box-shadow: none;
 }
+
 #pupCard {
-	padding-left: 10px;
-	padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
 .is-purple {
-	background-color:#e542f4
+    background-color: #e542f4
 }
+
 .subtitle > p {
-	font-style: normal;
+    font-style: normal;
 }
+
 input[ng-model] {
-	font-style: normal;
+    font-style: normal;
 }
+
 
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;
 */
-
-
-
-
-
-
-
-

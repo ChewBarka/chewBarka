@@ -7,10 +7,6 @@
     padding-top: 170px;
 }
 
-/*p a {
-    padding-left: 30px;
-}
-*/
 .loginTitle {
 	text-align: center;
 }
@@ -26,9 +22,6 @@
 	color: white;
 }
 
-.loginFont {
-	/*font-family: 'Gabriela', serif;*/
-}
 #hi {
     background-color: slategrey;
 }

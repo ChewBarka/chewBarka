@@ -64,20 +64,6 @@
                 }
             );
         }
-        ////////////////////////////////////////////////
-        // function getPhotos() {
-        //     photoFactory.getAll().then(
-        //         function(data) {
-        //             vm.photos = data;
-        //         }
-        //     );
-        // }
-
-
-
-
-
-
 
 
 

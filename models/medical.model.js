@@ -4,9 +4,6 @@ var Pup  = require('./pup.model');
 
 
 var medicalSchema = new Schema({
-	//By Default, I set the expiration dates for all shots to a year -
-	//from the date the owner puts in. Come back and adjust this later.
-
 	rabies: {
 		type: 'date', 
 		//expires: '365d',
