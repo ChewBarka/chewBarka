@@ -18,8 +18,10 @@
 .black {
 	color: black;
 }
-.font {
+.fontss {
 	font-size: 20px;
+	font-style: normal;
+	font: sans-serif;
 }
 div .is-multiline {
 }
@@ -70,7 +72,11 @@ div .is-multiline {
 input[ng-model] {
 	font-style: normal;
 }
-
+#hiddenProfile {
+	font: sans-serif;
+	font-style: normal;
+	font-size: 20px;
+}
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;
