@@ -5,10 +5,10 @@
         .module('app')
         .controller('overviewController', overviewController);
 
-    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory', 'todoFactory', 'loginFactory'];
+    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory', 'todoFactory', 'loginFactory', '$moment'];
 
     /* @ngInject */
-    function overviewController($state, $stateParams, overviewFactory, pupFactory, todoFactory, loginFactory) {
+    function overviewController($state, $stateParams, overviewFactory, pupFactory, todoFactory, loginFactory, $moment) {
         var vm = this;
         vm.title = 'overviewController';
 
@@ -19,6 +19,7 @@
         vm.deleteTodo = deleteTodo;
         vm.deletePup = deletePup;
         vm.updateProfile = updateProfile;
+        vm.refresh = refresh;
 
         vm.owner = {};
         vm.pups = [];
@@ -60,6 +61,8 @@
                     function(data) {
                         console.log(data);
                         vm.pupData.push(data);
+                        latestFitness(data);
+                        nextVisit(data);
 
                         // Here we grabbed all of the fitness Data, To disply the last one
                         vm.fitnessData.push(data.fitness[0].date);
@@ -68,12 +71,28 @@
                         // Here we grabbed the next vet visit from each dog
                         vm.vetAppt.push(data.medicalRecord[0].nextVisit);
                         console.log('List of Vet appointment date: ' + vm.vetAppt);
+
+                        // vm.fitnessData.push(data.fitness);
+                        // vm.fitnessData.push(data.fitness[0].notes);
                     }
                 );
             }
             console.log(vm.fitnessData);
         }
 
+        function latestFitness(pup) {
+            var fitness = pup.fitness;
+            console.log(fitness);
+            for (var i = 0; i < fitness.length; i++) {
+                var obj = JSON[i];
+
+                // vm.fitnessData.push(obj);
+                // console.log(vm.fitnessData);
+                console.log(obj);
+            }
+        }
+        function nextVisit(pup) {
+        }
         //////////////////////////////////////////////////////////////
         // Navigate to the addPup page / Delete a pup
         function addPup() {
@@ -110,9 +129,8 @@
             );
         }
 
-
-        function updateProfile() {
-            overviewFactory.update(vm.owner, $stateParams._id).then(
+        function updateProfile(owner, id) {
+            overviewFactory.update(owner, id) .then(
                 function(data) {
                     console.log(data);
                     toastr.success("Profile was saved");

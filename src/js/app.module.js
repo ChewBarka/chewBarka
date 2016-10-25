@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize', 'xeditable', 'LocalStorageModule', 'datePicker'])
+        .module('app', ['ui.router', 'toastr', 'uiRouterStyles', 'angular-filepicker','ngSanitize', 'xeditable', 'LocalStorageModule', 'datePicker', 'angular-momentjs'])
         .value('apiUrl', 'http://localhost:3000')
         .value('apiEventful', 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=rDvVKxbpp98QFF8r')
 
@@ -18,6 +18,12 @@
         filepickerProvider.setKey('AdZZNOBk8TymXuEOlIkAsz');
     })
 
+    .config(function($momentProvider){
+        $momentProvider
+          .asyncLoading(false)
+          .scriptUrl('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js');
+        })
+    
     .config(appConfig);
 
     appConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
