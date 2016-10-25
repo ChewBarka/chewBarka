@@ -8,21 +8,7 @@
                 <button class="button is-primary" type="submit" ng-click="events.getEvents(events.search)" value="">Search</button>
             </div>
         </div>
-        <!--  <div ng-repeat="event in events.events.events.event">
-	        <article class="media mediaBackground">
-	            <div class="media-content">
-	                <div class="content">
-	                   
-	                </div>
-	            </div>
-	            <div class="media-right">
-	            </div>
-	        </article>
-	        <br>
-		</div> -->
-
         <div class="tile" ng-repeat="event in events.events.events.event">
-            <!-- The magical tile element! -->
             <div class="tile is-parent">
                 <article class="tile is-child notification is-success">
                     <div class="content">
@@ -33,6 +19,7 @@
 	                        <strong>{{event.start_time}}</strong>
 	                        <br> 
 	                        <p ng-bind-html="event.description">Description: </p>
+                            <strong>URL:</strong>
 	                        <a class="urlColor" href="{{event.url}}">{{event.url}}</a>
 	                    </p>
                     </div>

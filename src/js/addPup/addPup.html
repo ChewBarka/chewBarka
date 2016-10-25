@@ -1,6 +1,7 @@
 <div class="addPupBackground">
+<div class='container is-fluid'>
     <div class="columns is-mobile">
-        <div class="column is-6 is-offset-2" style="margin-top:10px;">
+        <div class="column is-6 is-offset-3" style="margin-top:10px;">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
                     <article class="tile is-child notification is-primary">
@@ -49,30 +50,21 @@
                                 <button class="button is-link is-medium" ui-sref="overview({_id: $stateParams._id})">Cancel</button>
                             </p>
                         </div>
+                    </article>
                 </div>
-                </article>
             </div>
-        </p>
-        <!-- HEAD: cole's -->
-        <p class="control pupUploadbtn">
-            <label class="label">Upload a Profile Picture for Your Pup</label>
-            <button class="button is-primary is-medium" ng-click="pup.upload()"><span class="caret"></span>Click Here!
-            </button>
-        </p>
-        <div class="column" id="yoda">
-        <h2><strong>"Do or do not, there is no try."<strong> -Yoda</h2>
-        <img src="images/cartoonYoda.png" height="500" width="400">
+            <div class="column">
+                <p>
+                    <div style="margin-top:10px;">
+                        <a href="{{pup.newPup.picture.url}}" class="thumbnail" ng-if="pup.newPup.picture">
+                            <img class="pupProfilePicture" ng-src="{{pup.newPup.picture.url | fpConvert: {w:200} }}">
+                        </a>
+                    </div>
+                    <h2 class='yodaWords' id="yoda"><strong class='yodaWords'>"Do or do not, there is no try."</strong> -Yoda</h2>
+                    <img src="images/cartoonYoda.png" height="150" width="150">
+                </p>
+            </div>
+        </div>
     </div>
-    <!-- Eddie's -->
-        </div>
-        <div class="column">
-            <p>
-                <div style="margin-top:10px;">
-                    <a href="{{pup.newPup.picture.url}}" class="thumbnail pupProfilePicture" ng-if="pup.newPup.picture">
-                        <img ng-src="{{pup.newPup.picture.url | fpConvert: {w:200} }}">
-                    </a>
-                </div>
-            </p>
-        </div>
     </div>
 </div>

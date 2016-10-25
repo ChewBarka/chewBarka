@@ -125,10 +125,21 @@ div .nav-left {
 #rouge:hover {
     color: gold;
 }
+
+.allBackground {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../js/overview/picture1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;   
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;
 */
+
 
 
 

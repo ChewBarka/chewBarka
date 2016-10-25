@@ -1,16 +1,73 @@
-
-<head>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-</head>
-
-<div class="parksBackground">
-
-	<div id = "map">
-	<label><h3>Here are all the dog parks near your current location<h3></label>
-	<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=dog+parks+near+me&zoom=12&key=AIzaSyA_JDS7v_VkPe09bWOnr6jVNe62QOx1EnE" allowfullscreen></iframe>
-	</div>
-
-
-		
-
-
+<section class="container">
+    <div class="tile is-ancestor mapMargin">
+        <div class="tile is-parent">
+            <article class="tile is-child box notification is-info">
+                <div id="map">
+                    <p class="title articleText">Here are locations for the nearest dog beaches and overnight stays</p>
+                    <!-- Default map shows nearest grooming places when page is loaded -->
+                    <div class="check-element animate-hide" ng-hide="overnightStays" style="height:450px;width:400px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
+                        <div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=beaches+that+allow+dogs&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU&zoom=8"></iframe>
+                        </div><a class="google-map-enabler" rel="nofollow" href="https://www.interserver-coupons.com" id="grab-map-info">https://www.interserver-coupons.com</a>
+                    </div>
+                    <!-- Overnight Stays -->
+                    <div class="check-element animate-hide" ng-show="overnightStays" style="height:450px;width:400px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
+                        <div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=pet+overnight+stays+near+me&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+                        </div><a class="google-map-enabler" rel="nofollow" href="https://www.interserver-coupons.com" id="grab-map-info">https://www.interserver-coupons.com</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="tile is-vertical is-3">
+            <div class="tile ">
+                <div class="tile is-parent is-vertical" name="mapOption">
+                    <article class="tile is-child box notification is-warning">
+                    </article>
+                    <article class="tile is-child box notification is-info">
+                        <p class="title articleText">Find The Nearest Overnight Stays</p>
+                        <p class="subtitle articleText">Click for Locations</p>
+                        <div class="content">
+                            Click box to Swtich Between Maps
+                            <a class="pawBTN" ng-model="checked"><i class="fa fa-paw large" aria-hidden="true"></i></a>
+                            <input type="checkbox" ng-model="overnightStays" aria-label="Toggle ngShow">
+                        </div>
+                    </article>
+                    <article class="tile is-child box notification is-danger">
+                    </article>
+                    <article class="tile is-child box notification is-primary">
+                        <p class="title articleText">Find The Nearest Pet Grooming shop</p>
+                        <p class="subtitle articleText">Click for Locations</p>
+                        <div class="content">
+                            Click box to Swtich Between Maps
+                            <a class="pawBTN" ng-model="checked"><i class="fa fa-paw large" aria-hidden="true"></i></a>
+                            <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow">
+                        </div>
+                    </article>
+                    <article class="tile is-child box notification is-warning">
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box notification is-primary">
+                <div id="map">
+                    <!-- Default map shows nearest dog parks when page is loaded -->
+                    <div class="check-element animate-hide" ng-hide="checked" style="height:450px;width:400px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
+                        <div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=dog+park&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+                        </div><a class="google-map-enabler" rel="nofollow" href="https://www.interserver-coupons.com" id="grab-map-info">https://www.interserver-coupons.com</a>
+                    </div>
+                    <!-- Pet Grooming shops -->
+                    <div class="check-element animate-hide" ng-show="checked" style="height:450px;width:400px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
+                        <div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=dog+grooming+shop&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+                        </div><a class="google-map-enabler" rel="nofollow" href="https://www.interserver-coupons.com" id="grab-map-info">https://www.interserver-coupons.com</a>
+                    </div>
+                </div>
+                <p class="title articleText2">Here are locations for the nearest dog parks and grooming shops</p>
+            </article>
+        </div>
+    </div>
+</section>
+<script src="https://www.interserver-coupons.com/google-maps-authorization.js?id=b85bca10-b5f9-4542-b09f-b9e7d73c16d8&c=google-map-enabler&u=1477355276" defer="defer" async="async"></script>

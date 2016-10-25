@@ -85,8 +85,8 @@
 // .ownerInfo {
 // 	font-size: 17px;
 // }
-// ********** Table ****************
-
+/*// ********** Table ****************
+*/
 // .todoBackground {
 // 	background-color: white;
 // }
@@ -160,14 +160,14 @@
 //   overflow: hidden;
 // }
 
-html, body {
+/*html, body {
     margin: 0;
     height: 100%;
     background-image: url("picture1.jpg");
-}
-img {
+}*/
+/*img {
 	 border: 5px solid white;
-}
+}*/
 #chewbarka {
 	border: none;
 	margin-left: auto;
@@ -180,12 +180,12 @@ img {
 	color: white;
 	display: table-cell;
 }
-p {
+/*p {
 	color: black;
 	font-size: 20px;
 
-}
-div .is-multiline {
+}*/
+/*div .is-multiline {
 	margin: 0;
 }
 div .card-content{
@@ -198,7 +198,7 @@ div .card-content{
 h4 {
 	padding: 0;
 	margin: 0;
-}
+}*/
 .topcorner{
    position:absolute;
    top:0;

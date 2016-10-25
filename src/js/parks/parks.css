@@ -1,12 +1,24 @@
-.parksBackground {
+    .mapMargin {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    margin-bottom: 10px;
+
+}
+
+#canvas-for-google-map img {
+    max-width: none!important;
+    background: none!important;
+    font-size: inherit;
+}
+
+.articleText {
+	text-align: center;
+}
+
+.articleText2 {
+	text-align: center;
+	padding-top: 10px
+}
+.pawBTN{
 	color: white;
-
-	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../../js/overview/picture1.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;	
-      -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
 }

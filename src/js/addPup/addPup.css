@@ -22,6 +22,10 @@
 #yoda img {
 	margin-left: 70px;
 	border: none;
+}
+.yodaWords {
+	color: white;
+}
 
 .addPupBackground {
 	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../overview/picture1.jpg");
@@ -36,4 +40,5 @@
 .pupProfilePicture {
 	border-color: white;
 	border-radius: 10px;
+
 }

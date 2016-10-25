@@ -16,7 +16,7 @@
         })
 
     .config(function(filepickerProvider) {
-        filepickerProvider.setKey('AfHoDw3QbRvmz6BCmkmQqz');
+        filepickerProvider.setKey('AdZZNOBk8TymXuEOlIkAsz');
     })
 
     .config(appConfig);
