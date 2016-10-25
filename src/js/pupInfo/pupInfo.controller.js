@@ -138,9 +138,20 @@
             );
         }
 
+
+
+
+
         function redirectTo() {
+            if(vm.pup.medPDF == null) {
+                toastr.error("No PDF Uploaded Yet!");
+            } else {
                 window.location.href=vm.pdfURL;
+            }
         }
+
+
+
 
     }
 })();

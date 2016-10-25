@@ -1,3 +1,4 @@
+
 .borderWhite {
 	border: 5px solid white;
 }
@@ -13,6 +14,7 @@
 	color: white;
 	display: table-cell;
 }
+
 .black {
 	color: black;
 }
@@ -20,14 +22,11 @@
 	font-size: 20px;
 }
 div .is-multiline {
+}
+div .is-multiline {
 	margin: 0;
 }
-div .card-content{
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	color: white;
-}
+
 .topcorner{
    position:absolute;
    top:0;
@@ -71,13 +70,7 @@ div .card-content{
 input[ng-model] {
 	font-style: normal;
 }
-/*.placeholder {
-background-repeat: no-repeat;
-background-position: top right;
-background-image: url('puppy.png');
-border-radius: 30%;
-}
-*/
+
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;

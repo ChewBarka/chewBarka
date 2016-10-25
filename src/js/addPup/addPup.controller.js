@@ -39,6 +39,7 @@
                     console.log(JSON.stringify(Blob));
                     vm.newPup.picture = Blob;
                     console.log(vm.newPup);
+                    toastr.success("Photo was added");
                 }
 
             );
