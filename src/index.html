@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <!--endcss-->
     <link href="images/imageedit_24_9569810315.png">
-    <!--CustomCSS--> 
+    <!--CustomCSS-->
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gabriela|Lobster">
-<!--     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!--     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
  -->
     <!--endcustom-->
-
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
@@ -23,7 +22,6 @@
     <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
     <link rel="stylesheet" href="bower_components/angular-datepicker/dist/angular-datepicker.css" />
     <!--endbower-->
-
     <!--inject:css-->
     <link rel="stylesheet" href="js/addPup/addPup.css">
     <link rel="stylesheet" href="js/equipment/equipment.css">
@@ -35,6 +33,7 @@
     <link rel="stylesheet" href="js/pupInfo/pupInfo.css">
     <!--endinject-->
 </head>
+
 <body class="allBackground">
     <!--Right Navigation Bar -->
     <div ng-controller="navController as nav">
@@ -46,44 +45,39 @@
             <a href="#" ng-click="nav.passId()" ui-sref="photo({_id: nav.ownerId})">Photos</a>
             <a href="#" ng-click="nav.passId()" ui-sref="extra.links({_id: nav.ownerId})">Extra</a>
             <a href="#" ng-click="login.logoutUser()" onclick="closeNav()">Logout</a>
-            <a style="padding: 0;"><img id="kylo" style="border: none; margin-top: 325px;" src="images/kyloRen.png"></a>
+            <a style="padding: 0;"><img id="kylo" style="border: none; margin-top: 325px;" src="images/kyloRen3.png"></a>
         </div>
     </div>
     <div id="push">
-
-    <!-- Right Navigation Bar Button -->
-        
-
-    <!-- Top Navigation Bar -->
+        <!-- Right Navigation Bar Button -->
+        <!-- Top Navigation Bar -->
         <nav class="nav">
             <div class="nav-left navBackgrond">
                 <a class="navTitle nav-item is-brand" href="#" ui-sref="overview({_id: nav.ownerId})">chewBarka</a>
             </div>
             <div class="nav-middle" style="background-color: black;">
-            <img src="images/bobaFett.png" style="border: none;" height="70" width="70">
+                <img src="images/bobaFett.png" style="border: none;" height="70" width="70">
             </div>
             <div class="nav-right">
-                 <a class="nav-item" id="rouge" >Rouge One <i class="fa fa-rebel"> </i> </a>
-                 <a class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</a>
+                <a class="nav-item" id="rouge" style="font-size: 25px; margin-right: 480px;">Rouge One <i class="fa fa-rebel"> </i> </a>
+                <a class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</a>
             </div>
         </nav>
-    
-    <div ng-controller="loginController as login">
-        <!--LazyLoad-->
-        <main>
-        <div ui-view></div>
-        </main>
-        <!--endlazyload-->
-
-        <!-- Footer -->
-        <footer class="footer" style="background-color: black; height: 60px;">
-            <div class="content" align="center">
-                <p style="color: white; display: inline;">
-                    <strong>ChewBarka Creators:</strong> Cole Logan and Herberto Basulto
-                </p>
-            </div>
-        </footer> 
-    </div>
+        <div ng-controller="loginController as login">
+            <!--LazyLoad-->
+            <main>
+                <div ui-view></div>
+            </main>
+            <!--endlazyload-->
+            <!-- Footer -->
+            <footer class="footer" style="background-color: black; height: 60px;">
+                <div class="content" align="center">
+                    <p style="color: white; display: inline;">
+                        <strong>ChewBarka Creators:</strong> Cole Logan and Herberto Basulto
+                    </p>
+                </div>
+            </footer>
+        </div>
     </div>
     <!--bower:js-->
     <script src="bower_components/angular/angular.js"></script>
@@ -121,13 +115,13 @@
     <script src="js/core/todo.factory.js"></script>
     <script src="js/equipment/equipment.controller.js"></script>
     <script src="js/events/events.controller.js"></script>
+    <script src="js/login/login.controller.js"></script>
+    <script src="js/medical/medical.controller.js"></script>
     <script src="js/extra/grooming.controller.js"></script>
     <script src="js/extra/links.controller.js"></script>
     <script src="js/extra/shelter.controller.js"></script>
-    <script src="js/login/login.controller.js"></script>
-    <script src="js/medical/medical.controller.js"></script>
-    <script src="js/navBar/navbar.controller.js"></script>
     <script src="js/overview/overview.controller.js"></script>
+    <script src="js/navBar/navbar.controller.js"></script>
     <script src="js/parks/parks.controller.js"></script>
     <script src="js/photos/photo.controller.js"></script>
     <script src="js/pupInfo/pupInfo.controller.js"></script>
@@ -136,4 +130,5 @@
     <script src="http://use.fontawesome.com/29fd29a782.js"></script>
     <!--endanglarjs-->
 </body>
+
 </html>
