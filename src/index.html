@@ -42,9 +42,8 @@
             <a href="#" ng-click="nav.passId()" ui-sref="events({_id: nav.ownerId})">Events</a>
             <a href="#" ng-click="nav.passId()" ui-sref="parks({_id: nav.ownerId})">Parks</a>
             <a href="#" ng-click="nav.passId()" ui-sref="photo({_id: nav.ownerId})">Photos</a>
-            <a href="#" ng-click="nav.passId()" ui-sref="extra.links({_id: nav.ownerId})">Extra</a>
             <a href="#" ng-click="login.logoutUser()" onclick="closeNav()">Logout</a>
-            <a style="padding: 0;"><img id="kylo" style="border: none; margin-top: 325px;" src="images/kyloRen3.png"></a>
+            <a style="padding: 0;"><img id="kylo" style="border: none; margin-top: 155px;" src="images/kyloRen3.png"></a>
         </div>
     </div>
     <div id="push">
@@ -52,72 +51,73 @@
         <!-- Top Navigation Bar -->
         <nav class="nav">
             <div class="nav-left navBackgrond">
-                <a class="navTitle nav-item is-brand" href="#" ui-sref="overview({_id: nav.ownerId})">chewBarka</a>
+                <a class="navTitle nav-item is-brand" href="#" ui-sref="overview({_id: nav.ownerId})" style="color: white">chewBarka</a>
             </div>
             <div class="nav-middle" style="background-color: black;">
-                <img src="images/bobaFett.png" style="border: none;" height="70" width="70">
+                <img class="boba" src="images/bobaFett.png" style="border: none;" height="70" width="70">
             </div>
             <div class="nav-right">
-                <a class="nav-item" id="rouge" style="font-size: 25px; margin-right: 480px;">Rouge One <i class="fa fa-rebel"> </i> </a>
                 <a class="click" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</a>
             </div>
         </nav>
-        <div ng-controller="loginController as login">
-            <!--LazyLoad-->
-            <main>
-                <div ui-view></div>
-            </main>
-            <!--endlazyload-->
-            <!-- Footer -->
-            <footer class="footer" style="background-color: black; height: 60px;">
-                <div class="content" align="center">
-                    <p style="color: white; display: inline;">
+        <!--LazyLoad-->
+        <main>
+            <div class="allBackground" ui-view></div>
+        </main>
+        <!--endlazyload-->
+        <footer class="footer" style="background-color: black">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <p style="color: white;">
                         <strong>ChewBarka Creators:</strong> Cole Logan and Herberto Basulto
                     </p>
+                    <p>
+                        <a href="https://www.youtube.com/watch?v=sC9abcLLQpI " id="rouge ">Rouge One <i class="fa fa-rebel "> </i> </a>
+                    </p>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
     </div>
     <!--bower:js-->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/toastr/toastr.js"></script>
-    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/angular-ui-router-styles/ui-router-styles.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/filepicker-js/filepicker.min.js"></script>
-    <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
-    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
-    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
-    <script src="bower_components/angular-datepicker/dist/angular-datepicker.js"></script>
+    <script src="bower_components/angular/angular.js "></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js "></script>
+    <script src="bower_components/jquery/dist/jquery.js "></script>
+    <script src="bower_components/toastr/toastr.js "></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js "></script>
+    <script src="bower_components/underscore/underscore.js "></script>
+    <script src="bower_components/angular-ui-router-styles/ui-router-styles.js "></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js "></script>
+    <script src="bower_components/filepicker-js/filepicker.min.js "></script>
+    <script src="bower_components/angular-filepicker/dist/angular_filepicker.js "></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js "></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js "></script>
+    <script src="bower_components/moment/moment.js "></script>
+    <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js "></script>
+    <script src="bower_components/angular-datepicker/dist/angular-datepicker.js "></script>
     <!--endbower-->
     <!--inject:js-->
-    <script src="js/app.module.js"></script>
-    <script src="js/addPup/addPup.controller.js"></script>
-    <script src="js/core/crud.factory.js"></script>
-    <script src="js/core/event.factory.js"></script>
-    <script src="js/core/fitness.factory.js"></script>
-    <script src="js/core/login.factory.js"></script>
-    <script src="js/core/medical.factory.js"></script>
-    <script src="js/core/overview.factory.js"></script>
-    <script src="js/core/photo.factory.js"></script>
-    <script src="js/core/pup.factory.js"></script>
-    <script src="js/core/register.factory.js"></script>
-    <script src="js/core/todo.factory.js"></script>
-    <script src="js/events/events.controller.js"></script>
-    <script src="js/login/login.controller.js"></script>
-    <script src="js/navBar/navbar.controller.js"></script>
-    <script src="js/overview/overview.controller.js"></script>
-    <script src="js/parks/parks.controller.js"></script>
-    <script src="js/photos/photo.controller.js"></script>
-    <script src="js/pupInfo/pupInfo.controller.js"></script>
+    <script src="js/app.module.js "></script>
+    <script src="js/addPup/addPup.controller.js "></script>
+    <script src="js/core/crud.factory.js "></script>
+    <script src="js/core/event.factory.js "></script>
+    <script src="js/core/fitness.factory.js "></script>
+    <script src="js/core/login.factory.js "></script>
+    <script src="js/core/medical.factory.js "></script>
+    <script src="js/core/overview.factory.js "></script>
+    <script src="js/core/photo.factory.js "></script>
+    <script src="js/core/pup.factory.js "></script>
+    <script src="js/core/register.factory.js "></script>
+    <script src="js/core/todo.factory.js "></script>
+    <script src="js/events/events.controller.js "></script>
+    <script src="js/login/login.controller.js "></script>
+    <script src="js/navBar/navbar.controller.js "></script>
+    <script src="js/overview/overview.controller.js "></script>
+    <script src="js/parks/parks.controller.js "></script>
+    <script src="js/photos/photo.controller.js "></script>
+    <script src="js/pupInfo/pupInfo.controller.js "></script>
     <!--endinject-->
-    <script src="style/main.js"></script>
-    <script src="http://use.fontawesome.com/29fd29a782.js"></script>
+    <script src="style/main.js "></script>
+    <script src="http://use.fontawesome.com/29fd29a782.js "></script>
     <!--endanglarjs-->
 </body>
 

@@ -1,102 +1,94 @@
 <!-- <div class="img"></div> -->
-<div class="loginFont">
-<section class="hero loginImage is-fullheight">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title is-2 heroText">
-          Welcome to chewBarka
-        </h1>
-            <h2 class="subtitle is-5 heroText">
-          Let's Get Started
-        </h2>
+<div>
+    <section class="hero loginImage is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class=" is-2 heroText">
+                Welcome to chewBarka
+            </h1>
+                <h2 class=" is-5 heroText">
+                Let's Get Started
+            </h2>
+            </div>
         </div>
-    </div>
-</section>
-<section class="hero is-fullheight is-bold">
-    <div class="hero-body" id="hi">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-4">
-                        <img style="border: none;" src="images/DogwithLeash.png">
-                </div>
-                <div class="column is-4">
-                    <!-- LOGIN -->
-                    <div ng-hide="showing">
-                        <form ng-submit="login.authUser(login.loginInfo)">
-                            <h1 class="title loginTitle">
+    </section>
+    <section class="hero is-fullheight is-bold">
+        <div class="hero-body" id="hi">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-4 is-offset-4">
+                        <!-- LOGIN -->
+                        <div ng-hide="showing">
+                            <form ng-submit="login.authUser(login.loginInfo)">
+                                <h1 class="title loginTitle">
                               Login or <a ng-click="showing = !showing">Register</a>
                               <a class="" ng-click="showing = !showing"><i class="fa fa-paw large" aria-hidden="true"></i></a>
                             </h1>
-                            <div class="box">
-                                <label class="label">Email</label>
-                                <p class="control">
-                                    <input class="input" type="text" ng-model="login.loginInfo.email" placeholder="jsmith@example.org">
+                                <div class="box">
+                                    <label class="label">Email</label>
+                                    <p class="control">
+                                        <input class="input" type="text" ng-model="login.loginInfo.email" placeholder="jsmith@example.org">
+                                    </p>
+                                    <label class="label">Password</label>
+                                    <p class="control">
+                                        <input class="input" type="password" ng-model="login.loginInfo.password" placeholder="●●●●●●●">
+                                    </p>
+                                    <hr>
+                                    <p class="control">
+                                        <button class="button is-primary">Login</button>
+                                        <button class="button is-default">Cancel</button>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Sign Up -->
+                        <div ng-hide="!showing">
+                            <form ng-submit="login.registerUser(login.registerInfo)">
+                                <label class="label fontColor">FirstName</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="text" name="firstName" placeholder="FirstName" ng-model="login.registerInfo.firstName"><i class="fa fa-user" aria-hidden="true"></i>
                                 </p>
-                                <label class="label">Password</label>
-                                <p class="control">
-                                    <input class="input" type="password" ng-model="login.loginInfo.password" placeholder="●●●●●●●">
+                                <label class="label fontColor">LastName</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="text" name="lastName" placeholder="LastName" ng-model="login.registerInfo.lastName"><i class="fa fa-user" aria-hidden="true"></i>
                                 </p>
-                                <hr>
-                                <p class="control">
-                                    <button class="button is-primary">Login</button>
-                                    <button class="button is-default">Cancel</button>
+                                <label class="label fontColor">Address</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="text" name="address" placeholder="Address" ng-model="login.registerInfo.address"><i class="fa fa-home" aria-hidden="true"></i>
                                 </p>
-                            </div>
-                            <p class="has-text-centered">
-                                <a ng-click="showing = !showing">Register an Account</a>
-                                <!-- Create a link for the user to navigate to if they forget their password -->
-                                <!-- | <a href="#">Forgot password</a> -->
-                            </p>
-                        </form>
-                    </div>
-                    <!-- Sign Up -->
-                    <div ng-hide="!showing">
-                        <form ng-submit="login.registerUser(login.registerInfo)">
-                            <label class="label">FirstName</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="text" name="firstName" placeholder="FirstName" ng-model="login.registerInfo.firstName"><i class="fa fa-user" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">LastName</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="text" name="lastName" placeholder="LastName" ng-model="login.registerInfo.lastName"><i class="fa fa-user" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">Address</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="text" name="address" placeholder="Address" ng-model="login.registerInfo.address"><i class="fa fa-home" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">ZipCode</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="text" name="zipcode" placeholder="Zipcode" ng-model="login.registerInfo.zipCode"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">Phone</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="tel" name="telephone" placeholder="Phone" ng-model="login.registerInfo.telephone"><i class="fa fa-mobile" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">Email</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="email" name="email" placeholder="Email" ng-model="login.registerInfo.email"><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">NSR Registration</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="text" name="nsrRegistration" placeholder="NSR Registration" ng-model="login.registerInfo.nsrRegistration"><i class="fa fa-paw" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">Password</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="password" name="password" placeholder="Password" ng-model="login.registerInfo.password"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                            </p>
-                            <label class="label">Confirm Password</label>
-                            <p class="control has-icon has-icon-right">
-                                <input class="input is-primary" type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="login.registerInfo.confirmPassword"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                            </p>
-                            <p class="control">
-                                <button class="button is-success" type="submit">Sign Up</button>
-                                <a ng-click="showing = !showing">Go back to Login</a>
-                            </p>
-                        </form>
+                                <label class="label fontColor">ZipCode</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="text" name="zipcode" placeholder="Zipcode" ng-model="login.registerInfo.zipCode"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                </p>
+                                <label class="label fontColor">Phone</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="tel" name="telephone" placeholder="Phone" ng-model="login.registerInfo.telephone"><i class="fa fa-mobile" aria-hidden="true"></i>
+                                </p>
+                                <label class="label fontColor">Email</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="email" name="email" placeholder="Email" ng-model="login.registerInfo.email"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                </p>
+                                <label class="label fontColor">NSR Registration</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="text" name="nsrRegistration" placeholder="NSR Registration" ng-model="login.registerInfo.nsrRegistration"><i class="fa fa-paw" aria-hidden="true"></i>
+                                </p>
+                                <label class="label fontColor">Password</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="password" name="password" placeholder="Password" ng-model="login.registerInfo.password"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                </p>
+                                <label class="label fontColor">Confirm Password</label>
+                                <p class="control has-icon has-icon-right">
+                                    <input class="input is-primary" type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="login.registerInfo.confirmPassword"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                </p>
+                                <p class="control">
+                                    <button class="button is-success" type="submit">Sign Up</button>
+                                    <a ng-click="showing = !showing">Go back to Login</a>
+                                </p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>

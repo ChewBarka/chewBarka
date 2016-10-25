@@ -75,7 +75,7 @@ body {
     left: 0;
     background-color: black;
     text-align: center;
-    height: 60px;
+    /*height: 60px;*/
 }
 
 .fixedElement {
@@ -126,11 +126,7 @@ div .nav-left {
 }
 
 #rouge {
-    color: black;
-}
 
-#rouge:hover {
-    color: gold;
 }
 
 .allBackground {
@@ -142,6 +138,11 @@ div .nav-left {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.boba {
+    opacity: .4;
+}
+
 
 
 /*

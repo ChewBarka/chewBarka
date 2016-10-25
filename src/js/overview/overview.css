@@ -84,8 +84,19 @@ input[ng-model] {
     font-style: normal;
 }
 
+.overviewMargin {
+    margin-top:50px;
+    padding-bottom: 50px;
+}
+
 
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;
 */
+
+
+
+
+
+
