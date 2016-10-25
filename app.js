@@ -26,10 +26,8 @@ var photoRoute = require('./routes/owner/photos.route');
 var registerRoute = require('./routes/owner/register.route');
 var loginRoute = require('./routes/owner/login.route');
 var owner = require('./routes/owner/register.route');
-// var pupFitnessRoute = require('./routes/pup/pupFitness.route');
-//var ownerTodoRoute = require('./routes/owner/ownerTodo.route');
-//var pupHealthRoute = require('./routes/pup/pupHealth.route');
-//var familyRoute = require('./routes/owner/family.route');
+
+
 //require the Twilio module and create a REST client
 
 var accountSid = 'AC5b426d1b75984a95d899263753e1ea6f'; // Your Account SID from www.twilio.com/console
@@ -53,7 +51,6 @@ var authToken = '6f2d5c4cb05804dcb66555d464dc7f99';   // Your Auth Token from ww
 
 //   throw new Error(errorMessage);
 // }
-
 
 // client.messages.create({
 //     body: 'Hello from Node',
@@ -100,12 +97,6 @@ apiRouter.use('/todo', todoRoute);
 apiRouter.use('/photos', photoRoute);
 apiRouter.use('/register', registerRoute);
 apiRouter.use('/login', loginRoute);
-// apiRouter.use('/message', twilioRoute);
-//apiRouter.use('/ownerTodo', ownerTodoRoute);
-//apiRouter.use('/pupHealth', pupHealthRoute);
-//apiRouter.use('/family', familyRoute);
-// apiRouter.use('/pupFitness', pupFitnessRoute);
-// apiRouter.use('/ownerTodo', ownerTodoRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

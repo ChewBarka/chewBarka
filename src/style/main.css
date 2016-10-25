@@ -15,18 +15,18 @@
 //     flex-direction: column;
 // }
 html {
-  height: 100%;
-  margin: 0;
-  
+    height: 100%;
+    margin: 0;
 }
+
 body {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
 }
 
 .main {
     flex: 1 0 auto;
-  }
+}
 
 .sidenav {
     height: 100%;
@@ -51,7 +51,8 @@ body {
     transition: 0.3s;
 }
 
-.sidenav a:hover, .offcanvas a:focus{
+.sidenav a:hover,
+.offcanvas a:focus {
     color: #f1f1f1;
 }
 
@@ -62,38 +63,39 @@ body {
     font-size: 36px;
     margin-right: 50px;
 }
+
 #push {
     transition: margin-right .5s;
     display: block;
 }
-/*div span {
-    padding-right: 16px;
-    margin-right: 16px;
-    display: block;
-    text-align: right;
-}*/
-.footer {
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: black;
-  text-align: center;
-  height: 60px;
 
+.footer {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    text-align: center;
+    /*height: 60px;*/
 }
+
 .fixedElement {
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
+
 #mySidenav {
     display: block;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 .navTitle {
@@ -104,72 +106,46 @@ body {
 #login {
     display: block;
 }
+
 div .nav-right {
     padding-top: 0;
     padding-right: 60px;
     background-color: black;
 }
+
 div .nav-left {
     padding-left: 60px;
 }
 
 .navBackgrond {
     background: black;
-/*    background-repeat: no-repeat;
-    background-attachment: fixed;   
-      -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
 }
- .click {
+
+.click {
     padding-top: 8px;
 }
+
 #rouge {
-    color: black;
-}
-#rouge:hover {
-    color: gold;
+
 }
 
 .allBackground {
-        background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../js/overview/picture1.jpg");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../js/overview/picture1.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;   
-      -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
+.boba {
+    opacity: .4;
+}
+
+
+
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,28 +7,37 @@
     padding-top: 170px;
 }
 
-/*p a {
-    padding-left: 30px;
-}
-*/
 .loginTitle {
 	text-align: center;
 }
 
 .loginImage {
-	background-image: url("BlackDog.jpg");
+	background-image: url("giphy.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: 30% 20%;
+    background-size: cover;
+    opacity: .7;
 }
 
 .heroText {
 	color: white;
+	font-family: 'Lobster', cursive;
+	font-weight: bold;
+	font-size: 75px
+
 }
 
-.loginFont {
-	/*font-family: 'Gabriela', serif;*/
+.fontColor {
+	color: white;
 }
+
+
 #hi {
-    background-color: slategrey;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../overview/picture1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

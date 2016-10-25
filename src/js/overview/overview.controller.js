@@ -17,7 +17,6 @@
         vm.addPup = addPup;
         vm.addTodo = addTodo;
         vm.deleteTodo = deleteTodo;
-        vm.updateTodo = updateTodo;
         vm.deletePup = deletePup;
         vm.updateProfile = updateProfile;
         vm.refresh = refresh;
@@ -31,11 +30,7 @@
         vm.fitnessData = [];
 
         getOwnerById();
-
-        // if(!loginFactory.isAuth) {
-        //     $state.go('login');
-        // }
-//////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
 
         function getOwnerById() {
             vm.ownerId = loginFactory.ownerId;
@@ -70,14 +65,15 @@
                         nextVisit(data);
 
                         // Here we grabbed all of the fitness Data, To disply the last one
-                        // vm.fitnessData.push(data.fitness);
-                        // vm.fitnessData.push(data.fitness[0].notes);
-
+                        vm.fitnessData.push(data.fitness[0].date);
+                        vm.fitnessData.push(data.fitness[0].notes);
 
                         // Here we grabbed the next vet visit from each dog
-                        // vm.vetAppt.push(data.medicalRecord[0].nextVisit);
-                        // console.log('List of Vet appointment date: ' + vm.vetAppt);
+                        vm.vetAppt.push(data.medicalRecord[0].nextVisit);
+                        console.log('List of Vet appointment date: ' + vm.vetAppt);
 
+                        // vm.fitnessData.push(data.fitness);
+                        // vm.fitnessData.push(data.fitness[0].notes);
                     }
                 );
             }
@@ -104,7 +100,7 @@
         }
 
 
-/////******** Do this Soon ********/////////
+        /////******** Do this Soon ********/////////
         function deletePup(pup) {
             console.log('delete pup');
             if (confirm("Are you sure you want to delete this pup?")) {
@@ -133,16 +129,6 @@
             );
         }
 
-        // Not working, yet //
-        function updateTodo(todo, id) {
-            todoFactory.update(todo, id).then(
-                function(data) {
-                    console.log(data);
-                    toastr.success("Task was Updated");
-                    getOwnerById();
-                }
-            );
-        }
         function updateProfile(owner, id) {
             overviewFactory.update(owner, id) .then(
                 function(data) {
@@ -154,7 +140,7 @@
         }
 
         function deleteTodo(id) {
-            if(confirm("Are you sure you want remove task?")) {
+            if (confirm("Are you sure you want remove task?")) {
                 todoFactory.remove(id).then(
                     function(data) {
                         console.log(data);
@@ -164,13 +150,6 @@
                 );
             }
         }
-
-        //////////////////////////////////////////////////////////////
-        // Update the owner Info
-        function refresh() {
-            $state.reload();
-        }
-
 
     }
 })();

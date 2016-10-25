@@ -1,4 +1,6 @@
-<div class="container is-fluid pad">
+
+<div class="container is-fluid overviewMargin">
+<div class="overviewMargin">
     <div class="tile is-ancestor">
         <div class="tile is-vertical">
             <div class="tile">
@@ -54,7 +56,7 @@
                             <div class="tile is-parent is-2">
                                 <article class="tile is-child notification is-info">
                                     <div style="display: inline;">
-                                            <p class="title" align="center">Next Vet Visit(s)</p>
+                                        <p class="title" align="center">Next Vet Visit(s)</p>
                                         <br>
                                         <div ng-repeat='date in overview.vetAppt'>
                                             <p>{{date | date}}</p>
@@ -71,11 +73,10 @@
                                             </header>
                                             <div class="card-content">
                                                 <div class="subtitle" id="fitnessCard" style="padding-bottom: 10px;">
-                                                     <p> <i class="fa fa-rebel"></i>
-                                                    {{overview.fitnessData[0][0].notes}}</p>
+                                                    <p> <i class="fa fa-rebel"></i> {{overview.fitnessData[0][0].notes}}
+                                                    </p>
                                                     <br>
                                                     <p><i class="fa fa-calendar"></i> {{overview.fitnessData[0][0].date | date}}</p>
-                                                
                                                 </div>
                                             </div>
                                         </div>
@@ -137,57 +138,56 @@
                                 </div>
                         </article>
                     </div>
-                
-                        <div class="tile is-parent">
-                            <article class="tile is-child notification is-info">
-                                <div class="column is-full">
-                                    <p class="panel-heading">Pup's grocery List</p>
-                                    <table class="table table-hover is-narrow">
-                                        <thead>
-                                            <tr>
-                                                <td>Items</td>
-                                                <td>When</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr ng-repeat="task in overview.owner.todo | orderBy: '+date'">
-                                                <td ng-model="overview.task.task">
-                                                    <p>{{ task.task }}</p>
-                                                </td>
-                                                <td ng-model="overview.task.date">
-                                                    <p>{{ task.date | date }}</p>
-                                                </td>
-                                                <td>
-                                                    <div class="buttons">
-                                                        <a class="checkbox" ng-click="overview.deleteTodo(task._id)"><i style="padding-top: 3px; font-size: 30px" class="fa fa-check-square" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <input class="input" type="text" ng-model="overview.newTodo.task">
-                                                </td>
-                                                <td>
-                                                    <input class="input" type="date" ng-model="overview.newTodo.date">
-                                                </td>
-                                                <td>
-                                                    <a class="todoAdd" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)"><i style="font-size: 30px;" class="fa fa-plus-square" aria-hidden="true"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="tile is-parent">
-                            <article class="tile is-child notification is-dark">
-
-                            </article>
-                        </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-info">
+                            <div class="column is-full">
+                                <p class="panel-heading">Pup's grocery List</p>
+                                <table class="table table-hover is-narrow">
+                                    <thead>
+                                        <tr>
+                                            <td>Items</td>
+                                            <td>When</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr ng-repeat="task in overview.owner.todo | orderBy: '+date'">
+                                            <td ng-model="overview.task.task">
+                                                <p>{{ task.task }}</p>
+                                            </td>
+                                            <td ng-model="overview.task.date">
+                                                <p>{{ task.date | date }}</p>
+                                            </td>
+                                            <td>
+                                                <div class="buttons">
+                                                    <a class="checkbox" ng-click="overview.deleteTodo(task._id)"><i style="padding-top: 3px; font-size: 30px" class="fa fa-check-square" aria-hidden="true"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input class="input" type="text" ng-model="overview.newTodo.task">
+                                            </td>
+                                            <td>
+                                                <input class="input" type="date" ng-model="overview.newTodo.date">
+                                            </td>
+                                            <td>
+                                                <a class="todoAdd" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)"><i style="font-size: 30px;" class="fa fa-plus-square" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-dark">
+                        </article>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>

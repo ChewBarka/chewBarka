@@ -59,25 +59,11 @@
         function addPhoto() {
             photoFactory.add(vm.newPhoto).then(
                 function() {
-                    alert("Photo was added");
+                    toastr.success("Photo was added");
                     $state.reload();
                 }
             );
         }
-        ////////////////////////////////////////////////
-        // function getPhotos() {
-        //     photoFactory.getAll().then(
-        //         function(data) {
-        //             vm.photos = data;
-        //         }
-        //     );
-        // }
-
-
-
-
-
-
 
 
 

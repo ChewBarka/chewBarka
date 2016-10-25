@@ -14,17 +14,6 @@
 
         vm.registerInfo = {};
         vm.loginInfo = {};
-        /* COMMENT THIS OUT FOR NON-DEVELOPMENT */
-        // vm.registerInfo.firstName = 'Cole';
-        // vm.registerInfo.lastName = 'Logan';
-        // vm.registerInfo.address = '3872 Jewell Street San Diego';
-        // vm.registerInfo.zipCode = '92109';
-        // vm.registerInfo.telephone = '9092247557';
-        // vm.registerInfo.email = 'colelogan19@yahoo.com',
-        // vm.registerInfo.password = 'password123';
-        // vm.registerInfo.confirmPassword = 'password123';
-        // vm.loginInfo.email = 'john@gmail.com';
-        // vm.loginInfo.password = 'butts';
 
         vm.authUser = authUser;
         vm.registerUser = registerUser;

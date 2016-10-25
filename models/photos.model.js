@@ -3,23 +3,23 @@ var Schema = mongoose.Schema;
 
 var photosSchema = new Schema({
 
-	picture: {
-		type: Schema.Types.Mixed, 
-		required: true
-	},
-	morePictures: {
-		type: Schema.Types.Mixed, 
-		required: false
-	},
-	createdAt: {
-		type: Date,
-		default: Date.now
-	}
+    picture: {
+        type: Schema.Types.Mixed,
+        required: true
+    },
+    morePictures: {
+        type: Schema.Types.Mixed,
+        required: false
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
 
 });
 
 // Sets the createdAt parameter equal to the current time
-photosSchema.pre('save', function(next){
+photosSchema.pre('save', function(next) {
     now = new Date();
     if (!this.createdAt) {
         this.createdAt = now;

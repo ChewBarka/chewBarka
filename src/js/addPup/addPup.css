@@ -1,49 +1,35 @@
-html, body {
-    margin: 0;
-    height: 100%;
-    background-image: url("picture1.jpg");
-}
 .addPupPicBtn {
-
-	color: #3273dc;
-	font-size: 20px;
-	text-align: center;
-	align-content: center;
-	padding-bottom: 20px;
-	padding-top: 20px;
+    color: #3273dc;
+    font-size: 20px;
+    text-align: center;
+    align-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 .addDogBtn {
-	display: inline;
-	align-content: right;
+    display: inline;
+    align-content: right;
 }
 
 #yoda {
-	margin-top: 120px;
-}
-#yoda h2 {
-	font-size: 30px;
-}
-#yoda img {
-	margin-left: 70px;
-	border: none;
-}
-.yodaWords {
-	color: white;
+    margin-top: 120px;
 }
 
-.addPupBackground {
-	background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("../overview/picture1.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;	
-      -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+#yoda h2 {
+    font-size: 30px;
+}
+
+#yoda img {
+    margin-left: 70px;
+    border: none;
+}
+
+.yodaWords {
+    color: white;
 }
 
 .pupProfilePicture {
-	border-color: white;
-	border-radius: 10px;
-
+    border-color: white;
+    border-radius: 10px;
 }
