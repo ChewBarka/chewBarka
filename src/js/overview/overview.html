@@ -235,7 +235,6 @@ Owners information on the top -->
 
     </div>
  -->
-
 <!-- <div class="container">
     <div class="tile is-ancestor">
       <div class="tile is-vertical is-12">
@@ -274,113 +273,361 @@ Owners information on the top -->
           <div class="tile">    
  -->
 <!-- end of pups card -->
-
-
 <!-- <div class="topcorner">
         <a class="" ng-click="overview.addPup()"><i class="fa fa-paw large" style="font-size: 100px; padding: 0;" aria-hidden="true"></i></a>
         <a href="#" ng-click="overview.addPup()"></a>
     </div> -->
-<div class="tile is-ancestor">
-    <div class="tile is-vertical">
-        <div class="tile">
-            <div class="tile is-parent">
-                <article class="tile is-child notification is-success">
-                    <figure class="image is-1by1">
-                        <img ng-src="{{overview.pupData[0].picture.url}}" alt="No Profile Picture Yet">
-                    </figure>
-                </article>
-            </div>
-            <div class="tile is-vertical is-8">
-                <div class="tile is-parent" >
-                    <article  id="pupCard" class="tile is-child notification is-danger is-3" ng-repeat="pup in overview.owner.pups">
-                                <div class="card" id="cardPup">
-                                    <div class="card-image" ui-sref="pupInfo({_id: overview.ownerId,_pupId: pup._id})">
-                                        <a>
-                                            <figure class="image is-1by1">
-                                                <img ng-src="{{pup.picture.url}}" alt="No PictureAvailable">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="content">
-                                            <h4>{{pup.name}}</h4>
-                                        </div>
-                                        <a class="card-header-icon" style="" ng-click="hide = !hide">
-                                            <i class="fa fa-angle-down"></i>
-                                        </a>
-                                    </div>
-                                    <footer class="card-footer" ng-hide="!hide">
-                                        <a class="card-footer-item" ng-click="overview.deletePup(pup)">Delete</a>
-                                    </footer>
-                                </div>
+<!-- my code -->
+<!-- <div class="container is-fluid pad">
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical">
+            <div class="tile">
+                <div class="tile is-parent">
+                    <article class="tile is-child notification is-success">
+                        <figure class="image is-1by1">
+                            <img class="borderWhite is-fluid" id="profileDog" ng-src="{{overview.pupData[0].picture.url}}" alt="No Profile Picture Yet">
+                        </figure>
                     </article>
-                    <article class="tile is-child is-2">
-        
-                        <div class="pull-right" style="margin-right: 30px; margin-top: 20px">
-                            <div style="margin-top: 85px; margin-right: 10px; text-align: center" align="center">
-                                <a class="" ng-click="overview.addPup()"><i class="fa fa-paw" style="font-size: 100px;" aria-hidden="true"></i></a>
-                                <a ng-click="overview.addPup()"><p>Add a Pup!</p></a>
+                </div>
+                <div class="tile is-vertical is-8">
+                    <div class="tile is-parent">
+                        <article id="pupCard" class="tile is-child notification is-danger is-4" ng-repeat="pup in overview.owner.pups">
+                            <div class="card" id="cardPup">
+                                <div class="card-image" ui-sref="pupInfo({_id: overview.ownerId,_pupId: pup._id})">
+                                    <a>
+                                        <figure class="image is-1by1">
+                                            <img class="borderWhite" ng-src="{{pup.picture.url}}" alt="No PictureAvailable">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        <h4>{{pup.name}}</h4>
+                                    </div>
+                                    <a class="card-header-icon" style="" ng-click="hide = !hide">
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </div>
+                                <footer class="card-footer" ng-hide="!hide">
+                                    <a class="card-footer-item" ng-click="overview.deletePup(pup)">Delete</a>
+                                </footer>
+                            </div>
+                        </article>
+                        <article class="tile is-child is-2">
+                            <div class="pull-right" style="margin-right: 30px; margin-top: 20px">
+                                <div style="margin-top: 85px; margin-right: 10px; text-align: center" align="center">
+                                    <a class="" ng-click="overview.addPup()"><i class="fa fa-paw" style="font-size: 100px;" aria-hidden="true"></i></a>
+                                    <a ng-click="overview.addPup()">
+                                        <p>Add a Pup!</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical is-3">
+                            <article class="tile is-child notification is-dark">
+                                <img id="chewbarka" src="images/ImageEdit2.png" height="360" width="360" style="padding-top: 15px;">
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-info">
+                                <div class="column is-half is-12">
+                                    <p class="panel-heading">Pup's grocery List</p>
+                                    <table class="table table-hover is-narrow">
+                                        <thead>
+                                            <tr>
+                                                <td>Items</td>
+                                                <td>When</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr ng-repeat="task in overview.owner.todo | orderBy: '+date'">
+                                                <td ng-model="overview.task.task">
+                                                    <p>{{ task.task }}</p>
+                                                </td>
+                                                <td ng-model="overview.task.date">
+                                                    <p>{{ task.date | date }}</p>
+                                                </td>
+                                                <td>
+                                                    <div class="buttons">
+                                                        <a class="checkbox" ng-click="overview.deleteTodo(task._id)"><i style="padding-top: 3px;" class="fa fa-check-square" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input class="input" type="text" ng-model="overview.newTodo.task">
+                                                </td>
+                                                <td>
+                                                    <input class="input" type="date" ng-model="overview.newTodo.date">
+                                                </td>
+                                                <td>
+                                                    <a class="todoAdd" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)"><i style="font-size: 30px;" class="fa fa-plus-square" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile">
+                <div class="tile is-parent is-6">
+                     <article class="tile is-child notification is-warning">
+                      <div class="column is-12">
+                            <div class="card is-12 is-fullwidth">
+                     <header class="card-header">
+                    <p class="card-header-title">Profile</p>
+                    <a class="card-header-icon" ng-click="show = !show">
+                      <i class="fa fa-angle-down"></i>
+                    </a>
+                  </header>
+                    <div ng-hide="show">
+                      <div class="card-content">
+                        <div class="content" id="profileCard">
+                            <div ng-click="profile = !profile" ng-hide="profile">
+                                <p>Welcome {{overview.owner.firstName}} {{overview.owner.lastName}}!</p>
+                                <p>Email: {{overview.owner.email}}</p>
+                                <p>Zip: {{overview.owner.zipCode}}</p>
+                                <p>Phone: {{overview.owner.telephone}}</p>
+                                <p>NSR Number: {{overview.owner.nsrRegistration}}</p>
+                            </div>
+                            <div ng-hide="!profile">
+                                <p>Welcome <input type="text" size="45" style="width: 40px;" ng-model="overview.owner.firstName"><input style="width: 70px;" type="text" ng-model="overview.owner.lastName"!</p>
+                                <p>Email: <input type="text" style="width: 150px;" ng-model="overview.owner.email"></p>
+                                <p>Zip: <input type="text" style="width: 50px;" ng-model="overview.owner.zipCode"></p>
+                                <p>Phone: <input type="phone" style="width: 90px" ng-model="overview.owner.telephone"></p>
+                                <p>NSR Number: <input type="text" style="width: 120px;" ng-model="overview.owner.nsrRegistration"></p>
+                                <button class="button is-primary" ng-click="profile = !profile" style="margin-bottom: 10px;">Close</button>
+                                <button class="button is-success" ng-click="overview.updateProfile(overview.owner)" style="margin-bottom: 10px;">Save</button>
+                            </div>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      </article>
+                </div>
+                <div class="tile is-parent is-6">
+                   
+                        <article class="tile is-child notification is-success">
+                        <div class="column is-12">
+                            <div class="card is-12 is-fullwidth">
+                                <header class="card-header">
+                                    <p class="card-header-title">Fitness</p>
+                                    <a class="card-header-icon" ng-click="hide = !hide">
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </header>
+                                <div ng-hide="hide">
+                                    <div class="card-content">
+                                        <div class="content" id="fitnessCard">
+                                            <div style="display: inline;">
+                                                <i class="fa fa-calendar"></i>
+                                                <p>{{overview.fitnessData[0][0].date | date}}</p>
+                                            </div>
+                                            <i class="fa fa-rebel"></i>
+                                            <p>{{overview.fitnessData[0][0].notes}}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </article>
-                </div>
-                <div class="tile">
-                    <div class="tile is-parent is-vertical is-3">
-                        <article class="tile is-child notification is-dark">
-                            <img id="chewbarka" src="images/ImageEdit2.png" height="360" width="360" style="padding-top: 50px;">
-                        </article>
-                    </div>
-                    <div class="tile is-parent">
-                        <article class="tile is-child notification is-info">
-                             <div class="column is-half is-12">
-            <p class="panel-heading">Pup's grocery List</p>
-                <table class="table table-hover is-narrow">
-                    <thead>
-                    <tr>
-                        <td>Items</td>
-                        <td>When</td>
-                        <td></td>
-                    </tr>
-                    <tr ng-repeat="task in overview.owner.todo | orderBy: '+date'">
-                        <td ng-model="overview.task.task"><p>{{ task.task }}</p></td>
-                        <td ng-model="overview.task.date"><p>{{ task.date | date }}</p></td>
-                        <td>
-                            <div class="buttons">
-                                <a class="checkbox" ng-click="overview.deleteTodo(task._id)"><i style="padding-top: 3px;" class="fa fa-check-square" aria-hidden="true"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                       <tr>
-                           <td>
-                                <input class="input" type="text" ng-model="overview.newTodo.task">
-                            </td>
-                            <td>
-                                <input class="input" type="date" ng-model="overview.newTodo.date">
-                            </td>
-                            <td>
-                            <a class="todoAdd" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)"><i style="font-size: 30px;" class="fa fa-plus-square" aria-hidden="true"></i></a>
-                            </td>
-                        </tr> 
-                    </tbody>
-                </table>
-            </div>
-                        </article>
-                    </div>
+                   
                 </div>
             </div>
         </div>
-        <div class="tile">
-            <div class="tile is-parent">
-                <article class="tile is-child notification is-success">
-                    <p>hello</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child notification is-warning">
+    </div>
+</div>
+ -->
+<div class="container is-fluid pad">
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical">
+            <div class="tile">
+                <div class="tile is-parent is-4">
+                    <article class="tile is-child notification is-success">
+                        <figure class="image is-1by1">
+                            <img class="borderWhite is-fluid" id="profileDog" ng-src="{{overview.pupData[0].picture.url}}" alt="No Profile Picture Yet">
+                        </figure>
+                    </article>
+                </div>
+                <div class="tile is-vertical is-8">
+                    <div class="tile is-12">
+                        <div class="tile is-parent is-5">
+                            <article class="tile is-child notification is-warning">
+                                <div class="column is-12">
+                                    <div class="card is-12 is-fullwidth">
+                                        <header class="card-header">
+                                            <p class="title" style="padding-left: 10px;">Profile</p>
+                                        </header>
+                                        <div>
+                                            <div class="card-content">
+                                                <div class="subtitle" id="profileCard">
+                                                    <div ng-click="profile = !profile" ng-hide="profile">
+                                                        <p>Welcome {{overview.owner.firstName}} {{overview.owner.lastName}}!</p>
+                                                        <p><i class="fa fa-envelope"></i> : {{overview.owner.email}}</p>
+                                                        <p><i class="fa fa-area-chart"></i> : {{overview.owner.zipCode}}</p>
+                                                        <p><i class="fa fa-phone"></i>: {{overview.owner.telephone}}</p>
+                                                        <p><i class="fa fa-sort-numeric-asc"></i> NSR Number: {{overview.owner.nsrRegistration}}</p>
+                                                    </div>
+                                                    <div ng-hide="!profile">
+                                                        <p>Welcome 
+                                                            <input type="text" size="45" style="width: 40px;" ng-model="overview.owner.firstName">
+                                                            <input style="width: 70px;" type="text" ng-model="overview.owner.lastName"</p>
 
-                </article>
+
+                                                            <p><i class="fa fa-envelope"></i> <input type="text" style="width: 150px;" ng-model="overview.owner.email"></p>
+                                
+                                                            <p><i class="fa fa-area-chart"></i> <input type="text" style="width: 50px;" ng-model="overview.owner.zipCode"></p>
+                                                            <p><i class="fa fa-phone"></i> <input type="phone" style="width: 90px" ng-model="overview.owner.telephone"></p>
+                                                            <p><i class="fa fa-sort-numeric-asc"></i> NSR Number:<input type="text" style="width: 120px;" ng-model="overview.owner.nsrRegistration"></p>
+                                                            <button class="button is-primary" ng-click="profile = !profile" style="margin-bottom: 10px;">Close</button>
+                                                            <button class="button is-success" ng-click="overview.updateProfile(overview.owner)" style="margin-bottom: 10px;">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </article>
+                            </div>
+                            <div class="tile is-parent is-2">
+                                <article class="tile is-child notification is-info">
+                                    <div style="display: inline;">
+                                            <p class="title" align="center">Next Vet Visit(s)</p>
+                                        <br>
+                                        <div ng-repeat='date in overview.vetAppt'>
+                                            <p>{{date | date}}</p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="tile is-parent is-5">
+                                <article class="tile is-child notification is-success">
+                                    <div class="column is-12">
+                                        <div class="card is-12 is-fullwidth">
+                                            <header class="card-header">
+                                                <p class="title" style="padding-left: 10px;">Fitness</p>
+                                            </header>
+                                            <div class="card-content">
+                                                <div class="subtitle" id="fitnessCard" style="padding-bottom: 10px;">
+                                                     <p> <i class="fa fa-rebel"></i>
+                                                    {{overview.fitnessData[0][0].notes}}</p>
+                                                    <br>
+                                                    <p><i class="fa fa-calendar"></i> {{overview.fitnessData[0][0].date | date}}</p>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="tile">
+                            <div class="tile is-parent is-vertical is-3">
+                                <article class="tile is-child">
+                                    <article class="tile is-child">
+                                        <div>
+                                            <div style="margin-top: 85px; margin-right: 10px; text-align: center" align="center">
+                                                <a class="" ng-click="overview.addPup()"><i class="fa fa-paw" style="font-size: 200px;" aria-hidden="true"></i></a>
+                                                <a ng-click="overview.addPup()">
+                                                    <p style="font-size: 25px">Add a Pup!</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </article>
+                            </div>
+                            <!-- <div class="tile"> -->
+                            <div class="tile is-parent is-3" ng-repeat="pup in overview.owner.pups">
+                                <article id="pupCard" class="tile is-child notification is-danger">
+                                    <div class="card" id="cardPup">
+                                        <div class="card-image" ui-sref="pupInfo({_id: overview.ownerId,_pupId: pup._id})">
+                                            <a>
+                                                <figure class="image is-1by1">
+                                                    <img class="borderWhite" ng-src="{{pup.picture.url}}" alt="No PictureAvailable">
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="content">
+                                                <h4>{{pup.name}}</h4>
+                                            </div>
+                                            <a class="card-header-icon" style="" ng-click="hide = !hide">
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                        </div>
+                                        <footer class="card-footer" ng-hide="!hide">
+                                            <a class="card-footer-item" ng-click="overview.deletePup(pup)">Remove</a>
+                                        </footer>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- </div> -->
+                            <div class="tile is-parent is-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-purple">
+
+                        </article>
+                    </div>
+                
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-info">
+                                <div class="column is-full">
+                                    <p class="panel-heading">Pup's grocery List</p>
+                                    <table class="table table-hover is-narrow">
+                                        <thead>
+                                            <tr>
+                                                <td>Items</td>
+                                                <td>When</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr ng-repeat="task in overview.owner.todo | orderBy: '+date'">
+                                                <td ng-model="overview.task.task">
+                                                    <p>{{ task.task }}</p>
+                                                </td>
+                                                <td ng-model="overview.task.date">
+                                                    <p>{{ task.date | date }}</p>
+                                                </td>
+                                                <td>
+                                                    <div class="buttons">
+                                                        <a class="checkbox" ng-click="overview.deleteTodo(task._id)"><i style="padding-top: 3px; font-size: 30px" class="fa fa-check-square" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input class="input" type="text" ng-model="overview.newTodo.task">
+                                                </td>
+                                                <td>
+                                                    <input class="input" type="date" ng-model="overview.newTodo.date">
+                                                </td>
+                                                <td>
+                                                    <a class="todoAdd" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)"><i style="font-size: 30px;" class="fa fa-plus-square" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-dark">
+
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
