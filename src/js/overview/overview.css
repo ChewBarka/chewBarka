@@ -1,4 +1,4 @@
-.borderWhite {
+/*.borderWhite {
     border: 5px solid white;
 }
 
@@ -22,26 +22,28 @@
 
 .font {
     font-size: 20px;
-}
+}*/
 
-div .is-multiline {}
 
+/*
 div .is-multiline {
     margin: 0;
-}
+}*/
 
-.topcorner {
+
+/*.topcorner {
     position: absolute;
     top: 0;
     right: 0;
     padding-top: 15px;
-}
+}*/
 
 .click {
     display: block;
 }
 
-#profileCard,
+
+/*#profileCard,
 #fitnessCard {
     text-align: left;
     margin-left: 10px;
@@ -91,14 +93,77 @@ input[ng-model] {
 
 
 #hiddenProfile {
-	font: sans-serif;
-	font-style: normal;
-	font-size: 20px;
-}
+    font: sans-serif;
+    font-style: normal;
+    font-size: 20px;
+}*/
+
+
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Gabriela', serif;
 */
+
+.paddingTopBottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.fontLobster {
+    font-family: 'Lobster', cursive;
+}
+
+.topCardsText {
+    text-align: center;
+    font-size: 18px;
+}
+
+.editOwnerBtn {
+    color: #3891A6;
+}
+
+.editOwnerInputText {
+    font-size: 15px;
+}
+
+.mapPadding {
+    padding-left: 25px;
+}
+
+.cardColorBlue {
+    background-color: #3891A6;
+}
+
+.cardColorPurple {
+    background-color: #5B3758;
+}
+
+.cardColorOrange {
+    background-color: #EFC88B;
+}
+
+.cardColorDarkBlue {
+    background-color: #465362;
+}
+
+.todoList {
+    color: white;
+}
+
+.nonPupImage {
+    background-image: url('picture1.jpg');
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

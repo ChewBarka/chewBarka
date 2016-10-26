@@ -5,10 +5,10 @@
         .module('app')
         .controller('overviewController', overviewController);
 
-    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory', 'todoFactory', 'loginFactory', '$moment'];
+    overviewController.$inject = ['$state', '$stateParams', 'overviewFactory', 'pupFactory', 'todoFactory', 'loginFactory', '$moment', 'photoFactory'];
 
     /* @ngInject */
-    function overviewController($state, $stateParams, overviewFactory, pupFactory, todoFactory, loginFactory, $moment) {
+    function overviewController($state, $stateParams, overviewFactory, pupFactory, todoFactory, loginFactory, $moment, photoFactory) {
         var vm = this;
         vm.title = 'overviewController';
 
@@ -19,8 +19,8 @@
         vm.deleteTodo = deleteTodo;
         vm.deletePup = deletePup;
         vm.updateProfile = updateProfile;
-        vm.refresh = refresh;
-
+        
+        vm.photos = [];
         vm.owner = {};
         vm.pups = [];
         vm.pupData = [];
@@ -30,6 +30,7 @@
         vm.fitnessData = [];
 
         getOwnerById();
+        getPhotos();
         //////////////////////////////////////////////////////////////
 
         function getOwnerById() {
@@ -117,6 +118,7 @@
         //////////////////////////////////////////////////////////////
         // All of the TODO functions
         function addTodo() {
+            vm.newTodo.date = new Date();
             overviewFactory.addTodo(vm.ownerId, vm.newTodo).then(
                 function(data) {
                     console.log(data);
@@ -129,18 +131,17 @@
             );
         }
 
-        function updateProfile(owner, id) {
-            overviewFactory.update(owner, id) .then(
+        function updateProfile() {
+            overviewFactory.update(vm.owner, vm.owner._id) .then(
                 function(data) {
                     console.log(data);
-                    toastr.success("Profile was saved");
-                    getOwnerById();
+                    toastr.success("Profile was updated");
+                    $state.reload();
                 }
             );
         }
 
         function deleteTodo(id) {
-            if (confirm("Are you sure you want remove task?")) {
                 todoFactory.remove(id).then(
                     function(data) {
                         console.log(data);
@@ -148,7 +149,15 @@
                         getOwnerById();
                     }
                 );
-            }
+        }
+
+        function getPhotos() {
+            photoFactory.getAll().then(
+                function(data) {
+                    console.log(data);
+                    vm.photos = data;
+                }
+            );
         }
 
     }
