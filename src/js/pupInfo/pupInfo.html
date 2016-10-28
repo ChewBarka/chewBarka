@@ -5,8 +5,11 @@
                 <div class="tile">
                     <div class="tile is-parent is-vertical">
                         <article class="tile is-child notification is-primary">
-                            <p class="title">About {{pupInfo.pup.name}}</p>
+                            <p class="title fontLobster">About {{pupInfo.pup.name}}</p>
                             <form name="editableOwnerInfo">
+                                <p>
+                                    Age: {{ pupInfo.pup.age}}
+                                </p>
                                 <p class="">
                                     Weight:
                                     <i ng-hide="pupInfo.showeditableOwnerInfo">{{ pupInfo.pup.weight}}</i>
@@ -28,51 +31,57 @@
                                     <input type="text" class="pupInfoInput" ng-model="pupInfo.pup.chipInformation" ng-show="pupInfo.showeditableOwnerInfo" />
                                 </p>
                                 <div class="buttons">
+                                    
                                     <div class="editPup">
                                         <a class="editPup" ng-click="pupInfo.showeditableOwnerInfo = true" ng-show="!pupInfo.showeditableOwnerInfo">Edit <i class="fa fa-paw large" aria-hidden="true"></i></a>
                                     </div>
                                     <div ng-show="pupInfo.showeditableOwnerInfo">
-                                        <button type="submit" class="button is-info" ng-click="pupInfo.editPup()">
+                                        <button type="submit" class="button is-info is-small" ng-click="pupInfo.editPup()">
                                             Update
                                         </button>
-                                        <button type="button" class="button is-danger" ng-click="pupInfo.showeditableOwnerInfo = false; pupInfo.editPup()">
+                                        <button type="button" class="button is-danger is-small" ng-click="pupInfo.showeditableOwnerInfo = false; pupInfo.editPup()">
                                             Cancel
                                         </button>
+                                        <button class="button is-dark is-small" ng-click="pupInfo.removePup(vm.pup)">Remove Pup</button>
+
                                     </div>
                                 </div>
                             </form>
                         </article>
                         <!--  -->
-                        <article class="tile is-child notification is-warning">
+                        <article class="tile is-child notification cardColorPurple has-text-centered fontLobster" style="color:white; font-size: 20px;">
                             <p>Next Vet Visit: {{ pupInfo.pup.medicalRecord[0].nextVisit | date }}</p>
                         </article>
                         <!--  -->
-                        <article class="tile is-child notification is-warning">
+                        <article class="tile is-child notification cardColorPurple has-text-centered fontLobster" style="color:white; font-size: 20px;">
                             <p>Last Workout Session: {{pupInfo.lastFit | date}}</p>
                         </article>
                     </div>
                     <div class="tile is-parent">
-                        <article class="tile is-child notification is-danger">
+                        <article class="tile is-child notification cardColorBlue" style="color:white;">
                             <p class="title"></p>
                             <figure class="image is-1by1">
                                 <img class="pictureBorder" ng-src="{{pupInfo.pup.picture.url}}" alt="Image">
                             </figure>
-                            <p class="title">{{pupInfo.pup.name}}</p>
+                            <p class="title fontLobster">{{pupInfo.pup.name}}</p>
+                            <div class="control is-grouped is-pulled-right">
+                                <p class=" control title"><a ng-click="pupInfo.addPup()" class="fontLobster" style="color:white; font-size: 20px;">Add a Pup</a></p>
+                                <a class="control" ng-click="pupInfo.addPup()"><i class="fa fa-paw" style="font-size: 20px; color:white;" aria-hidden="true"></i></a>
+                            </div>
                         </article>
                     </div>
                 </div>
                 <div class="tile is-parent is-bold">
-                    <article class="tile is-child notification is-info">
-                        <p class="title">{{pupInfo.pup.name}}'s Workout Log</p>
+                    <article class="tile is-child notification is-primary has-text-centered">
+                        <p class="title fontLobster">{{pupInfo.pup.name}}'s Workout Log</p>
                         <p class="subtitle">Enter a recent activity you've done with {{pupInfo.pup.name}}</p>
                     </article>
                 </div>
             </div>
             <div class="tile is-parent">
-                <article class="tile is-child notification is-primary">
+                <article class="tile is-child notification cardColorBlue" style="color:white; font-size: 20px;">
                     <div class="content">
                         <p class="subtitle pupMedTitle">{{pupInfo.pup.name}}'s Medical Record</p>
-                        <p class="subtitle">Here are the most recent dates for each item</p>
                         <div class="content">
                             <!-- Owner can create and update the med record here -->
                             <form name="editableForm ">
@@ -136,16 +145,14 @@
                                     <i ng-hide="pupInfo.showEditableForm">{{ pupInfo.pup.medicalRecord[0].medications | date }}</i>
                                     <input date-time class="medDate" ng-model="pupInfo.med.medications" ng-show="pupInfo.showEditableForm" />
                                 </p>
-                                <p>
-                                    <button type="button" class="button is-danger" ng-click="pupInfo.redirectTo()" ng-show="!pupInfo.showEditableForm">View Uploaded Medical File
-                                    </button>
-                                </p>
                                 <div class="buttons">
-                                    <button type="button is-primary" class="button is-info is-outlined" ng-click="pupInfo.showEditableForm = true" ng-show="!pupInfo.showEditableForm">
+                                    <button type="button is-primary" class="button is-primary is-outlined" ng-click="pupInfo.showEditableForm = true" ng-show="!pupInfo.showEditableForm">
                                         Make a change
                                     </button>
-                                    <button type="button" class="button is-danger" ng-click="pupInfo.upload()" ng-show="!pupInfo.showEditableForm">
+                                    <button type="button" class="button is-primary" ng-click="pupInfo.upload()" ng-show="!pupInfo.showEditableForm">
                                         Upload
+                                    </button>
+                                    <button type="button" class="button is-primary" ng-click="pupInfo.redirectTo()" ng-show="!pupInfo.showEditableForm">View Uploaded Medical File
                                     </button>
                                     <div ng-show="pupInfo.showEditableForm">
                                         <button type="submit " class="button is-info" ng-click="pupInfo.addMed()">
@@ -156,13 +163,15 @@
                                         </button>
                                     </div>
                                 </div>
+                                <p>
+                                </p>
                             </form>
                         </div>
                     </div>
                 </article>
             </div>
         </div>
-        <section class="hero is-small is-warning is-bold">
+        <section class="hero is-small is-primary is-bold">
             <div class="hero-body">
                 <div class="container">
                 </div>
@@ -171,26 +180,26 @@
         <table class="table table-hover table-condensed bottomTable">
             <thead>
                 <tr>
-                    <td>When Fitness Happened
-                        <input class="input" type="date" ng-model="pupInfo.newFitness.date">
-                    </td>
-                    <td>How'd it Go
-                        <input class="input" type="text" ng-model="pupInfo.newFitness.notes">
+                    <td style="width:60%">Enter activity here -
+                        <input class="input" type="text" ng-model="pupInfo.newFitness.notes" required='' />
                     </td>
                     <td>
-                        <a class="logItBtn" ng-click="pupInfo.addFit(pupInfo.newFitness)"><strong>Log it!</strong></a>
+                        <a class="" ng-click="pupInfo.addFit(pupInfo.newFitness)"><i class="fa fa-paw" style="padding-top: 10px; font-size: 45px; color:#3891A6;" aria-hidden="true"></i></a>
+                    </td>
+                    <td>
+                        <!-- <a class="logItBtn" ng-click="pupInfo.addFit(pupInfo.newFitness)"><strong>Log it!</strong></a> -->
                     </td>
                 </tr>
             </thead>
             <tr style="font-weight: bold">
-                <td style="width:20%">When did it Happen</td>
                 <td style="width:60%">How'd it go</td>
-                <td style="width:20%">Remove</td>
+                <td style="width:20%">Date Logged</td>
+                <td style="width:20%"></td>
             </tr>
             <tr ng-repeat="fit in pupInfo.pup.fitness | orderBy: '-date'">
-                <td ng-model="fit.date">{{fit.date | date}}</td>
                 <td ng-model="fit.notes">{{fit.notes}}</td>
-                <td style="white-space: nowrap">
+                <td ng-model="fit.date">{{fit.date | date}}</td>
+                <td class="has-text-centered" style="white-space: nowrap">
                     <div class="buttons">
                         <button class="button is-danger" ng-click="pupInfo.removeFit(fit._id)">Remove</button>
                     </div>

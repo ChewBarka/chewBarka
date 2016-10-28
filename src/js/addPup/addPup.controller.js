@@ -5,7 +5,7 @@
         .module('app')
         .controller('pupController', pupController);
 
-    pupController.$inject = ['$state', '$stateParams', 'overviewFactory', 'filepickerService', 'photoFactory','loginFactory'];
+    pupController.$inject = ['$state', '$stateParams', 'overviewFactory', 'filepickerService', 'photoFactory', 'loginFactory'];
 
     /* @ngInject */
     function pupController($state, $stateParams, overviewFactory, filepickerService, photoFactory, loginFactory) {
@@ -24,7 +24,7 @@
                 function() {
                     toastr.success("Pup was added");
                     $state.go('overview', { "_id": $stateParams._id });
-                                    }
+                }
             );
         }
         //////////////////////////////////////////////////////////
@@ -46,14 +46,3 @@
         }
     }
 })();
-
-
-
-
-
-
-
-
-
-
-

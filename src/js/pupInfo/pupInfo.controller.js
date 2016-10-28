@@ -25,6 +25,8 @@
         vm.removeFit = removeFit;
         vm.upload = upload;
         vm.redirectTo = redirectTo;
+        vm.addPup = addPup;
+        vm.removePup = removePup;
 
         getPupById();
         //////////////////////////////////////////////////////////////
@@ -41,7 +43,7 @@
                     vm.pup = data;
                     vm.med = vm.pup.medicalRecord[0];
 
-                    vm.lastFit = vm.pup.fitness[vm.pup.fitness.length-1].date;
+                    vm.lastFit = vm.pup.fitness[vm.pup.fitness.length - 1].date;
                     console.log(vm.lastFit);
 
                     vm.pdfURL = vm.pup.medPDF.url;
@@ -81,15 +83,22 @@
         // Owner can add / edit / delete fitness events
         function addFit() {
 
-            pupFactory.addFitness($stateParams._pupId, vm.newFitness).then(
-                function() {
-                    toastr.success("Fitness event added to pup");
-                    vm.newFitness = {};
-                    //Reload the page with most current data
-                    getPupById();
-                }
-            );
+            if (vm.newFitness.notes == null) {
+                toastr.error("Please enter a description for the activity");
+
+            } else {
+                vm.newFitness.date = new Date();
+                pupFactory.addFitness($stateParams._pupId, vm.newFitness).then(
+                    function() {
+                        toastr.success("Fitness event added to pup");
+                        vm.newFitness = {};
+                        //Reload the page with most current data
+                        getPupById();
+                    }
+                );
+            }
         }
+
         function removeFit(id) {
             if (confirm("Are you sure you want to delete this event?")) {
                 fitnessFactory.remove(id).then(
@@ -116,13 +125,29 @@
             );
         }
 
+        function addPup() {
+            $state.go('addPup', { "_id": vm.ownerId });
+        }
+
+        function removePup() {
+            if (confirm("Are you sure you want to delete this pup?")) {
+                pupFactory.remove(vm.pup._id).then(
+                    function(data) {
+                        console.log('deleted' + data);
+                        toastr.success("Pup has has been removed :(");
+                        $state.go('overview', { "_id": $stateParams._id });
+                    }
+                );
+            }
+        }
+
         ////////////////////////////////////////////////////////////////////
 
         //Add pdf medical rec.
 
         function upload() {
             filepickerService.pick({
-                    
+
                     language: 'en',
                     services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE'],
                     openTo: 'COMPUTER'
@@ -138,15 +163,11 @@
             );
         }
 
-
-
-
-
         function redirectTo() {
-            if(vm.pup.medPDF == null) {
+            if (vm.pup.medPDF == null) {
                 toastr.error("No PDF Uploaded Yet!");
             } else {
-                window.location.href=vm.pdfURL;
+                window.location.href = vm.pdfURL;
             }
         }
 
@@ -155,15 +176,3 @@
 
     }
 })();
-
-
-
-
-
-
-
-
-
-
-
-
