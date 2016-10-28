@@ -33,17 +33,13 @@
                             <p class="control">
                                 <input class="input is-medium" type="date" placeholder="Birthdate" ng-model="pup.newPup.birthdate" required>
                             </p>
-                            <p class="control">
-                                <label class="label">Enter any Medical Conditions</label>
-                                <input class="input  is-medium" type="text" placeholder="Medical Conditions" ng-model="pup.newPup.medConditions" required>
-                            </p>
-                            <label class="label">Enter the {{pup.newPup.name}}'s Chip Information</label>
+                            <label class="label">Enter {{pup.newPup.name}}'s Chip Information</label>
                             <p class="control">
                                 <input class="input is-medium" type="text" placeholder="Chip Information" ng-model="pup.newPup.chipInformation">
                             </p>
                             <label class="label">Enter all Medication {{pup.newPup.name}} is taking</label>
                             <p class="control">
-                                <input class="input is-medium" type="text" placeholder="Medications" ng-model="pup.newPup.medications">
+                                <input class="input is-medium" type="text" placeholder="Medications" ng-model="pup.newPup.medConditions">
                             </p>
                             <p class="control addDogBtn">
                                 <button class="button is-danger is-outlined is-medium" ng-click="pup.addPup(pup.newPup)">Submit</button>
