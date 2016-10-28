@@ -1,0 +1,33 @@
+<div class="section photosBackground">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8">
+                <div class="title photoText">Gallery</div>
+                <div>
+                    <button class="button is-info" type="button" class="btn btn-default" ng-click="photo.upload()">Upload Another Photos<span class="caret"></span>
+                    </button>
+                    <button class="button is-success" ng-click="photo.addPhoto(photo.newPhoto)">Add Photo</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="columns dogGrid">
+            <div class="column is-3 " ng-repeat="photo in photo.photos">
+                <div class="panel">
+                    <p class="is-marginless">
+                        <figure class="image is-1by1">
+                            <a href="{{photo.picture.url}}"><img ng-src="{{photo.picture.url}}"></a>
+                        </figure>
+                    </p>
+                    <div class="panel-block">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="panel-block-item photoText">2 views</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

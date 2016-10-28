@@ -1,0 +1,178 @@
+
+<div class="container is-fluid paddingTopBottom">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <article class=" topCardsText tile is-child box notification is-primary">
+                <p class="title fontLobster">Welcome {{overview.owner.firstName}}!</p>
+                <form name="editableInfo">
+                    <p class="">
+                        Email:
+                        <i ng-hide="overview.showeditableInfo">{{overview.owner.email}}</i>
+                        <input type="text" class="editOwnerInputText" ng-model="overview.owner.email" ng-show="overview.showeditableInfo" />
+                    </p>
+                    <p class="">
+                        Telephone:
+                        <i ng-hide="overview.showeditableInfo">{{overview.owner.telephone}}</i>
+                        <input type="text" class="editOwnerInputText" ng-model="overview.owner.telephone" ng-show="overview.showeditableInfo" />
+                    </p>
+                    <p class="">
+                        Zipcode:
+                        <i ng-hide="overview.showeditableInfo">{{overview.owner.zipCode}}</i>
+                        <input type="text" class="editOwnerInputText" ng-model="overview.owner.zipCode" ng-show="overview.showeditableInfo" />
+                    </p>
+                    <p class="">
+                        NSAR Number (optional):
+                        <i ng-hide="overview.showeditableInfo">{{overview.owner.nsrRegistration}}</i>
+                        <input type="text" class="editOwnerInputText" ng-model="overview.owner.nsrRegistration" ng-show="overview.showeditableInfo" />
+                    </p>
+                    <div class="buttons">
+                        <div class="">
+                            <a class="editOwnerBtn" ng-click="overview.showeditableInfo = true" ng-show="!overview.showeditableInfo">Edit <i class="fa fa-paw large" aria-hidden="true"></i></a>
+                        </div>
+                        <div ng-show="overview.showeditableInfo">
+                            <button type="submit" class="button is-small is-info" ng-click="overview.updateProfile()">
+                                Update
+                            </button>
+                            <button type="button" class="button is-small is-danger" ng-click="overview.showeditableInfo = false; overview.getOwnerById()">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box notification cardColorBlue">
+                <figure class="image is-1by1">
+                    <img class="" ng-src="{{overview.photos[2].picture.url}}" alt="Image">
+                </figure>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box notification is-primary">
+                <figure class="image is-1by1">
+                    <img class="" ng-src="{{overview.photos[1].picture.url}}" alt="Image">
+                </figure>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box notification cardColorPurple">
+                <figure class="image is-1by1">
+                    <img class="" ng-src="{{overview.photos[6].picture.url}}" alt="Image">
+                </figure>
+            </article>
+        </div>
+    </div>
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-9">
+            <div class="tile">
+                <div class="tile is-parent has-text-centered">
+                    <article class="tile is-child box notification cardColorBlue todoList">
+                        <p class="title fontLobster">Dog Parks Nerby</p>
+                        <div class="content mapPadding" id="map">
+                            <div class="" style="height:200px;width:200px;list-style:none; transition: none;overflow:hidden;">
+                                <div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
+                                    <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=dog+park&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU&zoom=11"></iframe>
+                                </div><a class="google-map-enabler" rel="nofollow" href="https://www.interserver-coupons.com" id="grab-map-info"></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="tile is-8 is-vertical">
+                    <div class="tile">
+                        <div class="tile is-parent has-text-centered">
+                            <article class="tile is-child box notification is-primary">
+                                <p class="title fontLobster">Next Visit To The Vet</p>
+                                <i ng-repeat='date in overview.vetAppt'>
+                                <p class="subtitle">{{date | date}}</p>
+                                </i>
+                            </article>
+                        </div>
+                        <div class="tile is-parent has-text-centered">
+                            <article class="tile is-child box notification cardColorBlue">
+                                <p class="title"><a ng-click="overview.addPup()" class="fontLobster" style="color:white;">Add a Pup</a></p>
+                                <a class="" ng-click="overview.addPup()"><i class="fa fa-paw" style="font-size: 50px; color:white;" aria-hidden="true"></i></a>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box notification cardColorPurple todoList">
+                            <p class="title has-text-centered fontLobster">Pup's Grocery List</p>
+                            <div class="control is-grouped">
+                                <p class="control is-expanded">
+                                    <input class="input" type="text" ng-model="overview.newTodo.task" placeholder="Enter an item here">
+                                </p>
+                                <p class="control cardColorPurple">
+                                    <a class="button" ng-click="overview.addTodo(overview.newTodo, overview.ownerId)"><i style="font-size: 30px;" class="fa fa-plus-square" aria-hidden="true"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="tile">
+                <div class="tile is-parent is-4">
+                    <article class="tile is-child box notification cardColorPurple has-text-centered" style="color:white;">
+                        <p class="title fontLobster">{{overview.owner.pups[0].name}}</p>
+                        <p class="subtitle">Click for more info -</p>
+                        <div class="content">
+                            <figure class="image is-1by1">
+                                <a><img class="nonPupImage" ui-sref="pupInfo({_id: overview.ownerId,_pupId: overview.owner.pups[0]._id})" ng-src="{{overview.owner.pups[0].picture.url}}" alt="Image"></a>
+                            </figure>
+                        </div>
+                    </article>
+                </div>
+                <div class="tile is-parent is-4">
+                    <article class="tile is-child box notification is-primary has-text-centered">
+                        <p class="title fontLobster">{{overview.owner.pups[1].name}}</p>
+                        <p class="subtitle">Click for more info -</p>
+                        <div class="content">
+                            <figure class="image is-1by1">
+                                <a><img class="nonPupImage" ui-sref="pupInfo({_id: overview.ownerId,_pupId: overview.owner.pups[1]._id})" ng-src="{{overview.owner.pups[1].picture.url}}" alt="Add another pup"></a>
+                            </figure>
+                        </div>
+                    </article>
+                </div>
+                <div class="tile is-parent is-4">
+                    <article class="tile is-child box notification cardColorBlue has-text-centered" style="color:white;">
+                        <p class="title fontLobster">{{overview.owner.pups[2].name}}</p>
+                        <p class="subtitle">Click for more info -</p>
+                        <div class="content">
+                            <figure class="image is-1by1">
+                                <a><img class="nonPupImage" ui-sref="pupInfo({_id: overview.ownerId,_pupId: overview.owner.pups[2]._id})" ng-src="{{overview.owner.pups[2].picture.url}}" alt="Add another pup"></a>
+                            </figure>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="tile is-parent todoList">
+            <article class="tile is-child box notification cardColorBlue">
+                <div class="content">
+                    <p class="title has-text-centered fontLobster">Here's your list</p>
+                    <p class="subtitle has-text-centered">Get it done!</p>
+                    <div class="content">
+                        <ul ng-repeat="task in overview.owner.todo | orderBy: '+date'">
+                            <li>{{ task.task }}
+                                <button ng-click="overview.deleteTodo(task._id)" class="button is-small is-pulled-right is-danger">Done</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="tile is-ancestor">
+        
+        <div class="tile is-parent is-12">
+            <article class="tile is-child box notification cardColorPurple">
+                <div class="content is-pulled-right ">
+                <figure class="image is-24x24">
+                    <img class="" src="../../images/ImageEdit2.png" " alt="Image">
+                </figure>
+                </div>
+            </article>
+        </div>
+        
+    </div>
+</div>

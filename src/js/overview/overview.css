@@ -1,0 +1,172 @@
+/*.borderWhite {
+    border: 5px solid white;
+}
+
+#chewbarka {
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cardPup {
+    background-color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    color: white;
+    display: table-cell;
+}
+
+.black {
+    color: black;
+}
+
+.font {
+    font-size: 20px;
+}*/
+
+
+/*
+div .is-multiline {
+    margin: 0;
+}*/
+
+
+/*.topcorner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 15px;
+}*/
+
+.click {
+    display: block;
+}
+
+
+/*#profileCard,
+#fitnessCard {
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-style: normal;
+    !important
+}
+
+#profileCard {
+    margin-bottom: 0;
+    color: black;
+}
+
+#fitnessCard {
+    padding-top: 10px;
+    color: black;
+    display: block;
+}
+
+#profileCard input {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+#pupCard {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.is-purple {
+    background-color: #e542f4
+}
+
+.subtitle > p {
+    font-style: normal;
+}
+
+input[ng-model] {
+    font-style: normal;
+}
+
+.overviewMargin {
+    margin-top:50px;
+    padding-bottom: 50px;
+}
+
+
+#hiddenProfile {
+    font: sans-serif;
+    font-style: normal;
+    font-size: 20px;
+}*/
+
+
+/*
+font-family: 'Lobster', cursive;
+font-family: 'Gabriela', serif;
+*/
+
+.paddingTopBottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.fontLobster {
+    font-family: 'Lobster', cursive;
+}
+
+.topCardsText {
+    text-align: center;
+    font-size: 18px;
+}
+
+.editOwnerBtn {
+    color: #3891A6;
+}
+
+.editOwnerInputText {
+    font-size: 15px;
+}
+
+.mapPadding {
+    padding-left: 25px;
+}
+
+.cardColorBlue {
+    background-color: #3891A6;
+}
+
+.cardColorPurple {
+    background-color: #5B3758;
+}
+
+.cardColorOrange {
+    background-color: #EFC88B;
+}
+
+.cardColorDarkBlue {
+    background-color: #465362;
+}
+
+.todoList {
+    color: white;
+}
+
+.nonPupImage {
+    background-image: url('picture1.jpg');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

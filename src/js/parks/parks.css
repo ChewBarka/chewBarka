@@ -1,0 +1,24 @@
+    .mapMargin {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    padding-bottom: 200px;
+
+}
+
+#canvas-for-google-map img {
+    max-width: none!important;
+    background: none!important;
+    font-size: inherit;
+}
+
+.articleText {
+	text-align: center;
+}
+
+.articleText2 {
+	text-align: center;
+	padding-top: 10px
+}
+.pawBTN{
+	color: white;
+}

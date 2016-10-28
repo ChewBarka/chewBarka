@@ -1,47 +1,75 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Pup  = require('./pup.model');
+
 
 var medicalSchema = new Schema({
 	rabies: {
-		type: 'string',
-		required: false
+		type: 'date', 
+		//expires: '365d',
+		required: true
 	},
 	lepto: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	dhpp: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	bordetella: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	chipInfo: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	heartWorm: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	fleaPrevention: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	fecal: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	bloodUrine: {
-		type: 'string',
+		type: 'date', 
+		//expires: '365d',
 		required: false
 	},
 	nextVisit: {
-		type: 'number',
+		type: 'date', 
+		//expires: '365d',
 		required: false
-	}
+	},
+	dentalExam: {
+		type: 'date', 
+		//expires: '365d',
+		required: false
+	},
+	rattleSnakeTraining: {
+		type: 'date', 
+		//expires: '365d',
+		required: false
+	},
+	medications: {
+		type: 'date', 
+		//expires: '365d',
+		required: false
+	},
+	pup: [{type : mongoose.Schema.ObjectId , ref : 'pups'}]
 });
 
 module.exports = mongoose.model('medical', medicalSchema);

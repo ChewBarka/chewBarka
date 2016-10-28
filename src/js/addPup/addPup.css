@@ -1,0 +1,35 @@
+.addPupPicBtn {
+    color: #3273dc;
+    font-size: 20px;
+    text-align: center;
+    align-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.addDogBtn {
+    display: inline;
+    align-content: right;
+}
+
+#yoda {
+    margin-top: 120px;
+}
+
+#yoda h2 {
+    font-size: 30px;
+}
+
+#yoda img {
+    margin-left: 70px;
+    border: none;
+}
+
+.yodaWords {
+    color: white;
+}
+
+.pupProfilePicture {
+    border-color: white;
+    border-radius: 10px;
+}

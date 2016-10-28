@@ -1,0 +1,30 @@
+<div class="eventsBackground">
+    <div class="container paddingTop">
+        <div class="columns">
+            <div class="column is-three-quarters is-offset-1">
+                <input type="text" class="input is-primary" ng-model="events.search" placeholder="Enter Your Location" />
+            </div>
+            <div class="column">
+                <button class="button is-primary" type="submit" ng-click="events.getEvents(events.search)" value="">Search</button>
+            </div>
+        </div>
+        <div class="tile" ng-repeat="event in events.events.events.event">
+            <div class="tile is-parent">
+                <article class="tile is-child notification cardColorBlue">
+                    <div class="content">
+                        <!-- Content -->
+                         <p>
+	                        <strong>{{event.title}}</strong><br>
+	                        <strong>{{event.city_name}}, {{event.region_abbr}}.</strong><br>
+	                        <strong>{{event.start_time}}</strong>
+	                        <br> 
+	                        <p ng-bind-html="event.description">Description: </p>
+                            <strong>URL:</strong>
+	                        <a class="urlColor" href="{{event.url}}">{{event.url}}</a>
+	                    </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

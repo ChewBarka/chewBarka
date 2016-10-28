@@ -1,0 +1,42 @@
+
+#mySidenav, #login, div span,.click{
+    display: none;
+}
+
+#loginField {
+    padding-top: 170px;
+}
+
+.loginTitle {
+	text-align: center;
+}
+
+.loginImage {
+	background-image: url("giphy.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.heroText {
+	color: white;
+	font-family: 'Lobster', cursive;
+	font-weight: bold;
+	font-size: 75px
+
+}
+
+.fontColor {
+	color: white;
+}
+
+
+#hi {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../overview/picture1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
